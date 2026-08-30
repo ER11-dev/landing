@@ -1,3 +1,6 @@
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+
 const proofStage = document.querySelector("[data-proof-stage]");
 const registerButton = document.querySelector("[data-register]");
 const proofStatus = document.querySelector("[data-proof-status]");
@@ -46,7 +49,8 @@ registerButton?.addEventListener("click", () => {
 });
 
 const scheduleAutoRegistration = () => {
-  if (hasUsedPressControl || motionPreference.matches || autoRegistrationTimer) return;
+  if (hasUsedPressControl || motionPreference.matches || autoRegistrationTimer)
+    return;
 
   autoRegistrationTimer = window.setTimeout(() => {
     autoRegistrationTimer = undefined;
@@ -81,12 +85,11 @@ motionPreference.addEventListener("change", ({ matches }) => {
 
 const indexLinks = [...document.querySelectorAll("[data-index-link]")];
 const sections = [...document.querySelectorAll("[data-index-section]")];
+const proofIndex = document.querySelector(".proof-index");
 const mobileBar = document.querySelector(".mobile-bar");
 const sectionVisibility = new Map(sections.map((section) => [section, 0]));
 
 const setCurrentSection = (section) => {
-  const sectionIndex = sections.indexOf(section);
-
   indexLinks.forEach((link) => {
     const current = link.dataset.indexLink === section.id;
     link.classList.toggle("is-current", current);
@@ -94,19 +97,26 @@ const setCurrentSection = (section) => {
     else link.removeAttribute("aria-current");
   });
 
-  if (sectionIndex >= 0) {
-    mobileBar?.style.setProperty("--section-progress", String((sectionIndex + 1) / sections.length));
-  }
+  sections.forEach((candidate) =>
+    candidate.classList.toggle("is-section-current", candidate === section),
+  );
+  section.classList.add("has-entered");
 };
 
 const indexObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      sectionVisibility.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+      sectionVisibility.set(
+        entry.target,
+        entry.isIntersecting ? entry.intersectionRatio : 0,
+      );
     });
 
     const visibleSection = sections
-      .map((section) => ({ section, ratio: sectionVisibility.get(section) ?? 0 }))
+      .map((section) => ({
+        section,
+        ratio: sectionVisibility.get(section) ?? 0,
+      }))
       .filter(({ ratio }) => ratio > 0)
       .sort((a, b) => b.ratio - a.ratio)[0]?.section;
 
@@ -116,3 +126,99 @@ const indexObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => indexObserver.observe(section));
+
+if (sections[0]) setCurrentSection(sections[0]);
+
+let progressFrame;
+
+const updatePageProgress = () => {
+  progressFrame = undefined;
+  const scrollableDistance = Math.max(
+    document.documentElement.scrollHeight - window.innerHeight,
+    1,
+  );
+  const progress = Math.min(
+    Math.max(window.scrollY / scrollableDistance, 0),
+    1,
+  );
+  proofIndex?.style.setProperty("--page-progress", String(progress));
+  mobileBar?.style.setProperty("--page-progress", String(progress));
+};
+
+const schedulePageProgress = () => {
+  if (progressFrame) return;
+  progressFrame = window.requestAnimationFrame(updatePageProgress);
+};
+
+const desktopWheelInput = window.matchMedia(
+  "(hover: hover) and (pointer: fine)",
+);
+let smoothScroll;
+
+const setUpSmoothScroll = () => {
+  smoothScroll?.destroy();
+  smoothScroll = undefined;
+  document.documentElement.removeAttribute("data-scroll-engine");
+
+  if (motionPreference.matches || !desktopWheelInput.matches) return;
+
+  smoothScroll = new Lenis({
+    anchors: true,
+    autoRaf: true,
+    lerp: 0.1,
+    smoothWheel: true,
+    syncTouch: false,
+    wheelMultiplier: 0.9,
+  });
+  smoothScroll.on("scroll", schedulePageProgress);
+  document.documentElement.dataset.scrollEngine = "lenis";
+};
+
+window.addEventListener("scroll", schedulePageProgress, { passive: true });
+window.addEventListener("resize", schedulePageProgress);
+window.addEventListener("load", schedulePageProgress, { once: true });
+if ("ResizeObserver" in window) {
+  new ResizeObserver(schedulePageProgress).observe(document.documentElement);
+}
+schedulePageProgress();
+
+desktopWheelInput.addEventListener("change", setUpSmoothScroll);
+motionPreference.addEventListener("change", setUpSmoothScroll);
+setUpSmoothScroll();
+
+const roleBands = [...document.querySelectorAll("[data-role-band]")];
+const mobileRoleMotion = window.matchMedia(
+  "(max-width: 760px), (hover: none), (pointer: coarse)",
+);
+let roleBandObserver;
+
+const setUpRoleBandMotion = () => {
+  roleBandObserver?.disconnect();
+  roleBandObserver = undefined;
+
+  if (
+    motionPreference.matches ||
+    !mobileRoleMotion.matches ||
+    !("IntersectionObserver" in window)
+  ) {
+    roleBands.forEach((band) => band.classList.remove("is-scroll-registered"));
+    return;
+  }
+
+  roleBandObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.5) return;
+        entry.target.classList.add("is-scroll-registered");
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "-58px 0px -18%", threshold: [0.5] },
+  );
+
+  roleBands.forEach((band) => roleBandObserver.observe(band));
+};
+
+mobileRoleMotion.addEventListener("change", setUpRoleBandMotion);
+motionPreference.addEventListener("change", setUpRoleBandMotion);
+setUpRoleBandMotion();

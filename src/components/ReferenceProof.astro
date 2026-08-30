@@ -2,17 +2,26 @@
 const columns = [
   {
     title: "Needs decision",
-    items: ["Onboarding edge case", "Empty-state recovery"],
+    items: [
+      { label: "Onboarding edge case", graphic: "branch" },
+      { label: "Empty-state recovery", graphic: "recovery" },
+    ],
     owner: "Product / UX",
   },
   {
     title: "In production",
-    items: ["Accessible table shell", "Optimistic update guard"],
+    items: [
+      { label: "Accessible table shell", graphic: "shell" },
+      { label: "Optimistic update guard", graphic: "guard" },
+    ],
     owner: "Frontend",
   },
   {
     title: "Verified",
-    items: ["Idempotent job runner", "Audit event stream"],
+    items: [
+      { label: "Idempotent job runner", graphic: "runner" },
+      { label: "Audit event stream", graphic: "audit" },
+    ],
     owner: "Backend",
   },
 ];
@@ -25,10 +34,21 @@ const decisions = [
 ---
 
 <section class="reference-section" id="reference" aria-labelledby="reference-title" data-index-section>
-  <div class="section-heading">
+  <div class="section-heading section-heading--reference">
     <span class="section-heading__number">02</span>
     <h2 id="reference-title">A reference build you can interrogate, not a claim you have to trust.</h2>
     <p>Until real client evidence is added, this is deliberately labelled as a team-built demonstration. It shows the decisions and engineering artifacts we would expose during delivery.</p>
+    <figure class="reference-intro-art">
+      <img
+        src="/graphics/proof-assembly.webp"
+        alt="Product sketches becoming registered interface and operations proofs."
+        width="1536"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption><span>Prototype fragments</span><span>Registered production proof</span></figcaption>
+    </figure>
   </div>
   <div class="reference-sheet">
     <div class="reference-sheet__title">
@@ -43,7 +63,15 @@ const decisions = [
           {columns.map(({ title, items, owner }) => (
             <div class="flow-column">
               <b>{title}</b>
-              {items.map((item) => <article><span>{item}</span><small>{owner}</small></article>)}
+              {items.map(({ label, graphic }) => (
+                <article>
+                  <span class={`flow-card__graphic flow-card__graphic--${graphic}`} aria-hidden="true">
+                    <i></i><i></i><i></i>
+                  </span>
+                  <span class="flow-card__label">{label}</span>
+                  <small>{owner}</small>
+                </article>
+              ))}
             </div>
           ))}
         </div>

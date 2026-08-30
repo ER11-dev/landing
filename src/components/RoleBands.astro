@@ -10,7 +10,7 @@ const roles = [
 
 <section class="role-bands" aria-label="One team, three accountable disciplines">
   {roles.map(({ number, name, scope, className }) => (
-    <a class={`role-band role-band--${className}`} href="#team">
+    <a class={`role-band role-band--${className}`} href="#team" data-role-band>
       <b>{number}</b><span>{name}</span><small>{scope}</small><ArrowIcon />
     </a>
   ))}
