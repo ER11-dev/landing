@@ -1,0 +1,40 @@
+---
+const members = [
+  {
+    number: "01",
+    role: "UX/UI Designer & Product Manager",
+    copy: "Frames the problem, reduces scope ambiguity, designs the flow, and keeps product decisions visible.",
+    className: "magenta",
+  },
+  {
+    number: "02",
+    role: "Frontend Engineer",
+    copy: "Turns the product model into a fast, accessible, maintainable interface that survives real states.",
+    className: "cyan",
+  },
+  {
+    number: "03",
+    role: "Senior Go Backend Engineer",
+    copy: "Builds dependable services, data flows, permissions, and operations behind the interface.",
+    className: "yellow",
+  },
+];
+---
+
+<section class="team" id="team" aria-labelledby="team-title" data-index-section>
+  <div class="section-heading section-heading--team">
+    <span class="section-heading__number">05</span>
+    <h2 id="team-title">Not a relay race.</h2>
+    <p>Individual names, portraits, and Upwork verification belong here before publication. The responsibilities below are confirmed; biographies are not invented.</p>
+  </div>
+  <div class="team-plate">
+    {members.map(({ number, role, copy, className }) => (
+      <article>
+        <div class={`team-plate__mark team-plate__mark--${className}`}><b>{number}</b><span>Add name</span></div>
+        <h3>{role}</h3>
+        <p>{copy}</p>
+        <span class="placeholder-note">Name and Upwork profile needed</span>
+      </article>
+    ))}
+  </div>
+</section>

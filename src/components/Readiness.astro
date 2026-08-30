@@ -1,0 +1,41 @@
+---
+const items = [
+  {
+    title: "Critical flows",
+    copy: "Primary task, empty, loading, error, permission, and recovery states.",
+    owner: "Product / UX",
+    ownerClass: "product",
+  },
+  {
+    title: "Frontend integrity",
+    copy: "Architecture, responsive behavior, accessibility, performance, and maintainable state.",
+    owner: "Frontend",
+    ownerClass: "frontend",
+  },
+  {
+    title: "Backend reliability",
+    copy: "Data model, authorization, retries, observability, and operational failure modes.",
+    owner: "Backend",
+    ownerClass: "backend",
+  },
+  {
+    title: "Release path",
+    copy: "Scope, acceptance criteria, quality checks, handoff, and the next informed decision.",
+    owner: "All three",
+    ownerClass: "all",
+  },
+];
+---
+
+<section class="readiness" id="readiness" aria-labelledby="readiness-title" data-index-section>
+  <div class="section-heading section-heading--compact">
+    <span class="section-heading__number">03</span>
+    <h2 id="readiness-title">The gap is rarely “more code.” It is unresolved product risk.</h2>
+  </div>
+  <div class="readiness-ledger">
+    <div class="ledger-head"><span>Proof item</span><span>What we inspect</span><span>Owner</span></div>
+    {items.map(({ title, copy, owner, ownerClass }) => (
+      <article><b>{title}</b><p>{copy}</p><span class={`owner owner--${ownerClass}`}>{owner}</span></article>
+    ))}
+  </div>
+</section>

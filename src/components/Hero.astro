@@ -1,0 +1,49 @@
+---
+import ArrowIcon from "./ArrowIcon.astro";
+import RegistrationIcon from "./RegistrationIcon.astro";
+---
+
+<section class="hero" id="top" aria-labelledby="hero-title" data-index-section>
+  <div class="calibration-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <span class="crop crop--top-left" aria-hidden="true"></span>
+  <span class="crop crop--top-right" aria-hidden="true"></span>
+
+  <div class="hero__copy">
+    <h1 id="hero-title"><span>The prototype works.</span> <strong>Now make it hold up.</strong></h1>
+    <p>Product direction and UX, production frontend, and a Go backend—owned by one compact senior team.</p>
+    <div class="hero__actions">
+      <a class="text-link" href="#reference">Inspect the production proof <ArrowIcon /></a>
+      <span>Best fit: B2B tools with a working prototype</span>
+    </div>
+  </div>
+
+  <div class="proof-stage" data-proof-stage>
+    <div class="proof-stage__meta"><span>Reference build 01</span><span>Team-built demonstration</span></div>
+    <div class="proof-app" aria-label="Illustrative product interface showing three production layers">
+      <div class="proof-layer proof-layer--product" aria-hidden="true"><span>01</span></div>
+      <div class="proof-layer proof-layer--frontend" aria-hidden="true"><span>02</span></div>
+      <div class="proof-layer proof-layer--backend" aria-hidden="true"><span>03</span></div>
+      <div class="app-rail" aria-hidden="true"><span class="app-rail__logo"></span><i class="is-active"></i><i></i><i></i><i></i><i></i></div>
+      <div class="app-canvas" aria-hidden="true">
+        <div class="app-toolbar"><span></span><span></span><span></span></div>
+        <div class="app-summary">
+          <div class="app-graph">
+            <svg viewBox="0 0 440 180" preserveAspectRatio="none"><path class="graph-grid" d="M0 30H440M0 75H440M0 120H440M0 165H440"></path><path class="graph-line" pathLength="1" d="M0 140 C48 142 62 90 104 106 S170 150 214 88 S286 35 322 76 S390 116 440 32"></path><path class="graph-points" d="M104 106h1M214 88h1M322 76h1M440 32h1"></path></svg>
+          </div>
+          <div class="app-queue"><div><i></i><span></span><b></b></div><div><i></i><span></span><b></b></div><div><i></i><span></span><b></b></div></div>
+        </div>
+        <div class="app-ledger"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+    <div class="proof-stage__controls">
+      <div class="layer-legend" aria-label="Product ownership layers">
+        <span><i class="swatch swatch--magenta"></i>Product / UX</span>
+        <span><i class="swatch swatch--cyan"></i>Frontend</span>
+        <span><i class="swatch swatch--yellow"></i>Backend</span>
+      </div>
+      <button class="press-button" type="button" data-register aria-pressed="false"><span>Run press check</span><RegistrationIcon /></button>
+      <p class="proof-status" data-proof-status>Layers separated for inspection.</p>
+    </div>
+  </div>
+  <a class="seal-cta" href="#upwork"><span>Continue<br />on Upwork</span><ArrowIcon /></a>
+</section>

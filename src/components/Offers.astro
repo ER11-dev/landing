@@ -1,0 +1,49 @@
+---
+import ArrowIcon from "./ArrowIcon.astro";
+
+const offers = [
+  {
+    number: "01",
+    type: "Diagnostic",
+    title: "Production Readiness Sprint",
+    copy: "Turn a working demo into a prioritized, owned plan for production.",
+    items: ["Critical-flow review", "UX and architecture risks", "Sequenced delivery plan"],
+    className: "",
+  },
+  {
+    number: "02",
+    type: "Build",
+    title: "Critical Flow to Production",
+    copy: "Take one valuable user journey from fragile prototype to dependable release.",
+    items: ["Product decisions and UX", "Frontend implementation", "Backend path where needed"],
+    className: "offer-ticket--cyan",
+  },
+  {
+    number: "03",
+    type: "Continue",
+    title: "Product Continuity",
+    copy: "Keep decisions, interface work, and backend delivery moving as one system.",
+    items: ["Shared product backlog", "Continuous delivery", "Visible release evidence"],
+    className: "offer-ticket--yellow",
+  },
+];
+---
+
+<section class="offers" id="offers" aria-labelledby="offers-title" data-index-section>
+  <div class="section-heading section-heading--dark">
+    <span class="section-heading__number">04</span>
+    <h2 id="offers-title">Start with the smallest engagement that can remove real uncertainty.</h2>
+    <p>No instant quote is invented here. Scope, evidence, and the right owner come first.</p>
+  </div>
+  <div class="offer-tickets">
+    {offers.map(({ number, type, title, copy, items, className }) => (
+      <article class:list={["offer-ticket", className]}>
+        <header><b>Ticket {number}</b><span>{type}</span></header>
+        <h3>{title}</h3>
+        <p>{copy}</p>
+        <ul>{items.map((item) => <li>{item}</li>)}</ul>
+        <a href="#upwork">Discuss this scope <ArrowIcon /></a>
+      </article>
+    ))}
+  </div>
+</section>

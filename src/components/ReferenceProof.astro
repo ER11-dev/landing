@@ -1,0 +1,56 @@
+---
+const columns = [
+  {
+    title: "Needs decision",
+    items: ["Onboarding edge case", "Empty-state recovery"],
+    owner: "Product / UX",
+  },
+  {
+    title: "In production",
+    items: ["Accessible table shell", "Optimistic update guard"],
+    owner: "Frontend",
+  },
+  {
+    title: "Verified",
+    items: ["Idempotent job runner", "Audit event stream"],
+    owner: "Backend",
+  },
+];
+
+const decisions = [
+  { number: "01", title: "Product decision", copy: "What the flow should do when reality breaks the happy path." },
+  { number: "02", title: "Interface contract", copy: "States, accessibility, responsiveness, and API expectations." },
+  { number: "03", title: "Release evidence", copy: "What changed, how it was checked, and what remains open." },
+];
+---
+
+<section class="reference-section" id="reference" aria-labelledby="reference-title" data-index-section>
+  <div class="section-heading">
+    <span class="section-heading__number">02</span>
+    <h2 id="reference-title">A reference build you can interrogate, not a claim you have to trust.</h2>
+    <p>Until real client evidence is added, this is deliberately labelled as a team-built demonstration. It shows the decisions and engineering artifacts we would expose during delivery.</p>
+  </div>
+  <div class="reference-sheet">
+    <div class="reference-sheet__title">
+      <div><span>Team-built demonstration</span><h3>Operations control room</h3></div>
+      <p>Illustrative data · no client represented</p>
+    </div>
+    <div class="reference-sheet__window" aria-label="Synthetic B2B operations dashboard reference interface">
+      <div class="reference-nav" aria-hidden="true"><b>CTRL</b><span class="is-active"></span><span></span><span></span><span></span></div>
+      <div class="reference-body">
+        <div class="reference-toolbar"><span>Release queue</span><small>Synthetic interface</small></div>
+        <div class="reference-flow">
+          {columns.map(({ title, items, owner }) => (
+            <div class="flow-column">
+              <b>{title}</b>
+              {items.map((item) => <article><span>{item}</span><small>{owner}</small></article>)}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="decision-ledger">
+      {decisions.map(({ number, title, copy }) => <div><b>{number}</b><span>{title}</span><p>{copy}</p></div>)}
+    </div>
+  </div>
+</section>

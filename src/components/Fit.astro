@@ -1,0 +1,21 @@
+---
+const goodFit = [
+  "You already have a working or rapidly assembled prototype.",
+  "A real user flow now needs dependable product and engineering decisions.",
+  "You want senior owners working directly, without a large agency relay.",
+];
+
+const poorFit = [
+  "You need a claim-heavy pitch before sharing the actual product context.",
+  "You want three isolated executors with no shared ownership.",
+  "You need an unsupported guarantee, fixed result, or invented deadline.",
+];
+---
+
+<section class="fit" aria-labelledby="fit-title">
+  <h2 id="fit-title">A clean fit matters more than a broad promise.</h2>
+  <div class="fit-columns">
+    <div class="fit-column fit-column--good"><h3>Good fit</h3><ul>{goodFit.map((item) => <li>{item}</li>)}</ul></div>
+    <div class="fit-column fit-column--bad"><h3>Probably not</h3><ul>{poorFit.map((item) => <li>{item}</li>)}</ul></div>
+  </div>
+</section>

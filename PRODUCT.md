@@ -1,0 +1,59 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Users
+
+The primary users are prospective clients evaluating whether to hire the team through Upwork. Their exact industries, company stages, budgets, and buyer roles are still undecided.
+
+The delivery team consists of:
+
+- a frontend engineer;
+- a UX/UI designer who also works as product manager;
+- a senior Go backend engineer.
+
+## Product Purpose
+
+The landing page helps prospective Upwork clients understand the team, trust its ability to deliver, and take the next step toward a paid engagement. Success means generating qualified Upwork inquiries and orders without overstating the team's experience or results.
+
+## Positioning
+
+The team presents itself as a compact, senior product squad rather than three disconnected freelancers: product direction and UX, frontend implementation, and Go backend engineering can be handled together.
+
+The initial niche is working B2B prototypes that perform in a demo but need product decisions, UX, frontend engineering, and production backend work before real users can rely on them. AI-assisted delivery may be part of a client's workflow, but it is not the main positioning claim.
+
+## Operating Context
+
+Prospective clients are expected to evaluate the team alongside other Upwork freelancers or agencies. The landing page supports that evaluation and should lead clients toward an Upwork-based hiring conversation.
+
+The engagement model, project size, delivery process, and relationship between individual Upwork profiles and any team or agency profile are still undecided.
+
+The external landing page is a proof layer. Upwork agency and member profiles remain the canonical verification and transaction layer for Upwork prospects.
+
+## Capabilities and Constraints
+
+Confirmed capabilities are UX/UI design, product management, frontend engineering, and senior Go backend engineering.
+
+The landing page must build trust and help win qualified work. Exact preferred frontend stack for client projects, supported backend scope, industries, availability, pricing, and guarantees remain undecided.
+
+The landing implementation is intentionally dependency-light: Astro renders semantic HTML into a static production build, authored CSS/SVG geometry owns the visual system, and a small progressive-enhancement module handles interactions. This keeps the page fast, portable, and easy to host while the team validates the offer.
+
+A version shared with Upwork prospects must not expose an email address, phone number, social handle, external booking tool, lead form, or other off-platform pre-contract contact path. Its conversion action must return the visitor to Upwork.
+
+## Evidence on Hand
+
+The team composition and roles are confirmed. Research on Upwork mechanics, trust evidence, landing-page structure, and compliance is recorded in `research/upwork-landing-design.md`.
+
+No portfolio projects, client names, testimonials, Upwork metrics, certifications, quantified outcomes, or other proof assets have been provided yet. Future work must not invent them.
+
+## Product Principles
+
+- Present one coordinated product team, not a loose list of skills.
+- Reduce hiring risk with specific, verifiable evidence.
+- Make the team's ownership boundaries and delivery process easy to understand.
+- Optimize for qualified trust and fit rather than broad, unsupported claims.
+- Keep the path from evaluation to an Upwork conversation direct.

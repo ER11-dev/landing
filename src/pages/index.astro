@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProofIndex from "../components/ProofIndex.astro";
+import Hero from "../components/Hero.astro";
+import RoleBands from "../components/RoleBands.astro";
+import ReferenceProof from "../components/ReferenceProof.astro";
+import Readiness from "../components/Readiness.astro";
+import Offers from "../components/Offers.astro";
+import Team from "../components/Team.astro";
+import Fit from "../components/Fit.astro";
+import Faq from "../components/Faq.astro";
+import FinalProof from "../components/FinalProof.astro";
+
+const title = "From working prototype to production-ready product";
+const description = "A compact senior product team for turning working B2B prototypes into dependable products for real users.";
+---
+
+<BaseLayout {title} {description}>
+  <ProofIndex />
+  <main id="main">
+    <Hero />
+    <RoleBands />
+    <ReferenceProof />
+    <Readiness />
+    <Offers />
+    <Team />
+    <Fit />
+    <Faq />
+    <FinalProof />
+  </main>
+</BaseLayout>

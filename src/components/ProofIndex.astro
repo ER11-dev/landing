@@ -1,0 +1,31 @@
+---
+const sections = [
+  { id: "top", number: "01", label: "Claim" },
+  { id: "reference", number: "02", label: "Proof" },
+  { id: "readiness", number: "03", label: "Risk" },
+  { id: "offers", number: "04", label: "Scope" },
+  { id: "team", number: "05", label: "Team" },
+  { id: "upwork", number: "06", label: "Hire" },
+];
+---
+
+<aside class="proof-index" aria-label="Page index">
+  <a class="proof-index__mark" href="#top" aria-label="Back to top"><span>3</span><span>/</span><span>1</span></a>
+  <p class="proof-index__label">Proof index</p>
+  <nav class="proof-index__nav" aria-label="Landing page sections">
+    {sections.map(({ id, number, label }) => (
+      <a href={`#${id}`} data-index-link={id}><b>{number}</b><span>{label}</span></a>
+    ))}
+  </nav>
+  <div class="proof-index__roles" aria-label="Three connected disciplines">
+    <span class="role-dot role-dot--magenta">Product</span>
+    <span class="role-dot role-dot--cyan">Front</span>
+    <span class="role-dot role-dot--yellow">Back</span>
+  </div>
+  <span class="registration-mark" aria-hidden="true"></span>
+</aside>
+
+<header class="mobile-bar">
+  <a href="#top" class="mobile-bar__mark" aria-label="Back to top">3 / 1</a>
+  <a href="#upwork" class="mobile-bar__action">Discuss on Upwork</a>
+</header>
