@@ -25,7 +25,7 @@ const members = [
   <div class="section-heading section-heading--team">
     <span class="section-heading__number">05</span>
     <h2 id="team-title">Not a relay race.</h2>
-    <p>Individual names, portraits, and Upwork verification belong here before publication. The responsibilities below are confirmed; biographies are not invented.</p>
+    <p>Three accountable disciplines work behind one Upwork account. Separate contact cards are intentionally omitted; the responsibilities below are the public ownership model.</p>
   </div>
   <figure class="team-art">
     <img
@@ -41,10 +41,9 @@ const members = [
   <div class="team-plate">
     {members.map(({ number, role, copy, className }) => (
       <article>
-        <div class={`team-plate__mark team-plate__mark--${className}`}><b>{number}</b><span>Add name</span></div>
+        <div class={`team-plate__mark team-plate__mark--${className}`}><b>{number}</b><span>Discipline</span></div>
         <h3>{role}</h3>
         <p>{copy}</p>
-        <span class="placeholder-note">Name and Upwork profile needed</span>
       </article>
     ))}
   </div>

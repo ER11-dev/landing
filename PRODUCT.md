@@ -28,11 +28,11 @@ The initial niche is working B2B prototypes that perform in a demo but need prod
 
 ## Operating Context
 
-Prospective clients are expected to evaluate the team alongside other Upwork freelancers or agencies. The landing page supports that evaluation and should lead clients toward an Upwork-based hiring conversation.
+Prospective clients are expected to evaluate the team alongside other Upwork freelancers or agencies. The landing page supports that evaluation and should lead clients toward a hiring conversation on the team's single Upwork account.
 
-The engagement model, project size, delivery process, and relationship between individual Upwork profiles and any team or agency profile are still undecided.
+The engagement model, project size, and delivery process are still undecided. The account model is fixed: the team uses one Upwork account, with no separate member contact paths.
 
-The external landing page is a proof layer. Upwork agency and member profiles remain the canonical verification and transaction layer for Upwork prospects.
+The external landing page is a proof layer. The single Upwork account remains the canonical conversation, verification, and transaction layer for Upwork prospects.
 
 ## Capabilities and Constraints
 
