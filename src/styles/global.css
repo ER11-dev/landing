@@ -92,6 +92,7 @@ main{margin-left:calc(var(--rail) + 10px);overflow:clip}
 @keyframes seal-stamp{0%{box-shadow:0 7px 14px rgba(76,8,39,.18);transform:rotate(-10deg) scale(1.08)}65%{box-shadow:0 18px 30px rgba(76,8,39,.28);transform:rotate(-6deg) scale(.985)}100%{box-shadow:0 16px 28px rgba(76,8,39,.24);transform:rotate(-7deg) scale(1)}}
 
 @media(min-width:1121px){.proof-stage__controls{padding-right:clamp(185px,15vw,228px)}}
+@media(min-width:1600px){.proof-stage{left:auto;width:min(1040px,calc(100% - var(--page-pad) * 2 - 412px))}}
 
 .role-bands{border-bottom:1px solid var(--ink)}.role-band{display:grid;min-height:92px;grid-template-columns:90px minmax(230px,.7fr) 1fr 40px;align-items:center;padding:0 var(--page-pad);border-bottom:1px solid var(--ink);color:var(--ink);text-decoration:none}.role-band:last-child{border-bottom:0}.role-band--product{background:var(--magenta);color:var(--ink)}.role-band--frontend{background:var(--cyan);color:var(--ink)}.role-band--backend{background:var(--yellow);color:var(--ink)}.role-band b{font-family:"Oswald",sans-serif;font-size:34px}.role-band>span{font-family:"Oswald",sans-serif;font-size:clamp(30px,3vw,48px);font-weight:700;text-transform:uppercase}.role-band small{font-size:13px;font-weight:700}
 .reference-section,.readiness,.team,.fit,.faq{padding:clamp(90px,10vw,150px) var(--page-pad)}
