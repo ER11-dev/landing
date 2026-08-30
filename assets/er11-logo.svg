@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 52 555 280" role="img" aria-labelledby="title">
+  <title id="title">ER11</title>
+  <defs>
+    <path id="glyph-e" d="M12.305-237.156h102.832v47.46H73.977v44.97H112.5v45.117H73.977v52.148h45.261V0H12.305Z"/>
+    <path id="glyph-r" d="M12.305-237.156h43.652c29.102 0 48.805 1.12 59.106 3.367 10.304 2.246 18.703 7.984 25.195 17.21 6.496 9.231 9.742 23.954 9.742 44.165 0 18.457-2.297 30.86-6.883 37.21-4.59 6.349-13.625 10.157-27.101 11.423 12.207 3.027 20.41 7.082 24.609 12.16 4.2 5.078 6.813 9.742 7.836 13.988C149.488-93.383 150-81.688 150-62.547V0H92.727v-78.809c0-12.695-1.004-20.558-3.004-23.582-2.004-3.027-7.254-4.543-15.746-4.543V0H12.305Zm61.672 40.574v52.734c6.933 0 11.789-.953 14.574-2.855 2.781-1.906 4.176-8.082 4.176-18.531v-13.04c0-7.519-1.344-12.449-4.032-14.792-2.683-2.344-7.593-3.516-14.718-3.516Z"/>
+    <path id="glyph-one" d="M101.805-237.156V0h-59.18v-127.148c0-18.36-.438-29.395-1.316-33.106-.88-3.71-3.297-6.52-7.25-8.422-3.957-1.906-12.77-2.855-26.442-2.855H1.758v-27.688c28.613-6.054 50.344-18.699 65.187-37.937Z"/>
+    <g id="wordmark">
+      <use href="#glyph-e" transform="translate(0 302.637)"/>
+      <use href="#glyph-r" transform="translate(125 302.637)"/>
+      <use href="#glyph-one" transform="translate(287 302.637)"/>
+      <use href="#glyph-one" transform="translate(401 302.637)"/>
+    </g>
+  </defs>
+  <g shape-rendering="geometricPrecision">
+    <use href="#wordmark" fill="#00a6d6" transform="translate(-14 8)"/>
+    <use href="#wordmark" fill="#e83e8c" transform="translate(-4 14)"/>
+    <use href="#wordmark" fill="#f2cd00" transform="translate(14 12)"/>
+    <use href="#wordmark" fill="#111111"/>
+  </g>
+</svg>

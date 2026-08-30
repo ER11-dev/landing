@@ -13,9 +13,15 @@ const poorFit = [
 ---
 
 <section class="fit" aria-labelledby="fit-title">
-  <h2 id="fit-title">A clean fit matters more than a broad promise.</h2>
+  <div class="fit__masthead"><span>Fit check</span><h2 id="fit-title">Know the fit before the scope.</h2></div>
   <div class="fit-columns">
-    <div class="fit-column fit-column--good"><h3>Good fit</h3><ul>{goodFit.map((item) => <li>{item}</li>)}</ul></div>
-    <div class="fit-column fit-column--bad"><h3>Probably not</h3><ul>{poorFit.map((item) => <li>{item}</li>)}</ul></div>
+    <section class="fit-column fit-column--good">
+      <header><b>01</b><h3>Likely a fit</h3></header>
+      <ul>{goodFit.map((item, index) => <li><b>0{index + 1}</b><span>{item}</span></li>)}</ul>
+    </section>
+    <section class="fit-column fit-column--bad">
+      <header><b>02</b><h3>Probably not</h3></header>
+      <ul>{poorFit.map((item, index) => <li><b>0{index + 1}</b><span>{item}</span></li>)}</ul>
+    </section>
   </div>
 </section>

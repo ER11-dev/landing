@@ -32,10 +32,23 @@ const items = [
     <span class="section-heading__number">03</span>
     <h2 id="readiness-title">The gap is rarely “more code.” It is unresolved product risk.</h2>
   </div>
-  <div class="readiness-ledger">
-    <div class="ledger-head"><span>Proof item</span><span>What we inspect</span><span>Owner</span></div>
-    {items.map(({ title, copy, owner, ownerClass }) => (
-      <article><b>{title}</b><p>{copy}</p><span class={`owner owner--${ownerClass}`}>{owner}</span></article>
-    ))}
+  <div class="readiness__body">
+    <figure class="readiness-art">
+      <img
+        src="/graphics/risk-exploded.webp"
+        alt="An exploded stack of product layers exposing hidden pathways, evidence tags, and release risks."
+        width="1024"
+        height="1536"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>Inspect the system between the visible interface and the release.</figcaption>
+    </figure>
+    <div class="readiness-ledger">
+      <div class="ledger-head"><span>Proof item</span><span>What we inspect</span><span>Owner</span></div>
+      {items.map(({ title, copy, owner, ownerClass }) => (
+        <article><b>{title}</b><p>{copy}</p><span class={`owner owner--${ownerClass}`}>{owner}</span></article>
+      ))}
+    </div>
   </div>
 </section>
