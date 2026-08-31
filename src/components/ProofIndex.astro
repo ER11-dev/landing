@@ -55,9 +55,21 @@ const { contactLabel = "Start a project" } = Astro.props;
     }
   </nav>
   <div class="proof-index__roles" aria-label="Three connected disciplines">
-    <span class="role-dot role-dot--magenta">Product</span>
-    <span class="role-dot role-dot--cyan">Front</span>
-    <span class="role-dot role-dot--yellow">Back</span>
+    <span class="proof-index__roles-title" aria-hidden="true">
+      <b>Team register</b><i>03 layers</i>
+    </span>
+    <span class="role-key role-key--magenta">
+      <b aria-hidden="true">P</b><span>Product</span>
+    </span>
+    <span class="role-key role-key--cyan">
+      <b aria-hidden="true">F</b><span>Frontend</span>
+    </span>
+    <span class="role-key role-key--yellow">
+      <b aria-hidden="true">B</b><span>Backend</span>
+    </span>
+    <span class="proof-index__roles-lock" aria-hidden="true">
+      <i></i><i></i><i></i><b>One team</b>
+    </span>
   </div>
   <span class="registration-mark" aria-hidden="true"></span>
 </aside>

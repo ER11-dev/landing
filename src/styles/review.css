@@ -83,31 +83,119 @@ body::before {
 }
 
 .proof-index__roles {
-  gap: 6px;
+  margin: 0 7px;
+  padding: 0;
+  gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper-bright);
 }
 
-.role-dot {
-  min-height: 22px;
-  padding: 6px 5px 5px 20px;
+.proof-index__roles-title {
+  display: flex;
+  min-height: 23px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 6px;
+  background: var(--ink);
+  color: var(--paper-bright);
+  font-size: 6px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.proof-index__roles-title b {
+  max-width: 28px;
+  font-size: 7px;
+  line-height: 0.95;
+}
+
+.proof-index__roles-title i {
+  color: #c9c6bd;
+  font-size: 5px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.role-key {
+  display: grid;
+  min-height: 25px;
+  grid-template-columns: 20px 1fr;
+  align-items: stretch;
+  border-top: 1px solid var(--ink);
   color: var(--ink);
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.role-key > b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--ink);
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
   line-height: 1;
 }
 
-.role-dot::before {
-  left: 6px;
-  border: 0;
+.role-key > span {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding: 5px;
 }
 
-.role-dot--magenta {
+.role-key--magenta > b {
   background: var(--magenta);
 }
 
-.role-dot--cyan {
+.role-key--cyan > b {
   background: var(--cyan);
 }
 
-.role-dot--yellow {
+.role-key--yellow > b {
   background: var(--yellow);
+}
+
+.proof-index__roles-lock {
+  display: grid;
+  min-height: 23px;
+  grid-template-columns: repeat(3, 7px) 1fr;
+  align-items: center;
+  padding: 5px 6px;
+  border-top: 1px solid var(--ink);
+  gap: 0;
+  font-size: 6px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.proof-index__roles-lock i {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+}
+
+.proof-index__roles-lock i:nth-child(1) {
+  background: var(--magenta);
+}
+
+.proof-index__roles-lock i:nth-child(2) {
+  margin-left: -2px;
+  background: var(--cyan);
+}
+
+.proof-index__roles-lock i:nth-child(3) {
+  margin-left: -4px;
+  background: var(--yellow);
+}
+
+.proof-index__roles-lock b {
+  justify-self: end;
 }
 
 .partners {
