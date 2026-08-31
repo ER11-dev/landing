@@ -5,13 +5,17 @@ const lanes = [
     discipline: "Product / UX",
     summary: "Flows, systems, and a handoff engineers can trust.",
     className: "product",
-    tools: [
+    groups: [
       {
-        name: "Figma",
-        role: "Product systems",
-        logo: "https://svgl.app/library/figma.svg",
-        width: 54,
-        height: 80,
+        tools: [
+          {
+            name: "Figma",
+            role: "Product systems",
+            logo: "https://svgl.app/library/figma.svg",
+            width: 54,
+            height: 80,
+          },
+        ],
       },
     ],
   },
@@ -20,27 +24,61 @@ const lanes = [
     discipline: "Frontend",
     summary: "Typed interfaces with a production-ready delivery path.",
     className: "frontend",
-    tools: [
+    groups: [
       {
-        name: "TypeScript",
-        role: "Type safety",
-        logo: "https://svgl.app/library/typescript.svg",
-        width: 256,
-        height: 256,
-      },
-      {
-        name: "React",
-        role: "Interface systems",
-        logo: "https://svgl.app/library/react_light.svg",
-        width: 569,
-        height: 512,
-      },
-      {
-        name: "Next.js",
-        role: "Product delivery",
-        logo: "https://svgl.app/library/nextjs_icon_dark.svg",
-        width: 180,
-        height: 180,
+        tools: [
+          {
+            name: "TypeScript",
+            role: "Type safety",
+            logo: "https://svgl.app/library/typescript.svg",
+            width: 256,
+            height: 256,
+          },
+          {
+            name: "React",
+            role: "Interface systems",
+            logo: "https://svgl.app/library/react_light.svg",
+            width: 569,
+            height: 512,
+          },
+          {
+            name: "Next.js",
+            role: "Product delivery",
+            logo: "https://svgl.app/library/nextjs_icon_dark.svg",
+            width: 180,
+            height: 180,
+          },
+          {
+            name: "RxJS",
+            role: "Reactive systems",
+            logo: "https://svgl.app/library/rxjs.svg",
+            width: 256,
+            height: 256,
+          },
+          { name: "React Native", role: "Mobile products", mark: "RN" },
+          {
+            name: "TanStack",
+            role: "Data & app tooling",
+            logo: "https://svgl.app/library/tanstack.svg",
+            width: 256,
+            height: 256,
+          },
+          {
+            name: "Playwright",
+            role: "Browser testing",
+            logo: "https://svgl.app/library/playwright.svg",
+            width: 256,
+            height: 256,
+          },
+          { name: "Astro JS", role: "Content delivery", mark: "A*" },
+          {
+            name: "Solid",
+            role: "Reactive interfaces",
+            logo: "https://svgl.app/library/solidjs.svg",
+            width: 256,
+            height: 256,
+          },
+        ],
       },
     ],
   },
@@ -49,38 +87,118 @@ const lanes = [
     discipline: "Backend",
     summary: "Fast services, durable data, and observable runtime behavior.",
     className: "backend",
-    tools: [
+    groups: [
       {
-        name: "Go",
-        role: "Services & APIs",
-        logo: "https://svgl.app/library/golang.svg",
-        width: 207,
-        height: 78,
+        name: "Languages",
+        tools: [
+          {
+            name: "Go",
+            role: "Service language",
+            logo: "https://svgl.app/library/golang.svg",
+            width: 207,
+            height: 78,
+          },
+          {
+            name: "JavaScript",
+            role: "Runtime language",
+            logo: "https://svgl.app/library/javascript.svg",
+            width: 256,
+            height: 256,
+          },
+          { name: "SQL", role: "Data language", mark: "SQL" },
+        ],
       },
       {
-        name: "PostgreSQL",
-        role: "Durable data",
-        logo: "https://svgl.app/library/postgresql.svg",
-        width: 432,
-        height: 445,
+        name: "Backend",
+        tools: [
+          { name: "gRPC", role: "Service contracts", mark: "gRPC" },
+          { name: "Protobuf", role: "Typed schemas", mark: "PB" },
+          { name: "REST", role: "Web APIs", mark: "REST" },
+        ],
       },
       {
-        name: "Redis",
-        role: "Fast state",
-        logo: "https://svgl.app/library/redis.svg",
-        width: 256,
-        height: 220,
+        name: "Messaging",
+        tools: [
+          { name: "NATS JetStream", role: "Event streaming", mark: "NATS" },
+          { name: "RabbitMQ", role: "Message broker", mark: "RMQ" },
+          { name: "Kafka", role: "Event backbone", mark: "K" },
+        ],
       },
       {
-        name: "Docker",
-        role: "Repeatable runtime",
-        logo: "https://svgl.app/library/docker.svg",
-        width: 24,
-        height: 24,
+        name: "Databases",
+        tools: [
+          {
+            name: "PostgreSQL",
+            role: "Relational data",
+            logo: "https://svgl.app/library/postgresql.svg",
+            width: 432,
+            height: 445,
+          },
+          { name: "MongoDB", role: "Document data", mark: "M" },
+          {
+            name: "Redis",
+            role: "Fast state",
+            logo: "https://svgl.app/library/redis.svg",
+            width: 256,
+            height: 220,
+          },
+        ],
+      },
+      {
+        name: "Cloud & DevOps",
+        tools: [
+          { name: "AWS", role: "ECS · EC2 · VPC", mark: "AWS" },
+          {
+            name: "Docker",
+            role: "Repeatable runtime",
+            logo: "https://svgl.app/library/docker.svg",
+            width: 24,
+            height: 24,
+          },
+          {
+            name: "GitHub CI/CD",
+            role: "Delivery pipelines",
+            logo: "https://svgl.app/library/github_light.svg",
+            width: 256,
+            height: 256,
+          },
+          {
+            name: "Cloudflare",
+            role: "Workers · Caching",
+            logo: "https://svgl.app/library/cloudflare.svg",
+            width: 256,
+            height: 256,
+          },
+          { name: "WireGuard", role: "Private networking", mark: "WG" },
+        ],
+      },
+      {
+        name: "Observability",
+        tools: [
+          { name: "Prometheus", role: "Metrics", mark: "P" },
+          { name: "OpenTelemetry", role: "Traces & signals", mark: "OTel" },
+          {
+            name: "Grafana",
+            role: "Dashboards",
+            logo: "https://svgl.app/library/grafana.svg",
+            width: 256,
+            height: 256,
+          },
+        ],
       },
     ],
   },
 ];
+
+const toolCount = lanes.reduce(
+  (laneTotal, lane) =>
+    laneTotal +
+    lane.groups.reduce(
+      (groupTotal, group) => groupTotal + group.tools.length,
+      0,
+    ),
+  0,
+);
 ---
 
 <section
@@ -102,49 +220,69 @@ const lanes = [
   <div class="technology-register">
     <div class="technology-register__meta">
       <span>ER11 / Technology register</span>
-      <span>08 tools · 03 owners</span>
+      <span>{String(toolCount).padStart(2, "0")} skills · 03 owners</span>
       <span>Choose for the product, not the trend</span>
     </div>
 
     {
-      lanes.map(({ number, discipline, summary, className, tools }) => (
-        <section
-          class={`technology-lane technology-lane--${className}`}
-          aria-labelledby={`technology-${className}`}
-        >
-          <header class="technology-lane__owner">
-            <span>{number}</span>
-            <div>
-              <h3 id={`technology-${className}`}>{discipline}</h3>
-              <p>{summary}</p>
+      lanes.map(({ number, discipline, summary, className, groups }) => {
+        let toolIndex = 0;
+        return (
+          <section
+            class={`technology-lane technology-lane--${className}`}
+            aria-labelledby={`technology-${className}`}
+          >
+            <header class="technology-lane__owner">
+              <span>{number}</span>
+              <div>
+                <h3 id={`technology-${className}`}>{discipline}</h3>
+                <p>{summary}</p>
+              </div>
+            </header>
+            <div class="technology-lane__groups">
+              {groups.map((group) => (
+                <section class="technology-group">
+                  {group.name && <h4>{group.name}</h4>}
+                <ul style={`--tool-count:${Math.min(group.tools.length, 3)}`}>
+                    {group.tools.map((tool) => {
+                      const index = toolIndex++;
+                      return (
+                        <li style={`--tool-order:${index}`}>
+                          <span class="technology-tool__index">
+                            {number}.{String(index + 1).padStart(2, "0")}
+                          </span>
+                          <span
+                            class="technology-tool__mark"
+                            aria-hidden="true"
+                          >
+                            <span class="technology-tool__registration" />
+                            {tool.logo ? (
+                              <img
+                                src={tool.logo}
+                                alt=""
+                                width={tool.width}
+                                height={tool.height}
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            ) : (
+                              <b>{tool.mark}</b>
+                            )}
+                          </span>
+                          <span class="technology-tool__label">
+                            <b>{tool.name}</b>
+                            <small>{tool.role}</small>
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              ))}
             </div>
-          </header>
-          <ul style={`--tool-count:${tools.length}`}>
-            {tools.map(({ name, role, logo, width, height }, index) => (
-              <li style={`--tool-order:${index}`}>
-                <span class="technology-tool__index">
-                  {number}.{String(index + 1).padStart(2, "0")}
-                </span>
-                <span class="technology-tool__mark" aria-hidden="true">
-                  <span class="technology-tool__registration" />
-                  <img
-                    src={logo}
-                    alt=""
-                    width={width}
-                    height={height}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-                <span class="technology-tool__label">
-                  <b>{name}</b>
-                  <small>{role}</small>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))
+          </section>
+        );
+      })
     }
 
     <footer class="technology-register__footer">
