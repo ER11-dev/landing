@@ -1,0 +1,156 @@
+---
+const lanes = [
+  {
+    number: "01",
+    discipline: "Product / UX",
+    summary: "Flows, systems, and a handoff engineers can trust.",
+    className: "product",
+    tools: [
+      {
+        name: "Figma",
+        role: "Product systems",
+        logo: "https://svgl.app/library/figma.svg",
+        width: 54,
+        height: 80,
+      },
+    ],
+  },
+  {
+    number: "02",
+    discipline: "Frontend",
+    summary: "Typed interfaces with a production-ready delivery path.",
+    className: "frontend",
+    tools: [
+      {
+        name: "TypeScript",
+        role: "Type safety",
+        logo: "https://svgl.app/library/typescript.svg",
+        width: 256,
+        height: 256,
+      },
+      {
+        name: "React",
+        role: "Interface systems",
+        logo: "https://svgl.app/library/react_light.svg",
+        width: 569,
+        height: 512,
+      },
+      {
+        name: "Next.js",
+        role: "Product delivery",
+        logo: "https://svgl.app/library/nextjs_icon_dark.svg",
+        width: 180,
+        height: 180,
+      },
+    ],
+  },
+  {
+    number: "03",
+    discipline: "Backend",
+    summary: "Fast services, durable data, and observable runtime behavior.",
+    className: "backend",
+    tools: [
+      {
+        name: "Go",
+        role: "Services & APIs",
+        logo: "https://svgl.app/library/golang.svg",
+        width: 207,
+        height: 78,
+      },
+      {
+        name: "PostgreSQL",
+        role: "Durable data",
+        logo: "https://svgl.app/library/postgresql.svg",
+        width: 432,
+        height: 445,
+      },
+      {
+        name: "Redis",
+        role: "Fast state",
+        logo: "https://svgl.app/library/redis.svg",
+        width: 256,
+        height: 220,
+      },
+      {
+        name: "Docker",
+        role: "Repeatable runtime",
+        logo: "https://svgl.app/library/docker.svg",
+        width: 24,
+        height: 24,
+      },
+    ],
+  },
+];
+---
+
+<section
+  class="technology-press"
+  id="stack"
+  aria-labelledby="technology-title"
+  data-index-section
+>
+  <header class="technology-press__heading">
+    <span class="technology-press__number">06</span>
+    <h2 id="technology-title">A stack that survives the handoff.</h2>
+    <p>
+      These are the tools in our daily build loop—from editable product
+      decisions to typed interfaces and dependable services. We preserve a sound
+      existing stack instead of forcing a rewrite.
+    </p>
+  </header>
+
+  <div class="technology-register">
+    <div class="technology-register__meta">
+      <span>ER11 / Technology register</span>
+      <span>08 tools · 03 owners</span>
+      <span>Choose for the product, not the trend</span>
+    </div>
+
+    {
+      lanes.map(({ number, discipline, summary, className, tools }) => (
+        <section
+          class={`technology-lane technology-lane--${className}`}
+          aria-labelledby={`technology-${className}`}
+        >
+          <header class="technology-lane__owner">
+            <span>{number}</span>
+            <div>
+              <h3 id={`technology-${className}`}>{discipline}</h3>
+              <p>{summary}</p>
+            </div>
+          </header>
+          <ul style={`--tool-count:${tools.length}`}>
+            {tools.map(({ name, role, logo, width, height }, index) => (
+              <li style={`--tool-order:${index}`}>
+                <span class="technology-tool__index">
+                  {number}.{String(index + 1).padStart(2, "0")}
+                </span>
+                <span class="technology-tool__mark" aria-hidden="true">
+                  <span class="technology-tool__registration" />
+                  <img
+                    src={logo}
+                    alt=""
+                    width={width}
+                    height={height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="technology-tool__label">
+                  <b>{name}</b>
+                  <small>{role}</small>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+
+    <footer class="technology-register__footer">
+      <span>Product decision</span>
+      <span class="technology-register__line" aria-hidden="true"></span>
+      <span>Production runtime</span>
+    </footer>
+  </div>
+</section>

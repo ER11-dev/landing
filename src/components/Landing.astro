@@ -7,6 +7,7 @@ import Cases from "./Cases.astro";
 import Readiness from "./Readiness.astro";
 import Offers from "./Offers.astro";
 import Team from "./Team.astro";
+import TechnologyPress from "./TechnologyPress.astro";
 import Fit from "./Fit.astro";
 import Faq from "./Faq.astro";
 import Contact from "./Contact.astro";
@@ -29,6 +30,7 @@ const { upworkSafe = false } = Astro.props;
     actionLabel={upworkSafe ? "Continue on Upwork" : "Discuss this scope"}
   />
   <Team externalLinks={!upworkSafe} />
+  <TechnologyPress />
   <Fit />
   <Faq />
   <Contact mode={upworkSafe ? "upwork" : "direct"} />
