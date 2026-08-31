@@ -1,87 +1,4 @@
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
-
-const proofStage = document.querySelector("[data-proof-stage]");
-const registerButton = document.querySelector("[data-register]");
-const proofStatus = document.querySelector("[data-proof-status]");
-const hero = proofStage?.closest(".hero");
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-let autoRegistrationTimer;
-let registrationCleanupTimer;
-let proofObserver;
-let hasUsedPressControl = false;
-
-const stopAutoRegistration = () => {
-  window.clearTimeout(autoRegistrationTimer);
-  proofObserver?.disconnect();
-};
-
-const clearRegistrationMotion = () => {
-  window.clearTimeout(registrationCleanupTimer);
-  hero?.classList.remove("is-registering", "is-separating");
-};
-
-const setRegistration = (registered) => {
-  if (!proofStage || !registerButton || !proofStatus) return;
-
-  clearRegistrationMotion();
-  proofStage.classList.toggle("is-registered", registered);
-  registerButton.setAttribute("aria-pressed", String(registered));
-  registerButton.querySelector("span").textContent = registered
-    ? "Separate proof layers"
-    : "Run press check";
-  proofStatus.textContent = registered
-    ? "Three ownership layers registered into one product proof."
-    : "Layers separated for inspection.";
-
-  if (motionPreference.matches) return;
-
-  hero?.classList.add(registered ? "is-registering" : "is-separating");
-  registrationCleanupTimer = window.setTimeout(clearRegistrationMotion, 1050);
-};
-
-registerButton?.addEventListener("click", () => {
-  hasUsedPressControl = true;
-  stopAutoRegistration();
-  proofStatus?.setAttribute("aria-live", "polite");
-  setRegistration(!proofStage.classList.contains("is-registered"));
-});
-
-const scheduleAutoRegistration = () => {
-  if (hasUsedPressControl || motionPreference.matches || autoRegistrationTimer)
-    return;
-
-  autoRegistrationTimer = window.setTimeout(() => {
-    autoRegistrationTimer = undefined;
-    setRegistration(true);
-  }, 240);
-};
-
-if (motionPreference.matches) {
-  setRegistration(true);
-} else if (proofStage && "IntersectionObserver" in window) {
-  proofObserver = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry?.isIntersecting || entry.intersectionRatio < 0.35) return;
-
-      proofObserver?.disconnect();
-      scheduleAutoRegistration();
-    },
-    { threshold: [0.35] },
-  );
-  proofObserver.observe(proofStage);
-} else {
-  scheduleAutoRegistration();
-}
-
-motionPreference.addEventListener("change", ({ matches }) => {
-  if (!matches) return;
-
-  stopAutoRegistration();
-  clearRegistrationMotion();
-  setRegistration(true);
-});
 
 const indexLinks = [...document.querySelectorAll("[data-index-link]")];
 const sections = [...document.querySelectorAll("[data-index-section]")];
@@ -150,30 +67,6 @@ const schedulePageProgress = () => {
   progressFrame = window.requestAnimationFrame(updatePageProgress);
 };
 
-const desktopWheelInput = window.matchMedia(
-  "(hover: hover) and (pointer: fine)",
-);
-let smoothScroll;
-
-const setUpSmoothScroll = () => {
-  smoothScroll?.destroy();
-  smoothScroll = undefined;
-  document.documentElement.removeAttribute("data-scroll-engine");
-
-  if (motionPreference.matches || !desktopWheelInput.matches) return;
-
-  smoothScroll = new Lenis({
-    anchors: true,
-    autoRaf: true,
-    lerp: 0.1,
-    smoothWheel: true,
-    syncTouch: false,
-    wheelMultiplier: 0.9,
-  });
-  smoothScroll.on("scroll", schedulePageProgress);
-  document.documentElement.dataset.scrollEngine = "lenis";
-};
-
 window.addEventListener("scroll", schedulePageProgress, { passive: true });
 window.addEventListener("resize", schedulePageProgress);
 window.addEventListener("load", schedulePageProgress, { once: true });
@@ -181,10 +74,6 @@ if ("ResizeObserver" in window) {
   new ResizeObserver(schedulePageProgress).observe(document.documentElement);
 }
 schedulePageProgress();
-
-desktopWheelInput.addEventListener("change", setUpSmoothScroll);
-motionPreference.addEventListener("change", setUpSmoothScroll);
-setUpSmoothScroll();
 
 const roleBands = [...document.querySelectorAll("[data-role-band]")];
 const mobileRoleMotion = window.matchMedia(
@@ -222,3 +111,42 @@ const setUpRoleBandMotion = () => {
 mobileRoleMotion.addEventListener("change", setUpRoleBandMotion);
 motionPreference.addEventListener("change", setUpRoleBandMotion);
 setUpRoleBandMotion();
+
+const contactForm = document.querySelector("[data-contact-form]");
+const contactStatus = document.querySelector("[data-contact-status]");
+
+contactForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const data = new FormData(contactForm);
+  const name = String(data.get("name") ?? "").trim();
+  const email = String(data.get("email") ?? "").trim();
+  const stage = String(data.get("stage") ?? "").trim();
+  const brief = String(data.get("brief") ?? "").trim();
+  const address = contactForm.dataset.contactAddress;
+
+  if (!address) {
+    if (contactStatus) {
+      contactStatus.textContent =
+        "The contact address is unavailable. Please use Telegram instead.";
+    }
+    return;
+  }
+
+  const subject = encodeURIComponent(`ER11 enquiry from ${name}`);
+  const body = encodeURIComponent(
+    [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Product stage: ${stage}`,
+      "",
+      brief,
+    ].join("\n"),
+  );
+
+  if (contactStatus) {
+    contactStatus.textContent = "Opening your email application…";
+  }
+
+  window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
+});

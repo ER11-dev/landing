@@ -1,0 +1,71 @@
+---
+const partners = [
+  { name: "RePay", href: "https://repay.ws/" },
+  { name: "CasherCollection", href: "https://cashercollection.com/" },
+  { name: "Simpol Lab", href: "https://ae.linkedin.com/company/simpollab" },
+  { name: "MY.GAMES", href: "https://my.games/ru-RU" },
+  { name: "GGsel", href: "https://ggsel.net/" },
+  { name: "WantToPay", href: "https://t.me/WantToPayBot" },
+  { name: "EscapeWelt", href: "https://ru.escapewelt.com/" },
+  { name: "AiDeal", href: "https://aideal.digital/" },
+];
+
+interface Props {
+  externalLinks?: boolean;
+}
+
+const { externalLinks = true } = Astro.props;
+---
+
+<section class="partners" aria-labelledby="partners-title">
+  <div class="partners__intro">
+    <h2 id="partners-title">Experience clients can verify.</h2>
+    <p>
+      Selected client and partner work published by Alexander Tishchenko, our
+      Product / UX lead.
+      {
+        externalLinks ? (
+          <a href="https://ceofigma.vercel.app/#about">
+            View the source portfolio
+          </a>
+        ) : (
+          <span>Sources are available in the Upwork conversation</span>
+        )
+      }.
+    </p>
+  </div>
+  <div
+    class="partners__marquee"
+    aria-label="Selected client and partner experience"
+  >
+    <div class="partners__track">
+      {
+        [false, true].map((duplicate) => (
+          <div
+            class="partners__group"
+            aria-hidden={duplicate ? "true" : undefined}
+          >
+            {partners.map(({ name, href }, index) =>
+              externalLinks ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  tabindex={duplicate ? "-1" : undefined}
+                >
+                  <span>0{index + 1}</span>
+                  {name}
+                </a>
+              ) : (
+                <span class="partners__name">
+                  <i>0{index + 1}</i>
+                  {name}
+                </span>
+              ),
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -542,39 +542,3 @@ main{margin-left:calc(var(--rail) + 10px);overflow:clip}
   .er11-logo__base,.er11-logo__slice,.er11-logo::before,.er11-logo::after{animation:none!important}
   .er11-logo__slice,.er11-logo::before,.er11-logo::after{opacity:0!important}
 }
-
-/* Transparent graffiti overspray with irregular large and small dots. */
-body,
-.hero,
-.proof-index,
-.mobile-bar,
-.role-band,
-.offers,
-.final-proof{
-  --spray-position:0 0;
-  background-image:url("/graphics/spray-mesh.svg");
-  background-position:var(--spray-position);
-  background-repeat:repeat;
-  background-size:520px 340px;
-}
-
-.hero{--spray-position:-74px 22px}
-.proof-index{--spray-position:-18px -40px}
-.mobile-bar{--spray-position:48px -82px}
-.role-band--product{--spray-position:-112px 18px}
-.role-band--frontend{--spray-position:76px -96px}
-.role-band--backend{--spray-position:-34px -188px}
-.offers{--spray-position:132px -44px}
-.final-proof{--spray-position:-168px 84px}
-
-@media(max-width:760px){
-  body,
-  .hero,
-  .proof-index,
-  .mobile-bar,
-  .role-band,
-  .final-proof,
-  .offers{
-    background-size:430px 281px;
-  }
-}

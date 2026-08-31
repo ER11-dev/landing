@@ -30,7 +30,7 @@ The initial niche is working B2B prototypes that perform in a demo but need prod
 
 Prospective clients are expected to evaluate the team alongside other Upwork freelancers or agencies. The landing page supports that evaluation and should lead clients toward a hiring conversation on the team's single Upwork account.
 
-The engagement model, project size, and delivery process are still undecided. The account model is fixed: the team uses one Upwork account, with no separate member contact paths.
+The engagement model, project size, and delivery process are still undecided. For Upwork-originated prospects, the team uses one Upwork account and keeps that route free of separate member contact paths. The main public route may also support direct enquiries.
 
 The external landing page is a proof layer. The single Upwork account remains the canonical conversation, verification, and transaction layer for Upwork prospects.
 
@@ -42,13 +42,13 @@ The landing page must build trust and help win qualified work. Exact preferred f
 
 The landing implementation is intentionally dependency-light: Astro renders semantic HTML into a static production build, authored CSS/SVG geometry owns the visual system, and a small progressive-enhancement module handles interactions. This keeps the page fast, portable, and easy to host while the team validates the offer.
 
-A version shared with Upwork prospects must not expose an email address, phone number, social handle, external booking tool, lead form, or other off-platform pre-contract contact path. Its conversion action must return the visitor to Upwork.
+A version shared with Upwork prospects must not expose an email address, phone number, social handle, external booking tool, lead form, or other off-platform pre-contract contact path. The `/upwork` route follows this rule and returns the visitor to their Upwork messages. The main route provides an email-composer form and published direct contact paths.
 
 ## Evidence on Hand
 
 The team composition and roles are confirmed. Research on Upwork mechanics, trust evidence, landing-page structure, and compliance is recorded in `research/upwork-landing-design.md`.
 
-No portfolio projects, client names, testimonials, Upwork metrics, certifications, quantified outcomes, or other proof assets have been provided yet. Future work must not invent them.
+Alexander Tishchenko's public portfolio provides attributable Product / UX client experience, case links, and direct contact details. These may be used only with clear role attribution; they are not evidence for the whole team. No testimonials, Upwork metrics, certifications, quantified outcomes, or engineering client cases have been provided. Future work must not invent them.
 
 ## Product Principles
 

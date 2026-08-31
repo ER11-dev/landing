@@ -1,0 +1,35 @@
+---
+import ProofIndex from "./ProofIndex.astro";
+import Hero from "./Hero.astro";
+import RoleBands from "./RoleBands.astro";
+import Partners from "./Partners.astro";
+import Cases from "./Cases.astro";
+import Readiness from "./Readiness.astro";
+import Offers from "./Offers.astro";
+import Team from "./Team.astro";
+import Fit from "./Fit.astro";
+import Faq from "./Faq.astro";
+import Contact from "./Contact.astro";
+
+interface Props {
+  upworkSafe?: boolean;
+}
+
+const { upworkSafe = false } = Astro.props;
+---
+
+<ProofIndex contactLabel={upworkSafe ? "Back to Upwork" : "Start a project"} />
+<main id="main">
+  <Hero primaryLabel={upworkSafe ? "Continue on Upwork" : "Start a project"} />
+  <RoleBands />
+  <Partners externalLinks={!upworkSafe} />
+  <Cases externalLinks={!upworkSafe} />
+  <Readiness />
+  <Offers
+    actionLabel={upworkSafe ? "Continue on Upwork" : "Discuss this scope"}
+  />
+  <Team externalLinks={!upworkSafe} />
+  <Fit />
+  <Faq />
+  <Contact mode={upworkSafe ? "upwork" : "direct"} />
+</main>
