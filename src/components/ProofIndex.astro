@@ -42,7 +42,9 @@ const { contactLabel = "Start a project" } = Astro.props;
       />
     </span>
   </a>
-  <p class="proof-index__label">Proof index</p>
+  <p class="proof-index__label">
+    <span>Proof index</span><b aria-hidden="true">CH 11</b>
+  </p>
   <nav class="proof-index__nav" aria-label="Landing page sections">
     {
       sections.map(({ id, number, label }) => (
@@ -72,7 +74,11 @@ const { contactLabel = "Start a project" } = Astro.props;
       <i></i><i></i><i></i><b>One team</b>
     </span>
   </div>
-  <span class="registration-mark" aria-hidden="true"></span>
+  <div class="proof-index__tuner" aria-hidden="true">
+    <span class="proof-index__tuner-status"><i></i>Sync</span>
+    <span class="registration-mark"></span>
+    <span class="proof-index__tuner-channel"><b>11</b>Ch</span>
+  </div>
 </aside>
 
 <header class="mobile-bar">
