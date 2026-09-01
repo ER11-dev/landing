@@ -1,10 +1,13 @@
 ---
+import TechnologyTool from "./TechnologyTool.astro";
+
 const lanes = [
   {
     number: "01",
     discipline: "Product / UX",
     summary: "Flows, systems, and a handoff engineers can trust.",
     className: "product",
+    featured: ["Figma"],
     groups: [
       {
         tools: [
@@ -24,6 +27,7 @@ const lanes = [
     discipline: "Frontend",
     summary: "Typed interfaces with a production-ready delivery path.",
     className: "frontend",
+    featured: ["TypeScript", "React", "Next.js"],
     groups: [
       {
         tools: [
@@ -87,6 +91,7 @@ const lanes = [
     discipline: "Backend",
     summary: "Fast services, durable data, and observable runtime behavior.",
     className: "backend",
+    featured: ["Go", "PostgreSQL", "Docker"],
     groups: [
       {
         name: "Languages",
@@ -225,64 +230,80 @@ const toolCount = lanes.reduce(
     </div>
 
     {
-      lanes.map(({ number, discipline, summary, className, groups }) => {
-        let toolIndex = 0;
-        return (
-          <section
-            class={`technology-lane technology-lane--${className}`}
-            aria-labelledby={`technology-${className}`}
-          >
-            <header class="technology-lane__owner">
-              <span>{number}</span>
-              <div>
-                <h3 id={`technology-${className}`}>{discipline}</h3>
-                <p>{summary}</p>
-              </div>
-            </header>
-            <div class="technology-lane__groups">
-              {groups.map((group) => (
-                <section class="technology-group">
-                  {group.name && <h4>{group.name}</h4>}
-                <ul style={`--tool-count:${Math.min(group.tools.length, 3)}`}>
-                    {group.tools.map((tool) => {
-                      const index = toolIndex++;
-                      return (
-                        <li style={`--tool-order:${index}`}>
-                          <span class="technology-tool__index">
-                            {number}.{String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span
-                            class="technology-tool__mark"
-                            aria-hidden="true"
-                          >
-                            <span class="technology-tool__registration" />
-                            {tool.logo ? (
-                              <img
-                                src={tool.logo}
-                                alt=""
-                                width={tool.width}
-                                height={tool.height}
-                                loading="lazy"
-                                decoding="async"
-                              />
-                            ) : (
-                              <b>{tool.mark}</b>
-                            )}
-                          </span>
-                          <span class="technology-tool__label">
-                            <b>{tool.name}</b>
-                            <small>{tool.role}</small>
-                          </span>
-                        </li>
-                      );
-                    })}
+      lanes.map(
+        ({ number, discipline, summary, className, groups, featured }) => {
+          const allTools = groups.flatMap((group) => group.tools);
+          const featuredTools = featured
+            .map((name) => allTools.find((tool) => tool.name === name))
+            .filter(Boolean);
+          const remainingGroups = groups
+            .map((group) => ({
+              ...group,
+              tools: group.tools.filter(
+                (tool) => !featured.includes(tool.name),
+              ),
+            }))
+            .filter((group) => group.tools.length > 0);
+          let toolIndex = featuredTools.length;
+
+          return (
+            <section
+              class={`technology-lane technology-lane--${className}`}
+              aria-labelledby={`technology-${className}`}
+            >
+              <header class="technology-lane__owner">
+                <span>{number}</span>
+                <div>
+                  <h3 id={`technology-${className}`}>{discipline}</h3>
+                  <p>{summary}</p>
+                </div>
+              </header>
+              <div class="technology-lane__content">
+                <div class="technology-lane__featured">
+                  <ul style={`--tool-count:${featuredTools.length}`}>
+                    {featuredTools.map((tool, index) => (
+                      <TechnologyTool {tool} {number} {index} />
+                    ))}
                   </ul>
-                </section>
-              ))}
-            </div>
-          </section>
-        );
-      })
+                </div>
+
+                {remainingGroups.length > 0 && (
+                  <details class="technology-disclosure">
+                    <summary>
+                      <span>View full {discipline} register</span>
+                      <span>
+                        {String(allTools.length).padStart(2, "0")} skills
+                      </span>
+                      <i aria-hidden="true" />
+                    </summary>
+                    <div class="technology-disclosure__body">
+                      <div class="technology-disclosure__inner">
+                        <div class="technology-lane__groups">
+                          {remainingGroups.map((group) => (
+                            <section class="technology-group">
+                              {group.name && <h4>{group.name}</h4>}
+                              <ul
+                                style={`--tool-count:${Math.min(group.tools.length, 3)}`}
+                              >
+                                {group.tools.map((tool) => {
+                                  const index = toolIndex++;
+                                  return (
+                                    <TechnologyTool {tool} {number} {index} />
+                                  );
+                                })}
+                              </ul>
+                            </section>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                )}
+              </div>
+            </section>
+          );
+        },
+      )
     }
 
     <footer class="technology-register__footer">

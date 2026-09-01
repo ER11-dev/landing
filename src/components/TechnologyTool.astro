@@ -1,0 +1,43 @@
+---
+interface Props {
+  tool: {
+    name: string;
+    role: string;
+    mark?: string;
+    logo?: string;
+    width?: number;
+    height?: number;
+  };
+  number: string;
+  index: number;
+}
+
+const { tool, number, index } = Astro.props;
+---
+
+<li style={`--tool-order:${index}`}>
+  <span class="technology-tool__index">
+    {number}.{String(index + 1).padStart(2, "0")}
+  </span>
+  <span class="technology-tool__mark" aria-hidden="true">
+    <span class="technology-tool__registration"></span>
+    {
+      tool.logo ? (
+        <img
+          src={tool.logo}
+          alt=""
+          width={tool.width}
+          height={tool.height}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <b>{tool.mark}</b>
+      )
+    }
+  </span>
+  <span class="technology-tool__label">
+    <b>{tool.name}</b>
+    <small>{tool.role}</small>
+  </span>
+</li>
