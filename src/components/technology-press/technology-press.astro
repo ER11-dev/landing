@@ -2,13 +2,36 @@
 import TechnologyTool from "../technology-tool/technology-tool.astro";
 import "./technology-press.module.css";
 
+interface TechnologyToolData {
+  name: string;
+  role: string;
+  mark?: string;
+  logo?: string;
+  width?: number;
+  height?: number;
+}
+
+interface TechnologyGroup {
+  name?: string;
+  tools: TechnologyToolData[];
+}
+
+interface TechnologyLane {
+  number: string;
+  discipline: string;
+  summary: string;
+  className: string;
+  featured: string[];
+  groups: TechnologyGroup[];
+}
+
 const icon = (collection: string, name: string, color?: string) => ({
   logo: `https://api.iconify.design/${collection}/${name}.svg${color ? `?color=${encodeURIComponent(color)}` : ""}`,
   width: 24,
   height: 24,
 });
 
-const lanes = [
+const lanes: TechnologyLane[] = [
   {
     number: "01",
     discipline: "Product / UX",
@@ -343,7 +366,7 @@ const toolCount = lanes.reduce(
           const allTools = groups.flatMap((group) => group.tools);
           const featuredTools = featured
             .map((name) => allTools.find((tool) => tool.name === name))
-            .filter(Boolean);
+            .filter((tool): tool is TechnologyToolData => Boolean(tool));
           const remainingGroups = groups
             .map((group) => ({
               ...group,

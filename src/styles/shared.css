@@ -147,7 +147,7 @@ main {
 }
 
 .section-heading--team {
-  grid-template-columns: 90px minmax(300px, 0.9fr) minmax(320px, 1.1fr);
+  grid-template-columns: 90px minmax(440px, 1.3fr) minmax(300px, 0.7fr);
   align-items: stretch;
   margin-bottom: 38px;
   border-top: 1px solid var(--ink);

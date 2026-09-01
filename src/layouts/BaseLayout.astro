@@ -4,12 +4,25 @@ import "../styles/index.css";
 interface Props {
   title: string;
   description: string;
+  socialImagePath?: string;
+  socialImageAlt?: string;
+  ogType?: "website" | "article";
+  bodyClass?: string;
+  designContract?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  socialImagePath = "/graphics/proof-assembly.webp",
+  socialImageAlt = "ER11 production proof collage",
+  ogType = "website",
+  bodyClass,
+  designContract,
+} = Astro.props;
 const siteOrigin = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin);
-const socialImage = new URL("/graphics/proof-assembly.webp", siteOrigin);
+const socialImage = new URL(socialImagePath, siteOrigin);
 ---
 
 <!doctype html>
@@ -20,13 +33,13 @@ const socialImage = new URL("/graphics/proof-assembly.webp", siteOrigin);
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f4f1e8" />
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="ER11" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:image:alt" content="ER11 production proof collage" />
+    <meta property="og:image:alt" content={socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -34,7 +47,12 @@ const socialImage = new URL("/graphics/proof-assembly.webp", siteOrigin);
     <title>{title}</title>
     <link rel="icon" href="/er11-logo.svg" type="image/svg+xml" />
   </head>
-  <body>
+  <body class={bodyClass}>
+    {
+      designContract && (
+        <Fragment set:html={`<!--\n${designContract.trim()}\n-->`} />
+      )
+    }
     <a class="skip-link" href="#main">Skip to the page</a>
     <slot />
     <script src="../scripts/site.js"></script>
