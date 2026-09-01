@@ -1,50 +1,13 @@
 ---
 import ArrowIcon from "../arrow-icon/arrow-icon.astro";
+import type { ProjectSummary } from "../../lib/content/domain";
 import "./cases.module.css";
 
-const cases = [
-  {
-    number: "01",
-    type: "B2B CRM · Product / UX",
-    title: "Lead operations desk",
-    copy: "A complete interface design cycle for a sales team managing high-volume lead operations and handoffs.",
-    evidence: [
-      "Workflow architecture",
-      "Complex operational UI",
-      "Published case study",
-    ],
-    href: "https://ceofigma.vercel.app/case-siakera.html",
-    action: "Open case study",
-  },
-  {
-    number: "02",
-    type: "Fintech · Product / UX",
-    title: "RePay",
-    copy: "A high-risk payments landing and private management interface designed for real client operations.",
-    evidence: ["Product design", "Fintech interface", "Live public resource"],
-    href: "https://repay.ws/",
-    action: "Open RePay",
-  },
-  {
-    number: "03",
-    type: "Agency · UI/UX collaboration",
-    title: "AGC Burya",
-    copy: "A published agency interface collaboration covering visual direction, information structure, and final UI.",
-    evidence: [
-      "Interface architecture",
-      "Team collaboration",
-      "Public Behance case",
-    ],
-    href: "https://www.behance.net/gallery/162252379/AGC-BURYA-UIUX-DESIGN",
-    action: "Open Behance case",
-  },
-];
-
 interface Props {
-  externalLinks?: boolean;
+  projects: ProjectSummary[];
 }
 
-const { externalLinks = true } = Astro.props;
+const { projects } = Astro.props;
 ---
 
 <section
@@ -64,36 +27,29 @@ const { externalLinks = true } = Astro.props;
   </div>
   <div class="cases__ledger">
     {
-      cases.map(({ number, type, title, copy, evidence, href, action }) => (
-        <article class="cases__row">
+      projects.map((project) => (
+        <article class:list={["cases__row", `cases__row--${project.accent}`]}>
           <header>
             <>
-              <b>{number}</b>
-              <span>{type}</span>
+              <b>{project.number}</b>
+              <span>{project.type}</span>
             </>
           </header>
           <div class="cases__row-body">
             <>
-              <h3>{title}</h3>
-              <p>{copy}</p>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
             </>
           </div>
           <ul>
-            {evidence.map((item) => (
+            {project.evidence.map((item) => (
               <li>{item}</li>
             ))}
           </ul>
-          {externalLinks ? (
-            <a href={href} target="_blank" rel="noreferrer">
-              {action}
-              <ArrowIcon />
-            </a>
-          ) : (
-            <span class="cases__row-source">
-              Source available in Upwork
-              <ArrowIcon />
-            </span>
-          )}
+          <a href={project.detailPath}>
+            Inspect project
+            <ArrowIcon />
+          </a>
         </article>
       ))
     }
