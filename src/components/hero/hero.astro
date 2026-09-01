@@ -1,5 +1,6 @@
 ---
 import ArrowIcon from "../arrow-icon/arrow-icon.astro";
+import RegistrationIcon from "../registration-icon/registration-icon.astro";
 import "./hero.module.css";
 
 interface Props {
@@ -51,6 +52,18 @@ const { primaryHref = "#contact", primaryLabel = "Start a project" } =
     <span><i class="hero__swatch hero__swatch--cyan"></i>Frontend</span>
     <span><i class="hero__swatch hero__swatch--yellow"></i>Backend</span>
     <small>Three ownership layers. One production path.</small>
+    <div class="hero__press-check">
+      <button
+        type="button"
+        data-press-check
+        aria-describedby="press-check-status"
+      >
+        <span>Run press check</span><RegistrationIcon />
+      </button>
+      <small id="press-check-status" data-press-check-status aria-live="polite">
+        Ready — 03 layers queued
+      </small>
+    </div>
   </div>
   <a class="hero__cta" href={primaryHref} data-seal-glitch
     ><span>{primaryLabel}</span><ArrowIcon /></a

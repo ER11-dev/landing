@@ -1,12 +1,24 @@
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
-new Lenis({
-  anchors: true,
-  autoRaf: true,
-});
-
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+let lenis;
+
+const syncSmoothScroll = () => {
+  lenis?.destroy();
+  lenis = undefined;
+
+  if (!motionPreference.matches) {
+    lenis = new Lenis({
+      anchors: true,
+      autoRaf: true,
+    });
+  }
+};
+
+motionPreference.addEventListener("change", syncSmoothScroll);
+syncSmoothScroll();
 
 const indexLinks = [...document.querySelectorAll("[data-index-link]")];
 const sections = [...document.querySelectorAll("[data-index-section]")];
@@ -142,6 +154,31 @@ const scheduleSealGlitch = () => {
 document.addEventListener("visibilitychange", scheduleSealGlitch);
 motionPreference.addEventListener("change", scheduleSealGlitch);
 scheduleSealGlitch();
+
+const hero = document.querySelector(".hero");
+const pressCheck = document.querySelector("[data-press-check]");
+const pressCheckStatus = document.querySelector("[data-press-check-status]");
+let pressCheckTimer;
+
+const runPressCheck = () => {
+  if (!hero || !pressCheck) return;
+
+  window.clearTimeout(pressCheckTimer);
+  hero.classList.remove("is-registering");
+  void hero.offsetWidth;
+  hero.classList.add("is-registering");
+  pressCheck.classList.add("is-registered");
+
+  if (pressCheckStatus) {
+    pressCheckStatus.textContent = "Registered — 03 layers locked";
+  }
+
+  pressCheckTimer = window.setTimeout(() => {
+    hero.classList.remove("is-registering");
+  }, 1000);
+};
+
+pressCheck?.addEventListener("click", runPressCheck);
 
 const contactForm = document.querySelector("[data-contact-form]");
 const contactStatus = document.querySelector("[data-contact-status]");

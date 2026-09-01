@@ -39,6 +39,40 @@
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
+  transition:
+    background-color 180ms ease-out,
+    color 180ms ease-out,
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+:global(.final-proof__action)::before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--cyan) 0 33.33%,
+    var(--magenta) 33.33% 66.66%,
+    var(--yellow) 66.66%
+  );
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+:global(.final-proof__action):hover,
+:global(.final-proof__action):focus-visible {
+  background: var(--ink);
+  color: var(--paper-bright);
+  transform: translateY(-2px);
+}
+:global(.final-proof__action):hover::before,
+:global(.final-proof__action):focus-visible::before {
+  transform: scaleX(1);
+}
+:global(.final-proof__action):active {
+  transform: translateY(0);
 }
 :global(.final-proof__action) svg {
   width: 34px;
