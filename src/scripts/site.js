@@ -8,6 +8,54 @@ new Lenis({
 
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+const hero = document.querySelector(".hero");
+const heroProof = hero?.querySelector(".hero__art img");
+let heroRegistrationTimer;
+let heroRegistrationStarted = false;
+
+const runHeroRegistration = () => {
+  if (
+    !hero ||
+    heroRegistrationStarted ||
+    motionPreference.matches ||
+    document.hidden
+  ) {
+    return;
+  }
+
+  heroRegistrationStarted = true;
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      hero.classList.add("is-registering");
+      heroRegistrationTimer = window.setTimeout(
+        () => hero.classList.remove("is-registering"),
+        1260,
+      );
+    });
+  });
+};
+
+const scheduleHeroRegistration = () => {
+  if (heroProof?.complete) runHeroRegistration();
+  else {
+    heroProof?.addEventListener("load", runHeroRegistration, { once: true });
+    heroProof?.addEventListener("error", runHeroRegistration, { once: true });
+  }
+};
+
+window.addEventListener("load", scheduleHeroRegistration, { once: true });
+if (document.readyState === "complete") scheduleHeroRegistration();
+
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) scheduleHeroRegistration();
+});
+
+motionPreference.addEventListener("change", () => {
+  if (!motionPreference.matches) return;
+  window.clearTimeout(heroRegistrationTimer);
+  hero?.classList.remove("is-registering");
+});
+
 const indexLinks = [...document.querySelectorAll("[data-index-link]")];
 const sections = [...document.querySelectorAll("[data-index-section]")];
 const proofIndex = document.querySelector(".proof-index");
@@ -119,29 +167,6 @@ const setUpRoleBandMotion = () => {
 mobileRoleMotion.addEventListener("change", setUpRoleBandMotion);
 motionPreference.addEventListener("change", setUpRoleBandMotion);
 setUpRoleBandMotion();
-
-const sealGlitch = document.querySelector("[data-seal-glitch]");
-let sealGlitchTimer;
-
-const scheduleSealGlitch = () => {
-  window.clearTimeout(sealGlitchTimer);
-  if (!sealGlitch || motionPreference.matches || document.hidden) return;
-
-  sealGlitchTimer = window.setTimeout(
-    () => {
-      sealGlitch.classList.add("is-glitching");
-      window.setTimeout(() => {
-        sealGlitch.classList.remove("is-glitching");
-        scheduleSealGlitch();
-      }, 760);
-    },
-    4200 + Math.random() * 4600,
-  );
-};
-
-document.addEventListener("visibilitychange", scheduleSealGlitch);
-motionPreference.addEventListener("change", scheduleSealGlitch);
-scheduleSealGlitch();
 
 const contactForm = document.querySelector("[data-contact-form]");
 const contactStatus = document.querySelector("[data-contact-status]");

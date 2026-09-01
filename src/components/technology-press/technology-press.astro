@@ -14,14 +14,90 @@ const lanes = [
     discipline: "Product / UX",
     summary: "Flows, systems, and a handoff engineers can trust.",
     className: "product",
-    featured: ["Figma"],
+    featured: ["Adobe Creative Cloud", "Pixso", "Claude"],
     groups: [
       {
+        name: "Design workspace",
         tools: [
           {
-            name: "Figma",
-            role: "Product systems",
-            ...icon("logos", "figma"),
+            name: "Adobe Creative Cloud",
+            role: "Creative production",
+            ...icon("cib", "adobe-creative-cloud"),
+          },
+          {
+            name: "Pixso",
+            role: "Interface design",
+            mark: "PX",
+          },
+          {
+            name: "Claude",
+            role: "AI-assisted workflow",
+            ...icon("simple-icons", "anthropic"),
+          },
+        ],
+      },
+      {
+        name: "Interface systems",
+        tools: [
+          {
+            name: "Material Design",
+            role: "Android patterns",
+            ...icon("simple-icons", "materialdesign"),
+          },
+          {
+            name: "Human Interface Guidelines",
+            role: "Apple platform patterns",
+            ...icon("logos", "apple"),
+          },
+          {
+            name: "HTML & CSS",
+            role: "Implementation fluency",
+            ...icon("logos", "html-5"),
+          },
+          {
+            name: "Mobile",
+            role: "Responsive & native UI",
+            ...icon("mdi", "cellphone"),
+          },
+        ],
+      },
+      {
+        name: "Delivery",
+        tools: [
+          {
+            name: "Agile principles",
+            role: "Iterative delivery",
+            ...icon("mdi", "sync-circle"),
+          },
+          {
+            name: "Jira / YouTrack",
+            role: "Project tracking",
+            ...icon("logos", "jira"),
+          },
+        ],
+      },
+      {
+        name: "Optional production",
+        tools: [
+          {
+            name: "DaVinci Resolve",
+            role: "Video post-production",
+            ...icon("simple-icons", "davinciresolve"),
+          },
+          {
+            name: "Blender",
+            role: "3D production",
+            ...icon("logos", "blender"),
+          },
+          {
+            name: "Cinema 4D",
+            role: "3D motion design",
+            ...icon("simple-icons", "cinema4d"),
+          },
+          {
+            name: "3ds Max",
+            role: "3D modeling",
+            ...icon("simple-icons", "autodesk"),
           },
         ],
       },
