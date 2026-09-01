@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Landing from "../../components/landing/landing.astro";
+import { loadLandingProjects, readContentSiteKey } from "../../lib/content";
+
+export const prerender = false;
+
+const title = "ER11 — От работающего прототипа к готовому продукту";
+const description =
+  "Компактная команда уровня senior, которая превращает B2B-прототипы в надёжные продукты для реальных пользователей.";
+const projects = await loadLandingProjects({
+  siteKey: readContentSiteKey(),
+  channel: "direct",
+});
+---
+
+<BaseLayout {title} {description} locale="ru" alternatePath="/">
+  <Landing {projects} />
+</BaseLayout>

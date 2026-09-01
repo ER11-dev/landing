@@ -75,6 +75,38 @@ svg {
 .skip-link:focus {
   transform: translate(-50%, 12px);
 }
+.language-switcher {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 31;
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  background: var(--paper-bright);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+.language-switcher:hover,
+.language-switcher:focus-visible {
+  background: var(--ink);
+  color: var(--paper-bright);
+}
+@media (max-width: 760px) {
+  .language-switcher {
+    top: 7px;
+    right: 66px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+  }
+}
 :focus-visible {
   outline: 3px solid var(--green);
   outline-offset: 4px;

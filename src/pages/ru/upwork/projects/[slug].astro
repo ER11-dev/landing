@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ProjectPage from "../../../../components/project-page/project-page.astro";
+import { loadProjectPage, readContentSiteKey } from "../../../../lib/content";
+
+export const prerender = false;
+
+const slug = Astro.params.slug ?? "";
+const page = await loadProjectPage({
+  siteKey: readContentSiteKey(),
+  slug,
+  channel: "upwork",
+});
+const title = page?.project.seoTitle ?? "Проект не найден — ER11";
+const description = page?.project.seoDescription ?? "Запрошенный проект ER11 недоступен.";
+---
+
+<BaseLayout {title} {description} locale="ru" alternatePath={`/upwork/projects/${encodeURIComponent(slug)}`} ogType="article">
+  {page ? <ProjectPage {page} channel="upwork" /> : <main id="main"><h1>Проект не найден</h1><a href="/ru/upwork#cases">К выбранным работам</a></main>}
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Landing from "../../components/landing/landing.astro";
+import { loadLandingProjects, readContentSiteKey } from "../../lib/content";
+
+export const prerender = false;
+
+const title = "ER11 — Команда разработки продукта на Upwork";
+const description = "Безопасная для Upwork витрина доказательств команды ER11.";
+const projects = await loadLandingProjects({
+  siteKey: readContentSiteKey(),
+  channel: "upwork",
+});
+---
+
+<BaseLayout {title} {description} locale="ru" alternatePath="/upwork">
+  <Landing {projects} upworkSafe />
+</BaseLayout>

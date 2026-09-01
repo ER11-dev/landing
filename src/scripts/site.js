@@ -192,6 +192,7 @@ scheduleSealGlitch();
 
 const pressCheck = document.querySelector("[data-press-check]");
 const pressCheckStatus = document.querySelector("[data-press-check-status]");
+const isRussian = document.documentElement.lang === "ru";
 let pressCheckTimer;
 
 const runPressCheck = () => {
@@ -204,7 +205,9 @@ const runPressCheck = () => {
   pressCheck.classList.add("is-registered");
 
   if (pressCheckStatus) {
-    pressCheckStatus.textContent = "Registered — 03 layers locked";
+    pressCheckStatus.textContent = isRussian
+      ? "Сведено — 03 слоя закреплены"
+      : "Registered — 03 layers locked";
   }
 
   pressCheckTimer = window.setTimeout(() => {
@@ -270,24 +273,30 @@ contactForm?.addEventListener("submit", (event) => {
   if (!address) {
     if (contactStatus) {
       contactStatus.textContent =
-        "The contact address is unavailable. Please use Telegram instead.";
+        isRussian
+          ? "Адрес для связи недоступен. Пожалуйста, используйте Telegram."
+          : "The contact address is unavailable. Please use Telegram instead.";
     }
     return;
   }
 
-  const subject = encodeURIComponent(`ER11 enquiry from ${name}`);
+  const subject = encodeURIComponent(
+    isRussian ? `Запрос ER11 от ${name}` : `ER11 enquiry from ${name}`,
+  );
   const body = encodeURIComponent(
     [
-      `Name: ${name}`,
+      `${isRussian ? "Имя" : "Name"}: ${name}`,
       `Email: ${email}`,
-      `Product stage: ${stage}`,
+      `${isRussian ? "Стадия продукта" : "Product stage"}: ${stage}`,
       "",
       brief,
     ].join("\n"),
   );
 
   if (contactStatus) {
-    contactStatus.textContent = "Opening your email application…";
+    contactStatus.textContent = isRussian
+      ? "Открываем почтовое приложение…"
+      : "Opening your email application…";
   }
 
   window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
