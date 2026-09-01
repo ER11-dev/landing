@@ -112,6 +112,29 @@ mobileRoleMotion.addEventListener("change", setUpRoleBandMotion);
 motionPreference.addEventListener("change", setUpRoleBandMotion);
 setUpRoleBandMotion();
 
+const sealGlitch = document.querySelector("[data-seal-glitch]");
+let sealGlitchTimer;
+
+const scheduleSealGlitch = () => {
+  window.clearTimeout(sealGlitchTimer);
+  if (!sealGlitch || motionPreference.matches || document.hidden) return;
+
+  sealGlitchTimer = window.setTimeout(
+    () => {
+      sealGlitch.classList.add("is-glitching");
+      window.setTimeout(() => {
+        sealGlitch.classList.remove("is-glitching");
+        scheduleSealGlitch();
+      }, 560);
+    },
+    6500 + Math.random() * 6500,
+  );
+};
+
+document.addEventListener("visibilitychange", scheduleSealGlitch);
+motionPreference.addEventListener("change", scheduleSealGlitch);
+scheduleSealGlitch();
+
 const contactForm = document.querySelector("[data-contact-form]");
 const contactStatus = document.querySelector("[data-contact-status]");
 
