@@ -42,45 +42,6 @@ body::before {
   animation: proof-index-scan 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.proof-index__label {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 5px;
-}
-
-.proof-index__label b {
-  align-self: center;
-  padding: 3px;
-  background: var(--ink);
-  color: var(--paper-bright);
-  font-size: 5px;
-  line-height: 1;
-  letter-spacing: 0.04em;
-}
-
-.proof-index__nav a::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--magenta) 0 33.33%,
-    var(--cyan) 33.33% 66.66%,
-    var(--yellow) 66.66%
-  );
-  content: "";
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.proof-index__nav a.is-current::after {
-  transform: scaleX(1);
-  animation: proof-index-lock 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
 .proof-index__nav a.is-current b {
   text-shadow:
     -1px 0 var(--cyan),
