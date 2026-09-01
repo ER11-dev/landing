@@ -1190,3 +1190,78 @@ main{margin-left:var(--rail);overflow:clip}
     transition: none;
   }
 }
+
+/* ER11 annotated refinement: stronger fit signals and responsive proof ledgers */
+.readiness .section-heading--compact {
+  grid-template-columns: 90px minmax(0, 1fr);
+}
+.readiness .section-heading--compact h2 {
+  max-width: none;
+}
+.technology-press {
+  overflow: clip;
+}
+.fit-column--good header {
+  background: color-mix(in srgb, var(--green) 17%, var(--paper-bright));
+}
+.fit-column--bad header {
+  background: color-mix(in srgb, var(--magenta) 24%, var(--paper-bright));
+}
+.fit-column--bad header > b {
+  background: var(--magenta);
+  color: var(--ink);
+}
+.fit-column--good li {
+  background: color-mix(in srgb, var(--green) 7%, var(--paper-bright));
+}
+.fit-column--bad li {
+  background: color-mix(in srgb, var(--magenta) 8%, var(--paper-bright));
+}
+.fit-column--bad li > b {
+  color: var(--magenta-ink);
+}
+
+@media (min-width: 981px) {
+  .technology-lane:has(.technology-disclosure[open]) .technology-lane__owner {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    min-height: 100vh;
+    align-self: start;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .technology-lane:has(.technology-disclosure[open]) .technology-lane__owner {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+}
+
+@media (max-width: 1120px) {
+  .readiness__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .readiness-art {
+    min-height: 0;
+    aspect-ratio: 2.2/1;
+    border-bottom: 1px solid var(--ink);
+  }
+  .readiness__body .readiness-ledger {
+    border-left: 0;
+  }
+  .readiness__body .ledger-head,
+  .readiness__body .readiness-ledger article {
+    grid-template-columns: minmax(160px, 0.7fr) minmax(0, 1.3fr) 124px;
+  }
+}
+
+@media (max-width: 760px) {
+  .readiness-art {
+    aspect-ratio: 1/1.08;
+  }
+  .readiness__body .readiness-ledger article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
