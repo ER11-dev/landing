@@ -1,0 +1,110 @@
+---
+import "./proof-index.module.css";
+
+const sections = [
+  { id: "top", number: "01", label: "Intro" },
+  { id: "cases", number: "02", label: "Work" },
+  { id: "readiness", number: "03", label: "Risk" },
+  { id: "offers", number: "04", label: "Scope" },
+  { id: "team", number: "05", label: "Team" },
+  { id: "stack", number: "06", label: "Stack" },
+  { id: "contact", number: "07", label: "Contact" },
+];
+
+interface Props {
+  contactLabel?: string;
+}
+
+const { contactLabel = "Start a project" } = Astro.props;
+---
+
+<aside class="proof-index" aria-label="Page index">
+  <a class="proof-index__mark" href="#top" aria-label="ER11 — back to top">
+    <span class="er11-logo" aria-hidden="true">
+      <img
+        class="er11-logo__base"
+        src="/er11-logo.svg"
+        alt=""
+        width="555"
+        height="280"
+      />
+      <img
+        class="er11-logo__slice er11-logo__slice--a"
+        src="/er11-logo.svg"
+        alt=""
+        width="555"
+        height="280"
+      />
+      <img
+        class="er11-logo__slice er11-logo__slice--b"
+        src="/er11-logo.svg"
+        alt=""
+        width="555"
+        height="280"
+      />
+    </span>
+  </a>
+  <nav class="proof-index__nav" aria-label="Landing page sections">
+    {
+      sections.map(({ id, number, label }) => (
+        <a href={`#${id}`} data-index-link={id}>
+          <>
+            <b>{number}</b>
+            <span>{label}</span>
+          </>
+        </a>
+      ))
+    }
+  </nav>
+  <div class="proof-index__roles" aria-label="Three connected disciplines">
+    <span class="proof-index__roles-title" aria-hidden="true">
+      <b>Team register</b><i>03 layers</i>
+    </span>
+    <span class="role-key role-key--magenta">
+      <b aria-hidden="true">P</b><span>Product</span>
+    </span>
+    <span class="role-key role-key--cyan">
+      <b aria-hidden="true">F</b><span>Frontend</span>
+    </span>
+    <span class="role-key role-key--yellow">
+      <b aria-hidden="true">B</b><span>Backend</span>
+    </span>
+    <span class="proof-index__roles-lock" aria-hidden="true">
+      <i></i><i></i><i></i><b>One team</b>
+    </span>
+  </div>
+  <div class="proof-index__tuner" aria-hidden="true">
+    <span class="proof-index__tuner-status"><i></i>Sync</span>
+    <span class="registration-mark"></span>
+    <span class="proof-index__tuner-channel"><b>11</b>Ch</span>
+  </div>
+</aside>
+
+<header class="mobile-bar">
+  <a href="#top" class="mobile-bar__mark" aria-label="ER11 — back to top">
+    <span class="er11-logo" aria-hidden="true">
+      <img
+        class="er11-logo__base"
+        src="/er11-logo.svg"
+        alt=""
+        width="555"
+        height="280"
+      />
+      <img
+        class="er11-logo__slice er11-logo__slice--a"
+        src="/er11-logo.svg"
+        alt=""
+        width="555"
+        height="280"
+      />
+      <img
+        class="er11-logo__slice er11-logo__slice--b"
+        src="/er11-logo.svg"
+        alt=""
+        width="555"
+        height="280"
+      />
+    </span>
+  </a>
+  <a href="#contact" class="mobile-bar__action">{contactLabel}</a>
+</header>

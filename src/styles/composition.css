@@ -1,0 +1,71 @@
+body::before {
+  content: none;
+}
+
+.hero,
+.mobile-bar,
+.role-bands__item,
+.offers,
+.final-proof {
+  background-image: none;
+}
+
+.section-heading--team {
+  align-items: stretch;
+}
+
+@media (max-width: 1120px) {
+  .cases__masthead,
+  .contact__heading {
+    grid-template-columns: 88px 1fr;
+  }
+}
+
+@media (max-width: 1120px) {
+  .cases__masthead > span,
+  .contact__heading > span {
+    grid-row: 1 / 3;
+  }
+}
+
+@media (max-width: 1120px) {
+  .cases__masthead p,
+  .contact__heading p {
+    grid-column: 2;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-top: 1px solid currentColor;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .cases__masthead,
+  .contact__heading {
+    grid-template-columns: 68px 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .cases__masthead > span,
+  .contact__heading > span {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 760px) {
+  .cases__masthead h2,
+  .contact__heading h2 {
+    padding: 18px 20px;
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 760px) {
+  .cases__masthead p,
+  .contact__heading p {
+    grid-column: 1 / 3;
+    padding: 16px 18px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,98 @@
+---
+import ArrowIcon from "../arrow-icon/arrow-icon.astro";
+import "./team.module.css";
+
+const members = [
+  {
+    number: "01",
+    name: "Alexander Tishchenko",
+    role: "UX/UI Designer & Product Manager",
+    copy: "Frames the problem, reduces scope ambiguity, designs the flow, and keeps product decisions visible.",
+    className: "magenta",
+    resources: [
+      { label: "Portfolio", href: "https://ceofigma.vercel.app/" },
+      { label: "Behance", href: "https://www.behance.net/vaipll" },
+    ],
+  },
+  {
+    number: "02",
+    name: "Frontend ownership",
+    role: "Frontend Engineer",
+    copy: "Turns the product model into a fast, accessible, maintainable interface that survives real states.",
+    className: "cyan",
+    resources: [{ label: "ER11 source", href: "https://github.com/ER11-dev" }],
+  },
+  {
+    number: "03",
+    name: "Backend ownership",
+    role: "Senior Go Backend Engineer",
+    copy: "Builds dependable services, data flows, permissions, and operations behind the interface.",
+    className: "yellow",
+    resources: [],
+  },
+];
+
+interface Props {
+  externalLinks?: boolean;
+}
+
+const { externalLinks = true } = Astro.props;
+---
+
+<section class="team" id="team" aria-labelledby="team-title" data-index-section>
+  <div class="section-heading section-heading--team">
+    <span class="section-heading__number">05</span>
+    <h2 id="team-title">One product team. Three owners.</h2>
+    <p>
+      Product decisions, interface quality, and backend reliability stay in one
+      conversation. Public links appear only where the evidence is already
+      verifiable.
+    </p>
+  </div>
+  <figure class="team__art">
+    <img
+      src="/graphics/team-proof-table.webp"
+      alt="Magenta product flows, cyan interface layers, and yellow backend maps converging on one shared registration target."
+      width="1693"
+      height="929"
+      loading="lazy"
+      decoding="async"
+    />
+    <figcaption>
+      <span>Product / UX</span><span>Frontend</span><span>Backend</span>
+    </figcaption>
+  </figure>
+  <div class="team__plate">
+    {
+      members.map(({ number, name, role, copy, className, resources }) => (
+        <article>
+          <div class={`team__plate-mark team__plate-mark--${className}`}>
+            <>
+              <b>{number}</b>
+              <span>{name}</span>
+            </>
+          </div>
+          <h3>{role}</h3>
+          <p>{copy}</p>
+          <div class="team__plate-actions">
+            {externalLinks && resources.length > 0 ? (
+              resources.map(({ label, href }) => (
+                <a href={href} target="_blank" rel="noreferrer">
+                  {label}
+                  <ArrowIcon />
+                </a>
+              ))
+            ) : (
+              <a href="#contact">
+                {externalLinks
+                  ? "Request relevant proof"
+                  : "Continue in Upwork"}
+                <ArrowIcon />
+              </a>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,338 @@
+---
+import TechnologyTool from "../technology-tool/technology-tool.astro";
+import "./technology-press.module.css";
+
+const icon = (collection: string, name: string) => ({
+  logo: `https://api.iconify.design/${collection}/${name}.svg`,
+  width: 24,
+  height: 24,
+});
+
+const lanes = [
+  {
+    number: "01",
+    discipline: "Product / UX",
+    summary: "Flows, systems, and a handoff engineers can trust.",
+    className: "product",
+    featured: ["Figma"],
+    groups: [
+      {
+        tools: [
+          {
+            name: "Figma",
+            role: "Product systems",
+            ...icon("logos", "figma"),
+          },
+        ],
+      },
+    ],
+  },
+  {
+    number: "02",
+    discipline: "Frontend",
+    summary: "Typed interfaces with a production-ready delivery path.",
+    className: "frontend",
+    featured: ["TypeScript", "React", "Next.js"],
+    groups: [
+      {
+        tools: [
+          {
+            name: "TypeScript",
+            role: "Type safety",
+            ...icon("logos", "typescript-icon"),
+          },
+          {
+            name: "React",
+            role: "Interface systems",
+            ...icon("logos", "react"),
+          },
+          {
+            name: "Next.js",
+            role: "Product delivery",
+            ...icon("logos", "nextjs-icon"),
+          },
+          {
+            name: "RxJS",
+            role: "Reactive systems",
+            ...icon("logos", "reactivex"),
+          },
+          {
+            name: "React Native",
+            role: "Mobile products",
+            ...icon("logos", "react"),
+          },
+          {
+            name: "TanStack",
+            role: "Data & app tooling",
+            ...icon("simple-icons", "tanstack"),
+          },
+          {
+            name: "Playwright",
+            role: "Browser testing",
+            ...icon("logos", "playwright"),
+          },
+          {
+            name: "Astro JS",
+            role: "Content delivery",
+            ...icon("logos", "astro-icon"),
+          },
+          {
+            name: "Solid",
+            role: "Reactive interfaces",
+            ...icon("logos", "solidjs-icon"),
+          },
+        ],
+      },
+    ],
+  },
+  {
+    number: "03",
+    discipline: "Backend",
+    summary: "Fast services, durable data, and observable runtime behavior.",
+    className: "backend",
+    featured: ["Go", "PostgreSQL", "Docker"],
+    groups: [
+      {
+        name: "Languages",
+        tools: [
+          {
+            name: "Go",
+            role: "Service language",
+            ...icon("logos", "go"),
+          },
+          {
+            name: "JavaScript",
+            role: "Runtime language",
+            ...icon("logos", "javascript"),
+          },
+          {
+            name: "SQL",
+            role: "Data language",
+            ...icon("mdi", "database"),
+          },
+        ],
+      },
+      {
+        name: "Backend",
+        tools: [
+          {
+            name: "gRPC",
+            role: "Service contracts",
+            ...icon("logos", "grpc"),
+          },
+          {
+            name: "Protobuf",
+            role: "Typed schemas",
+            ...icon("material-icon-theme", "proto"),
+          },
+          { name: "REST", role: "Web APIs", ...icon("mdi", "api") },
+        ],
+      },
+      {
+        name: "Messaging",
+        tools: [
+          {
+            name: "NATS JetStream",
+            role: "Event streaming",
+            ...icon("simple-icons", "natsdotio"),
+          },
+          {
+            name: "RabbitMQ",
+            role: "Message broker",
+            ...icon("logos", "rabbitmq-icon"),
+          },
+          {
+            name: "Kafka",
+            role: "Event backbone",
+            ...icon("logos", "kafka-icon"),
+          },
+        ],
+      },
+      {
+        name: "Databases",
+        tools: [
+          {
+            name: "PostgreSQL",
+            role: "Relational data",
+            ...icon("logos", "postgresql"),
+          },
+          {
+            name: "MongoDB",
+            role: "Document data",
+            ...icon("logos", "mongodb-icon"),
+          },
+          {
+            name: "Redis",
+            role: "Fast state",
+            ...icon("logos", "redis"),
+          },
+        ],
+      },
+      {
+        name: "Cloud & DevOps",
+        tools: [
+          { name: "AWS", role: "ECS · EC2 · VPC", ...icon("logos", "aws") },
+          {
+            name: "Docker",
+            role: "Repeatable runtime",
+            ...icon("logos", "docker-icon"),
+          },
+          {
+            name: "GitHub CI/CD",
+            role: "Delivery pipelines",
+            ...icon("logos", "github-actions"),
+          },
+          {
+            name: "Cloudflare",
+            role: "Workers · Caching",
+            ...icon("logos", "cloudflare-icon"),
+          },
+          {
+            name: "WireGuard",
+            role: "Private networking",
+            ...icon("simple-icons", "wireguard"),
+          },
+        ],
+      },
+      {
+        name: "Observability",
+        tools: [
+          {
+            name: "Prometheus",
+            role: "Metrics",
+            ...icon("logos", "prometheus"),
+          },
+          {
+            name: "OpenTelemetry",
+            role: "Traces & signals",
+            ...icon("simple-icons", "opentelemetry"),
+          },
+          {
+            name: "Grafana",
+            role: "Dashboards",
+            ...icon("logos", "grafana"),
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const toolCount = lanes.reduce(
+  (laneTotal, lane) =>
+    laneTotal +
+    lane.groups.reduce(
+      (groupTotal, group) => groupTotal + group.tools.length,
+      0,
+    ),
+  0,
+);
+---
+
+<section
+  class="technology-press"
+  id="stack"
+  aria-labelledby="technology-title"
+  data-index-section
+>
+  <header class="technology-press__heading">
+    <span class="technology-press__number">06</span>
+    <h2 id="technology-title">A stack that survives the handoff.</h2>
+    <p>
+      These are the tools in our daily build loop—from editable product
+      decisions to typed interfaces and dependable services. We preserve a sound
+      existing stack instead of forcing a rewrite.
+    </p>
+  </header>
+
+  <div class="technology-register">
+    <div class="technology-register__meta">
+      <span>ER11 / Technology register</span>
+      <span>{String(toolCount).padStart(2, "0")} skills · 03 owners</span>
+      <span>Choose for the product, not the trend</span>
+    </div>
+
+    {
+      lanes.map(
+        ({ number, discipline, summary, className, groups, featured }) => {
+          const allTools = groups.flatMap((group) => group.tools);
+          const featuredTools = featured
+            .map((name) => allTools.find((tool) => tool.name === name))
+            .filter(Boolean);
+          const remainingGroups = groups
+            .map((group) => ({
+              ...group,
+              tools: group.tools.filter(
+                (tool) => !featured.includes(tool.name),
+              ),
+            }))
+            .filter((group) => group.tools.length > 0);
+          let toolIndex = featuredTools.length;
+
+          return (
+            <section
+              class={`technology-lane technology-lane--${className}`}
+              aria-labelledby={`technology-${className}`}
+            >
+              <header class="technology-lane__owner">
+                <span>{number}</span>
+                <div>
+                  <h3 id={`technology-${className}`}>{discipline}</h3>
+                  <p>{summary}</p>
+                </div>
+              </header>
+              <div class="technology-lane__content">
+                <div class="technology-lane__featured">
+                  <ul style={`--tool-count:${featuredTools.length}`}>
+                    {featuredTools.map((tool, index) => (
+                      <TechnologyTool {tool} {number} {index} />
+                    ))}
+                  </ul>
+                </div>
+
+                {remainingGroups.length > 0 && (
+                  <details class="technology-disclosure">
+                    <summary>
+                      <span>View full {discipline} register</span>
+                      <span>
+                        {String(allTools.length).padStart(2, "0")} skills
+                      </span>
+                      <i aria-hidden="true" />
+                    </summary>
+                    <div class="technology-disclosure__body">
+                      <div class="technology-disclosure__inner">
+                        <div class="technology-lane__groups">
+                          {remainingGroups.map((group) => (
+                            <section class="technology-group">
+                              {group.name && <h4>{group.name}</h4>}
+                              <ul
+                                style={`--tool-count:${Math.min(group.tools.length, 3)}`}
+                              >
+                                {group.tools.map((tool) => {
+                                  const index = toolIndex++;
+                                  return (
+                                    <TechnologyTool {tool} {number} {index} />
+                                  );
+                                })}
+                              </ul>
+                            </section>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                )}
+              </div>
+            </section>
+          );
+        },
+      )
+    }
+
+    <footer class="technology-register__footer">
+      <span>Product decision</span>
+      <span class="technology-register__line" aria-hidden="true"></span>
+      <span>Production runtime</span>
+    </footer>
+  </div>
+</section>

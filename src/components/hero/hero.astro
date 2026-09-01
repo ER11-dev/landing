@@ -1,0 +1,58 @@
+---
+import ArrowIcon from "../arrow-icon/arrow-icon.astro";
+import "./hero.module.css";
+
+interface Props {
+  primaryHref?: string;
+  primaryLabel?: string;
+}
+
+const { primaryHref = "#contact", primaryLabel = "Start a project" } =
+  Astro.props;
+---
+
+<section class="hero" id="top" aria-labelledby="hero-title" data-index-section>
+  <div class="hero__calibration" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+  <span class="hero__crop hero__crop--top-left" aria-hidden="true"></span>
+  <span class="hero__crop hero__crop--top-right" aria-hidden="true"></span>
+
+  <div class="hero__copy">
+    <h1 id="hero-title">
+      <span>The prototype works.</span>
+      <strong>Now make it hold up.</strong>
+    </h1>
+    <p>
+      <strong>ER11 is a compact product delivery team:</strong> product direction
+      and UX, production frontend, and a Go backend—owned together.
+    </p>
+    <div class="hero__actions">
+      <a class="text-link" href="#cases">Inspect selected work <ArrowIcon /></a>
+      <span>Best fit: B2B tools with a working prototype</span>
+    </div>
+  </div>
+
+  <figure class="hero__art">
+    <img
+      src="/graphics/proof-assembly.webp"
+      alt="A tactile CMY print collage showing rough interface fragments aligning into a finished production proof."
+      width="1536"
+      height="1024"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <figcaption>
+      <span>Prototype fragments</span><span>Registered production proof</span>
+    </figcaption>
+  </figure>
+  <div class="hero__registration-note" aria-label="Three connected disciplines">
+    <span><i class="hero__swatch hero__swatch--magenta"></i>Product / UX</span>
+    <span><i class="hero__swatch hero__swatch--cyan"></i>Frontend</span>
+    <span><i class="hero__swatch hero__swatch--yellow"></i>Backend</span>
+    <small>Three ownership layers. One production path.</small>
+  </div>
+  <a class="hero__cta" href={primaryHref} data-seal-glitch
+    ><span>{primaryLabel}</span><ArrowIcon /></a
+  >
+</section>

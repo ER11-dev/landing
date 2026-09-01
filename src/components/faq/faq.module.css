@@ -1,0 +1,74 @@
+:global(.faq) {
+  padding-top: 20px;
+}
+:global(.faq__list) {
+  border-top: 1px solid var(--ink);
+}
+:global(.faq) details {
+  border-bottom: 1px solid var(--ink);
+}
+:global(.faq) summary {
+  position: relative;
+  padding: 28px 64px 28px 0;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1.1;
+  cursor: pointer;
+  list-style: none;
+  text-transform: uppercase;
+}
+:global(.faq) summary::-webkit-details-marker {
+  display: none;
+}
+:global(.faq) summary span::before,
+:global(.faq) summary span::after {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  content: "";
+  transition: transform 180ms ease-out;
+}
+:global(.faq) summary span::after {
+  transform: rotate(90deg);
+}
+:global(.faq) details[open] summary span::after {
+  transform: rotate(0);
+}
+:global(.faq) details p {
+  max-width: 72ch;
+  margin: -4px 0 28px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+:global(.faq) details[open] p {
+  animation: answer-unfold 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes answer-unfold {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 65% 0);
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.faq) {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.faq) summary {
+    font-size: 28px;
+  }
+}

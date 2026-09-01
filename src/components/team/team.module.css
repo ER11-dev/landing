@@ -1,0 +1,213 @@
+:global(.team__plate-mark--magenta) {
+  background: var(--magenta);
+  color: var(--magenta-ink);
+}
+:global(.team__plate-mark--cyan) {
+  background: var(--cyan);
+  color: var(--cyan-ink);
+}
+:global(.team__plate-mark--yellow) {
+  background: var(--yellow);
+  color: var(--yellow-ink);
+}
+:global(.team__plate) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--ink);
+}
+:global(.team__plate) article {
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  padding: 28px;
+  border-right: 1px solid var(--ink);
+}
+:global(.team__plate) article:last-child {
+  border-right: 0;
+}
+:global(.team__plate-mark) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  color: var(--ink);
+}
+:global(.team__plate-mark) b {
+  font-family: "Oswald", sans-serif;
+  font-size: 28px;
+}
+:global(.team__plate-mark) span {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+:global(.team__plate) h3 {
+  max-width: 12ch;
+  margin: 40px 0 20px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+:global(.team__plate) p {
+  max-width: 40ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1120px) {
+  :global(.team__plate) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1120px) {
+  :global(.team__plate) article {
+    min-height: 340px;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+}
+
+@media (max-width: 1120px) {
+  :global(.team__plate) article:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.team__plate) article {
+    min-height: 320px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.team__plate) h3 {
+    font-size: 38px;
+  }
+}
+
+:global(.team__art) {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-bottom: 0;
+  background: var(--paper-bright);
+}
+:global(.team__art) img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.35/1;
+  object-fit: cover;
+  object-position: center;
+}
+:global(.team__art) figcaption {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--ink);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+:global(.team__art) figcaption span {
+  padding: 11px 14px;
+  text-align: center;
+}
+:global(.team__art) figcaption span + span {
+  border-left: 1px solid var(--ink);
+}
+:global(.team__art) + :global(.team__plate) {
+  border-top: 1px solid var(--ink);
+}
+
+@media (max-width: 760px) {
+  :global(.team__art) img {
+    aspect-ratio: 1.65/1;
+    object-position: center;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.team__art) figcaption {
+    font-size: 7px;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.team__art) figcaption span {
+    padding: 9px 6px;
+  }
+}
+:global(.team__art) img {
+  filter: saturate(0.78);
+  transform: scale(1.025);
+}
+:global(.team) {
+  --glitch-x: -7px;
+  --glitch-x-reverse: 7px;
+  --glitch-y: 2px;
+  --glitch-y-reverse: -2px;
+}
+
+:global(.team__plate) article {
+  display: grid;
+  min-height: 390px;
+  grid-template-rows: auto minmax(3.1em, auto) 1fr auto;
+  align-items: start;
+}
+
+:global(.team__plate-mark) span {
+  max-width: 19ch;
+  text-align: right;
+}
+
+:global(.team__plate) h3 {
+  align-self: start;
+}
+
+:global(.team__plate-actions) {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: end;
+  gap: 8px;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ink);
+}
+
+:global(.team__plate-actions) a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--ink);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+:global(.team__plate-actions) a:hover,
+:global(.team__plate-actions) a:focus-visible {
+  background: var(--ink);
+  color: var(--paper-bright);
+}
+
+:global(.team__plate-actions) svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 760px) {
+  :global(.team__plate) article {
+    min-height: 360px;
+  }
+}
