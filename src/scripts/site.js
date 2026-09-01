@@ -125,9 +125,9 @@ const scheduleSealGlitch = () => {
       window.setTimeout(() => {
         sealGlitch.classList.remove("is-glitching");
         scheduleSealGlitch();
-      }, 560);
+      }, 760);
     },
-    6500 + Math.random() * 6500,
+    4200 + Math.random() * 4600,
   );
 };
 
