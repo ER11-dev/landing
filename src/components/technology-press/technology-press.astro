@@ -2,8 +2,8 @@
 import TechnologyTool from "../technology-tool/technology-tool.astro";
 import "./technology-press.module.css";
 
-const icon = (collection: string, name: string) => ({
-  logo: `https://api.iconify.design/${collection}/${name}.svg`,
+const icon = (collection: string, name: string, color?: string) => ({
+  logo: `https://api.iconify.design/${collection}/${name}.svg${color ? `?color=${encodeURIComponent(color)}` : ""}`,
   width: 24,
   height: 24,
 });
@@ -22,7 +22,7 @@ const lanes = [
           {
             name: "Adobe CC",
             role: "Creative Cloud suite",
-            ...icon("cib", "adobe-creative-cloud"),
+            ...icon("cib", "adobe-creative-cloud", "#da1f26"),
           },
           {
             name: "Pixso",
@@ -32,7 +32,7 @@ const lanes = [
           {
             name: "Claude",
             role: "AI-assisted workflow",
-            ...icon("simple-icons", "anthropic"),
+            ...icon("simple-icons", "anthropic", "#d97757"),
           },
         ],
       },
@@ -42,7 +42,7 @@ const lanes = [
           {
             name: "Material Design",
             role: "Android patterns",
-            ...icon("simple-icons", "materialdesign"),
+            ...icon("simple-icons", "materialdesign", "#6750a4"),
           },
           {
             name: "Apple HIG",
@@ -57,7 +57,7 @@ const lanes = [
           {
             name: "Mobile",
             role: "Responsive & native UI",
-            ...icon("mdi", "cellphone"),
+            ...icon("mdi", "cellphone", "#00a6d6"),
           },
         ],
       },
@@ -67,7 +67,7 @@ const lanes = [
           {
             name: "Agile principles",
             role: "Iterative delivery",
-            ...icon("mdi", "sync-circle"),
+            ...icon("mdi", "sync-circle", "#e83e8c"),
           },
           {
             name: "Jira / YouTrack",
@@ -82,7 +82,7 @@ const lanes = [
           {
             name: "DaVinci Resolve",
             role: "Video post-production",
-            ...icon("simple-icons", "davinciresolve"),
+            ...icon("simple-icons", "davinciresolve", "#8c3dff"),
           },
           {
             name: "Blender",
@@ -92,12 +92,12 @@ const lanes = [
           {
             name: "Cinema 4D",
             role: "3D motion design",
-            ...icon("simple-icons", "cinema4d"),
+            ...icon("simple-icons", "cinema4d", "#011a6a"),
           },
           {
             name: "3ds Max",
             role: "3D modeling",
-            ...icon("simple-icons", "autodesk"),
+            ...icon("simple-icons", "autodesk", "#e51050"),
           },
         ],
       },
@@ -140,7 +140,7 @@ const lanes = [
           {
             name: "TanStack",
             role: "Data & app tooling",
-            ...icon("simple-icons", "tanstack"),
+            ...icon("simple-icons", "tanstack", "#ef4444"),
           },
           {
             name: "Playwright",
@@ -184,7 +184,7 @@ const lanes = [
           {
             name: "SQL",
             role: "Data language",
-            ...icon("mdi", "database"),
+            ...icon("mdi", "database", "#336791"),
           },
         ],
       },
@@ -201,7 +201,11 @@ const lanes = [
             role: "Typed schemas",
             ...icon("material-icon-theme", "proto"),
           },
-          { name: "REST", role: "Web APIs", ...icon("mdi", "api") },
+          {
+            name: "REST",
+            role: "Web APIs",
+            ...icon("mdi", "api", "#00a6d6"),
+          },
         ],
       },
       {
@@ -210,7 +214,7 @@ const lanes = [
           {
             name: "NATS JetStream",
             role: "Event streaming",
-            ...icon("simple-icons", "natsdotio"),
+            ...icon("simple-icons", "natsdotio", "#27aae1"),
           },
           {
             name: "RabbitMQ",
@@ -266,7 +270,7 @@ const lanes = [
           {
             name: "WireGuard",
             role: "Private networking",
-            ...icon("simple-icons", "wireguard"),
+            ...icon("simple-icons", "wireguard", "#88171a"),
           },
         ],
       },
@@ -281,7 +285,7 @@ const lanes = [
           {
             name: "OpenTelemetry",
             role: "Traces & signals",
-            ...icon("simple-icons", "opentelemetry"),
+            ...icon("simple-icons", "opentelemetry", "#4f62ad"),
           },
           {
             name: "Grafana",
