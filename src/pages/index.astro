@@ -1,12 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Landing from "../components/landing/landing.astro";
+import { loadLandingProjects, readContentSiteKey } from "../lib/content";
+
+export const prerender = false;
 
 const title = "ER11 — From working prototype to production-ready product";
 const description =
   "A compact senior product team for turning working B2B prototypes into dependable products for real users.";
+const projects = await loadLandingProjects({
+  siteKey: readContentSiteKey(),
+  channel: "direct",
+});
 ---
 
 <BaseLayout {title} {description}>
-  <Landing />
+  <Landing {projects} />
 </BaseLayout>

@@ -11,14 +11,16 @@ import TechnologyPress from "../technology-press/technology-press.astro";
 import Fit from "../fit/fit.astro";
 import Faq from "../faq/faq.astro";
 import Contact from "../contact/contact.astro";
+import type { ProjectSummary } from "../../lib/content/domain";
 import { UPWORK_DESTINATION_URL } from "../../config/links";
 import "../../styles/composition.css";
 
 interface Props {
   upworkSafe?: boolean;
+  projects: ProjectSummary[];
 }
 
-const { upworkSafe = false } = Astro.props;
+const { upworkSafe = false, projects } = Astro.props;
 const actionHref = upworkSafe ? UPWORK_DESTINATION_URL : "#contact";
 ---
 
@@ -33,7 +35,7 @@ const actionHref = upworkSafe ? UPWORK_DESTINATION_URL : "#contact";
   />
   <RoleBands />
   <Partners externalLinks={!upworkSafe} />
-  <Cases externalLinks={!upworkSafe} />
+  <Cases {projects} />
   <Readiness />
   <Offers
     actionHref={actionHref}

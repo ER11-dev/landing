@@ -1,0 +1,208 @@
+---
+import type { ContentChannel, ProjectPage } from "../../lib/content/domain";
+import { UPWORK_DESTINATION_URL } from "../../config/links";
+import ArrowIcon from "../arrow-icon/arrow-icon.astro";
+import LeadOperationsArtifact from "../project-artifacts/lead-operations-artifact.astro";
+import PaymentOperationsArtifact from "../project-artifacts/payment-operations-artifact.astro";
+import AgencyCollaborationArtifact from "../project-artifacts/agency-collaboration-artifact.astro";
+import "./project-page.module.css";
+
+interface Props {
+  page: ProjectPage;
+  channel: ContentChannel;
+}
+
+const { page, channel } = Astro.props;
+const { project, sections, nextProject } = page;
+const safeForUpwork = channel === "upwork";
+const homeHref = safeForUpwork ? "/upwork" : "/";
+const casesHref = `${homeHref}#cases`;
+const primaryHref = safeForUpwork
+  ? UPWORK_DESTINATION_URL
+  : (project.sourceUrl ?? "/#contact");
+const primaryLabel = safeForUpwork
+  ? "Continue on Upwork"
+  : project.sourceUrl
+    ? project.sourceAction
+    : "Discuss this scope";
+const sourceState = project.sourceUrl
+  ? "Published source linked"
+  : project.sourceHiddenLabel;
+
+const Artifact = {
+  "lead-operations": LeadOperationsArtifact,
+  "payment-operations": PaymentOperationsArtifact,
+  "agency-collaboration": AgencyCollaborationArtifact,
+}[project.uiVariant];
+---
+
+<aside class="project-rail" aria-label="Project navigation">
+  <a class="project-rail__logo" href={homeHref} aria-label="ER11 home">
+    <img src="/er11-logo.svg" width="42" height="42" alt="" />
+  </a>
+  <a class="project-rail__back" href={casesHref}>
+    <ArrowIcon />
+    <span>All work</span>
+  </a>
+  <span class="project-rail__number">{project.number}</span>
+  <nav aria-label="On this project">
+    <a
+      class="is-current"
+      href="#overview"
+      aria-label="Project overview"
+      aria-current="location"
+      data-index-link="overview"
+    >
+      00
+    </a>
+    {
+      sections.map((section) => (
+        <a
+          href={`#${section.key}`}
+          aria-label={section.title}
+          data-index-link={section.key}
+        >
+          {String(section.order).padStart(2, "0")}
+        </a>
+      ))
+    }
+  </nav>
+  <span class="project-rail__progress" aria-hidden="true"></span>
+</aside>
+
+<header class="project-mobile-bar">
+  <a href={homeHref} aria-label="ER11 home">
+    <img src="/er11-logo.svg" width="34" height="34" alt="" />
+  </a>
+  <span>{project.number} / Project proof</span>
+  <a href={casesHref}>All work</a>
+</header>
+
+<main
+  id="main"
+  class:list={[
+    "project-page",
+    `project-page--${project.accent}`,
+    `project-page--${project.uiVariant}`,
+  ]}
+>
+  <section
+    class="project-hero"
+    id="overview"
+    aria-labelledby="project-title"
+    data-index-section
+  >
+    <div class="project-hero__copy">
+      <a class="project-hero__back" href={casesHref}>
+        <ArrowIcon />
+        Selected work
+      </a>
+      <h1 id="project-title">{project.title}</h1>
+      <p class="project-hero__statement">{project.heroStatement}</p>
+      <dl class="project-hero__facts">
+        <div>
+          <dt>Discipline</dt>
+          <dd>{project.ownerDiscipline}</dd>
+        </div>
+        <div>
+          <dt>Proof type</dt>
+          <dd>{project.type}</dd>
+        </div>
+        <div>
+          <dt>Source state</dt>
+          <dd>{sourceState}</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="project-hero__specimen">
+      <div class="project-hero__annotation">
+        <span>{project.number}</span>
+        <p>{project.heroKicker}</p>
+      </div>
+      <Artifact labels={project.artifactLabels} />
+    </div>
+    <div class="project-hero__summary">
+      <span>Project record</span>
+      <p>{project.summary}</p>
+      <ul aria-label="Available evidence">
+        {project.evidence.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <div class="project-calibration" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <b>{project.number}</b>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="project-sequence">
+    {
+      sections.map((section) => (
+        <section
+          class:list={["project-section", `project-section--${section.layout}`]}
+          id={section.key}
+          aria-labelledby={`${section.key}-title`}
+          data-index-section
+        >
+          <header class="project-section__index">
+            <span>{String(section.order).padStart(2, "0")}</span>
+            <p>{section.eyebrow}</p>
+          </header>
+          <div class="project-section__copy">
+            <h2 id={`${section.key}-title`}>{section.title}</h2>
+            <p>{section.body}</p>
+          </div>
+          {section.items.length > 0 && (
+            <ol class="project-section__items">
+              {section.items.map((item, itemIndex) => (
+                <li>
+                  <span>{String(itemIndex + 1).padStart(2, "0")}</span>
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ol>
+          )}
+        </section>
+      ))
+    }
+  </div>
+
+  <footer class="project-close">
+    <section class="project-close__source" aria-labelledby="source-title">
+      <span>{project.number} / Evidence boundary</span>
+      <h2 id="source-title">
+        {
+          safeForUpwork
+            ? "Continue where the contract lives."
+            : "Inspect the published source."
+        }
+      </h2>
+      <p>
+        {
+          safeForUpwork
+            ? "This route keeps the project proof contact-safe. Source verification and the next conversation stay inside Upwork."
+            : "The linked source is the evidence layer for this attributed Product / UX work. This ER11 page does not add outcome claims beyond it."
+        }
+      </p>
+      <a
+        href={primaryHref}
+        target={project.sourceUrl ? "_blank" : undefined}
+        rel={project.sourceUrl ? "noreferrer" : undefined}
+      >
+        {primaryLabel}
+        {
+          project.sourceUrl && (
+            <span class="project-visually-hidden"> (opens in a new tab)</span>
+          )
+        }
+        <ArrowIcon />
+      </a>
+    </section>
+    <a class="project-close__next" href={nextProject.detailPath}>
+      <span>Next project / {nextProject.number}</span>
+      <strong>{nextProject.title}</strong>
+      <ArrowIcon />
+    </a>
+  </footer>
+</main>

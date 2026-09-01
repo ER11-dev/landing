@@ -1,0 +1,47 @@
+---
+import "./project-artifacts.module.css";
+
+interface Props {
+  labels: string[];
+}
+
+const { labels } = Astro.props;
+const [
+  system,
+  publicSurface,
+  privateInterface,
+  paymentContext,
+  operatorView,
+  productDesign,
+  sourceState,
+] = labels;
+---
+
+<div class="project-artifact project-artifact--payment">
+  <header class="payment-artifact__bar">
+    <strong>{system}</strong>
+    <span>{sourceState}</span>
+  </header>
+  <div class="payment-artifact__stage">
+    <section class="payment-artifact__public">
+      <small>{publicSurface}</small>
+      <div class="payment-artifact__amount" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </div>
+      <span>{paymentContext}</span>
+    </section>
+    <div class="payment-artifact__transfer" aria-hidden="true">
+      <i></i><b></b><i></i>
+    </div>
+    <section class="payment-artifact__private">
+      <header>
+        <small>{privateInterface}</small>
+        <span>{operatorView}</span>
+      </header>
+      <div class="payment-artifact__queue">
+        <i></i><i></i><i></i>
+      </div>
+      <strong>{productDesign}</strong>
+    </section>
+  </div>
+</div>

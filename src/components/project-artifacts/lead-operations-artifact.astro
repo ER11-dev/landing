@@ -1,0 +1,47 @@
+---
+import "./project-artifacts.module.css";
+
+interface Props {
+  labels: string[];
+}
+
+const { labels } = Astro.props;
+const [system, intake, control, funnel, payments, dashboard, components] =
+  labels;
+---
+
+<div class="project-artifact project-artifact--lead">
+  <header class="lead-artifact__bar">
+    <span class="lead-artifact__mark" aria-hidden="true"></span>
+    <strong>{system}</strong>
+    <span>{dashboard}</span>
+  </header>
+  <div class="lead-artifact__body">
+    <aside aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i>
+    </aside>
+    <div class="lead-artifact__workspace">
+      <div class="lead-artifact__flow">
+        <span>{intake}</span>
+        <b aria-hidden="true"></b>
+        <span>{control}</span>
+        <b aria-hidden="true"></b>
+        <span>{funnel}</span>
+      </div>
+      <div class="lead-artifact__panels">
+        <section>
+          <small>{components}</small>
+          <div class="lead-artifact__rows" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </div>
+        </section>
+        <section>
+          <small>{payments}</small>
+          <div class="lead-artifact__chart" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+---
+import "./project-artifacts.module.css";
+
+interface Props {
+  labels: string[];
+}
+
+const { labels } = Astro.props;
+const [
+  system,
+  visualDirection,
+  informationStructure,
+  finalUi,
+  agencyTeam,
+  ownership,
+  publishedCase,
+] = labels;
+---
+
+<div class="project-artifact project-artifact--agency">
+  <header class="agency-artifact__bar">
+    <strong>{system}</strong>
+    <span>{publishedCase}</span>
+  </header>
+  <div class="agency-artifact__board">
+    <section class="agency-artifact__brief">
+      <small>{visualDirection}</small>
+      <b>{agencyTeam}</b>
+      <div aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+    <section class="agency-artifact__map">
+      <small>{informationStructure}</small>
+      <div aria-hidden="true">
+        <b></b><i></i><i></i><i></i><i></i>
+      </div>
+    </section>
+    <section class="agency-artifact__ui">
+      <small>{finalUi}</small>
+      <div aria-hidden="true"><i></i><i></i><i></i></div>
+      <b>{ownership}</b>
+    </section>
+  </div>
+</div>
