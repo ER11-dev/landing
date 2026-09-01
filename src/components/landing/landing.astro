@@ -11,6 +11,7 @@ import TechnologyPress from "../technology-press/technology-press.astro";
 import Fit from "../fit/fit.astro";
 import Faq from "../faq/faq.astro";
 import Contact from "../contact/contact.astro";
+import { UPWORK_DESTINATION_URL } from "../../config/links";
 import "../../styles/composition.css";
 
 interface Props {
@@ -18,21 +19,29 @@ interface Props {
 }
 
 const { upworkSafe = false } = Astro.props;
+const actionHref = upworkSafe ? UPWORK_DESTINATION_URL : "#contact";
 ---
 
-<ProofIndex contactLabel={upworkSafe ? "Back to Upwork" : "Start a project"} />
+<ProofIndex
+  contactHref={actionHref}
+  contactLabel={upworkSafe ? "Back to Upwork" : "Start a project"}
+/>
 <main id="main">
-  <Hero primaryLabel={upworkSafe ? "Continue on Upwork" : "Start a project"} />
+  <Hero
+    primaryHref={actionHref}
+    primaryLabel={upworkSafe ? "Continue on Upwork" : "Start a project"}
+  />
   <RoleBands />
   <Partners externalLinks={!upworkSafe} />
   <Cases externalLinks={!upworkSafe} />
   <Readiness />
   <Offers
+    actionHref={actionHref}
     actionLabel={upworkSafe ? "Continue on Upwork" : "Discuss this scope"}
   />
-  <Team externalLinks={!upworkSafe} />
+  <Team actionHref={actionHref} externalLinks={!upworkSafe} />
   <TechnologyPress />
   <Fit />
   <Faq />
-  <Contact mode={upworkSafe ? "upwork" : "direct"} />
+  <Contact actionHref={actionHref} mode={upworkSafe ? "upwork" : "direct"} />
 </main>

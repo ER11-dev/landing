@@ -3,10 +3,11 @@ import ArrowIcon from "../arrow-icon/arrow-icon.astro";
 import "./contact.module.css";
 
 interface Props {
+  actionHref?: string;
   mode?: "direct" | "upwork";
 }
 
-const { mode = "direct" } = Astro.props;
+const { actionHref = "#contact", mode = "direct" } = Astro.props;
 const isUpwork = mode === "upwork";
 ---
 
@@ -37,7 +38,7 @@ const isUpwork = mode === "upwork";
   {
     isUpwork ? (
       <div class="contact__upwork-action">
-        <a href="https://www.upwork.com/ab/messages/">
+        <a href={actionHref}>
           Open your Upwork messages <ArrowIcon />
         </a>
         <p>

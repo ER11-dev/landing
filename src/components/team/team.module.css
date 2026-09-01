@@ -158,7 +158,7 @@
 :global(.team__plate) article {
   display: grid;
   min-height: 390px;
-  grid-template-rows: auto minmax(3.1em, auto) 1fr auto;
+  grid-template-rows: auto minmax(3.1em, auto) 1fr auto auto;
   align-items: start;
 }
 
@@ -169,6 +169,26 @@
 
 :global(.team__plate) h3 {
   align-self: start;
+}
+
+:global(.team__attribution) {
+  display: grid;
+  gap: 5px;
+  margin-top: 20px !important;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink);
+  color: var(--ink) !important;
+}
+
+:global(.team__attribution) span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+:global(.team__attribution) b {
+  font-size: 14px;
 }
 
 :global(.team__plate-actions) {

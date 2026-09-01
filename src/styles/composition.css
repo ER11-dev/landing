@@ -5,8 +5,7 @@ body::before {
 .hero,
 .mobile-bar,
 .role-bands__item,
-.offers,
-.final-proof {
+.offers {
   background-image: none;
 }
 

@@ -150,11 +150,11 @@ The palette borrows the literal logic of print production: warm paper and black 
 
 ### Secondary
 
-- **Process Cyan:** Frontend ownership, active interface marks, and the second production layer.
+- **Process Cyan:** Frontend role, active interface marks, and the second production layer.
 
 ### Tertiary
 
-- **Process Yellow:** Backend ownership and the third production layer.
+- **Process Yellow:** Backend role and the third production layer.
 - **Focus Green:** Reserved for visible keyboard focus and positive fit markers. It is a utility signal, not a fourth discipline color.
 
 ### Neutral
@@ -235,7 +235,7 @@ For `prefers-reduced-motion: reduce`, smooth scrolling is disabled, transitions 
 
 ### Proof Sheets, Ledgers, and Tickets
 
-Proof sheets are Bright Proof Paper with 1px Registration Ink boundaries and flat internal divisions. Ledgers align item, inspection detail, and owner into explicit columns; mobile rows stack the same fields without losing their labels. Offer tickets are three contiguous process-color columns with ruled inventories and strong bottom actions, not detached cards. Team plates reuse the same three-column ownership grammar and keep replacement notes visible until factual identity data exists.
+Proof sheets are Bright Proof Paper with 1px Registration Ink boundaries and flat internal divisions. Ledgers align item, inspection detail, and owner into explicit columns; mobile rows stack the same fields without losing their labels. Offer tickets are three contiguous process-color columns with ruled inventories and strong bottom actions, not detached cards. Team plates reuse the same three-column ownership grammar: Product / UX, Frontend, and Backend. Personal attribution appears only where public evidence supports it.
 
 ### Role Bands
 
@@ -243,13 +243,13 @@ Each discipline owns a full-width process field with a large sequence number, ro
 
 ### Upwork Actions
 
-The desktop hero action is the sole circular proof seal: magenta, double-ringed, rotated, and lifted. At mobile size it becomes square and full width. The final Upwork action is always a large rectangular Bright Proof Paper panel with a 3px discipline-ink border and an arrow; its visible note must identify a temporary destination until the real team or agency URL is installed.
+The desktop hero action is the sole circular proof seal: magenta, double-ringed, rotated, and lifted. At mobile size it becomes square and full width. On the Upwork-safe route, every conversion action uses the centrally configured Upwork Messages destination; the public route keeps its direct-enquiry destination.
 
 ### FAQ Disclosures
 
 Questions are large Oswald rows separated by 1px rules. The native `details` element owns state; the plus mark rotates into a minus over 180ms. Answers stay in Public Sans with a readable 72-character maximum measure.
 
-**The Proof Before Claim Rule.** Demonstration UI, metrics, client identity, and ownership status must be visibly labelled where they appear. A polished container must never make provisional evidence look verified.
+**The Proof Before Claim Rule.** Metrics, client identity, and ownership status must be visibly labelled where they appear. A polished container must never make provisional evidence look verified.
 
 ## Do's and Don'ts
 
@@ -259,7 +259,7 @@ Questions are large Oswald rows separated by 1px rules. The native `details` ele
 - **Do** build new content as proof artifacts: sheets, tickets, ledgers, bands, calibration marks, or clearly annotated interface evidence.
 - **Do** keep component boundaries square and use 1px rules as the default structure; reserve heavier lines for actions and ownership.
 - **Do** preserve semantic headings, the skip link, visible keyboard focus, 44px mobile targets, `aria-current`, `aria-pressed`, live status, and reduced-motion behavior.
-- **Do** label synthetic or team-built work explicitly and keep missing names, profiles, screenshots, and URLs as visible replacement states.
+- **Do** attribute personal work only where public evidence supports it; present unverified engineering contributors by accountable role.
 - **Do** keep the public conversion path on Upwork; the external page is a proof layer, while Upwork remains the verification and transaction layer.
 
 ### Don't:
@@ -267,6 +267,6 @@ Questions are large Oswald rows separated by 1px rules. The native `details` ele
 - **Don't** drift into a generic SaaS hero, a wall of floating agency cards, glossy gradients, glass panels, or uniformly rounded components.
 - **Don't** distribute shadows across tickets, ledgers, navigation, or team plates; only a physically lifted proof or the single seal earns elevation.
 - **Don't** invent client names, biographies, portfolio outcomes, testimonials, metrics, badges, guarantees, certifications, prices, or deadlines.
-- **Don't** publish with “Add name,” temporary Upwork destinations, or other explicit replacement notes unresolved. These are honest production blockers, not finished claims.
+- **Don't** publish replacement notes, fabricated identities, or unsupported evidence.
 - **Don't** use process color as the only carrier of meaning, and don't repurpose magenta, cyan, or yellow for unrelated states.
 - **Don't** add off-platform pre-contract contact details, lead forms, booking tools, or social routes to the Upwork-facing version.

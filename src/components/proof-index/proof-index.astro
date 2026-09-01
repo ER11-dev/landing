@@ -12,10 +12,12 @@ const sections = [
 ];
 
 interface Props {
+  contactHref?: string;
   contactLabel?: string;
 }
 
-const { contactLabel = "Start a project" } = Astro.props;
+const { contactHref = "#contact", contactLabel = "Start a project" } =
+  Astro.props;
 ---
 
 <aside class="proof-index" aria-label="Page index">
@@ -106,5 +108,5 @@ const { contactLabel = "Start a project" } = Astro.props;
       />
     </span>
   </a>
-  <a href="#contact" class="mobile-bar__action">{contactLabel}</a>
+  <a href={contactHref} class="mobile-bar__action">{contactLabel}</a>
 </header>
