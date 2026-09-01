@@ -1,3 +1,11 @@
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+
+new Lenis({
+  anchors: true,
+  autoRaf: true,
+});
+
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const indexLinks = [...document.querySelectorAll("[data-index-link]")];

@@ -19,5 +19,8 @@
       "version": "1.4.0",
       "onFail": "download"
     }
+  },
+  "dependencies": {
+    "lenis": "1.3.26"
   }
 }
