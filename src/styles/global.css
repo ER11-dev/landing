@@ -883,11 +883,23 @@ main{margin-left:var(--rail);overflow:clip}
   background: var(--yellow);
   transform: translate(0, 8px) scale(0.82);
 }
+.technology-tool__mark--logo::before,
+.technology-tool__mark--logo::after,
+.technology-tool__mark--logo .technology-tool__registration {
+  opacity: 0;
+}
 .technology-press.has-entered .technology-tool__mark::before,
 .technology-press.has-entered .technology-tool__mark::after,
 .technology-press.has-entered .technology-tool__registration {
   opacity: 0.1;
   transform: translate(0) scale(1);
+}
+.technology-press.has-entered .technology-tool__mark--logo::before,
+.technology-press.has-entered .technology-tool__mark--logo::after,
+.technology-press.has-entered
+  .technology-tool__mark--logo
+  .technology-tool__registration {
+  opacity: 0;
 }
 .technology-tool__mark img {
   position: relative;

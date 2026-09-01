@@ -19,7 +19,13 @@ const { tool, number, index } = Astro.props;
   <span class="technology-tool__index">
     {number}.{String(index + 1).padStart(2, "0")}
   </span>
-  <span class="technology-tool__mark" aria-hidden="true">
+  <span
+    class:list={[
+      "technology-tool__mark",
+      { "technology-tool__mark--logo": tool.logo },
+    ]}
+    aria-hidden="true"
+  >
     <span class="technology-tool__registration"></span>
     {
       tool.logo ? (
