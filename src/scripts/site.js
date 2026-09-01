@@ -1,5 +1,6 @@
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+import { findCurrentSection } from "./section-index";
 
 new Lenis({
   anchors: true,
@@ -60,8 +61,14 @@ const indexLinks = [...document.querySelectorAll("[data-index-link]")];
 const sections = [...document.querySelectorAll("[data-index-section]")];
 const proofIndex = document.querySelector(".proof-index");
 const mobileBar = document.querySelector(".mobile-bar");
-const sectionVisibility = new Map(sections.map((section) => [section, 0]));
-
+const projectRail = document.querySelector(".project-rail");
+const projectMobileBar = document.querySelector(".project-mobile-bar");
+const progressSurfaces = [
+  proofIndex,
+  mobileBar,
+  projectRail,
+  projectMobileBar,
+].filter(Boolean);
 const setCurrentSection = (section) => {
   indexLinks.forEach((link) => {
     const current = link.dataset.indexLink === section.id;
@@ -76,36 +83,15 @@ const setCurrentSection = (section) => {
   section.classList.add("has-entered");
 };
 
-const indexObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      sectionVisibility.set(
-        entry.target,
-        entry.isIntersecting ? entry.intersectionRatio : 0,
-      );
-    });
-
-    const visibleSection = sections
-      .map((section) => ({
-        section,
-        ratio: sectionVisibility.get(section) ?? 0,
-      }))
-      .filter(({ ratio }) => ratio > 0)
-      .sort((a, b) => b.ratio - a.ratio)[0]?.section;
-
-    if (visibleSection) setCurrentSection(visibleSection);
-  },
-  { rootMargin: "-25% 0px -60%", threshold: [0, 0.2, 0.5] },
-);
-
-sections.forEach((section) => indexObserver.observe(section));
-
 if (sections[0]) setCurrentSection(sections[0]);
 
 let progressFrame;
 
 const updatePageProgress = () => {
   progressFrame = undefined;
+  const currentSection = findCurrentSection(sections, window.innerHeight);
+  if (currentSection) setCurrentSection(currentSection);
+
   const scrollableDistance = Math.max(
     document.documentElement.scrollHeight - window.innerHeight,
     1,
@@ -114,8 +100,9 @@ const updatePageProgress = () => {
     Math.max(window.scrollY / scrollableDistance, 0),
     1,
   );
-  proofIndex?.style.setProperty("--page-progress", String(progress));
-  mobileBar?.style.setProperty("--page-progress", String(progress));
+  progressSurfaces.forEach((surface) =>
+    surface.style.setProperty("--page-progress", String(progress)),
+  );
 };
 
 const schedulePageProgress = () => {
