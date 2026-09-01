@@ -153,6 +153,22 @@
   line-height: 1.5;
 }
 
+:global(.contact__form-recovery) {
+  grid-column: 1 / 3;
+  margin: 0;
+  padding: 15px 24px;
+  border-top: 1px solid rgba(255, 253, 247, 0.35);
+  color: #d8d4ca;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+:global(.contact__form-recovery) a {
+  color: var(--paper-bright);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
 :global(.contact__channels) {
   display: flex;
   flex-direction: column;
@@ -319,7 +335,8 @@
 
 @media (max-width: 760px) {
   :global(.contact__form) button,
-  :global(.contact__form-status) {
+  :global(.contact__form-status),
+  :global(.contact__form-recovery) {
     grid-column: 1;
   }
 }

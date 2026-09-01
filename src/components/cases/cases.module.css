@@ -75,14 +75,6 @@
   background: var(--magenta);
 }
 
-:global(.cases__row--cyan) header {
-  background: var(--cyan);
-}
-
-:global(.cases__row--yellow) header {
-  background: var(--yellow);
-}
-
 :global(.cases__row) header b {
   font-family: "Oswald", sans-serif;
   font-size: 42px;

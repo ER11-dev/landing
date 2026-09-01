@@ -15,7 +15,6 @@ const cases = [
     ],
     href: "https://ceofigma.vercel.app/case-siakera.html",
     action: "Open case study",
-    className: "cases__row--magenta",
   },
   {
     number: "02",
@@ -25,7 +24,6 @@ const cases = [
     evidence: ["Product design", "Fintech interface", "Live public resource"],
     href: "https://repay.ws/",
     action: "Open RePay",
-    className: "cases__row--cyan",
   },
   {
     number: "03",
@@ -39,7 +37,6 @@ const cases = [
     ],
     href: "https://www.behance.net/gallery/162252379/AGC-BURYA-UIUX-DESIGN",
     action: "Open Behance case",
-    className: "cases__row--yellow",
   },
 ];
 
@@ -67,40 +64,38 @@ const { externalLinks = true } = Astro.props;
   </div>
   <div class="cases__ledger">
     {
-      cases.map(
-        ({ number, type, title, copy, evidence, href, action, className }) => (
-          <article class:list={["cases__row", className]}>
-            <header>
-              <>
-                <b>{number}</b>
-                <span>{type}</span>
-              </>
-            </header>
-            <div class="cases__row-body">
-              <>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </>
-            </div>
-            <ul>
-              {evidence.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-            {externalLinks ? (
-              <a href={href} target="_blank" rel="noreferrer">
-                {action}
-                <ArrowIcon />
-              </a>
-            ) : (
-              <span class="cases__row-source">
-                Source available in Upwork
-                <ArrowIcon />
-              </span>
-            )}
-          </article>
-        ),
-      )
+      cases.map(({ number, type, title, copy, evidence, href, action }) => (
+        <article class="cases__row">
+          <header>
+            <>
+              <b>{number}</b>
+              <span>{type}</span>
+            </>
+          </header>
+          <div class="cases__row-body">
+            <>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </>
+          </div>
+          <ul>
+            {evidence.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          {externalLinks ? (
+            <a href={href} target="_blank" rel="noreferrer">
+              {action}
+              <ArrowIcon />
+            </a>
+          ) : (
+            <span class="cases__row-source">
+              Source available in Upwork
+              <ArrowIcon />
+            </span>
+          )}
+        </article>
+      ))
     }
   </div>
 </section>

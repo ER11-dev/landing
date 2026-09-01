@@ -37,37 +37,23 @@ const { externalLinks = true } = Astro.props;
     </p>
   </div>
   <div
-    class="partners__marquee"
+    class="partners__register"
     aria-label="Selected client and partner experience"
   >
-    <div class="partners__track">
-      {
-        [false, true].map((duplicate) => (
-          <div
-            class="partners__group"
-            aria-hidden={duplicate ? "true" : undefined}
-          >
-            {partners.map(({ name, href }, index) =>
-              externalLinks ? (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  tabindex={duplicate ? "-1" : undefined}
-                >
-                  <span>0{index + 1}</span>
-                  {name}
-                </a>
-              ) : (
-                <span class="partners__name">
-                  <i>0{index + 1}</i>
-                  {name}
-                </span>
-              ),
-            )}
-          </div>
-        ))
-      }
-    </div>
+    {
+      partners.map(({ name, href }, index) =>
+        externalLinks ? (
+          <a href={href} target="_blank" rel="noreferrer">
+            <span>0{index + 1}</span>
+            {name}
+          </a>
+        ) : (
+          <span class="partners__name">
+            <i>0{index + 1}</i>
+            {name}
+          </span>
+        ),
+      )
+    }
   </div>
 </section>

@@ -38,30 +38,15 @@
   text-underline-offset: 4px;
 }
 
-:global(.partners__marquee) {
+:global(.partners__register) {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid rgba(255, 253, 247, 0.35);
-  overflow: hidden;
 }
 
-:global(.partners__track) {
-  display: flex;
-  width: max-content;
-  animation: partners-scroll 34s linear infinite;
-}
-
-:global(.partners__marquee):hover :global(.partners__track),
-:global(.partners__marquee):focus-within :global(.partners__track) {
-  animation-play-state: paused;
-}
-
-:global(.partners__group) {
-  display: flex;
-}
-
-:global(.partners__group) > a,
+:global(.partners__register) > a,
 :global(.partners__name) {
   display: flex;
-  min-width: 220px;
   min-height: 96px;
   align-items: center;
   gap: 18px;
@@ -75,7 +60,7 @@
   text-transform: uppercase;
 }
 
-:global(.partners__group) > a span,
+:global(.partners__register) > a span,
 :global(.partners__name) i {
   color: var(--magenta);
   font-family: "Public Sans", sans-serif;
@@ -84,26 +69,20 @@
   font-weight: 700;
 }
 
-:global(.partners__group) > :nth-child(3n + 2) span,
-:global(.partners__group) > :nth-child(3n + 2) i {
+:global(.partners__register) > :nth-child(3n + 2) span,
+:global(.partners__register) > :nth-child(3n + 2) i {
   color: var(--cyan);
 }
 
-:global(.partners__group) > :nth-child(3n) span,
-:global(.partners__group) > :nth-child(3n) i {
+:global(.partners__register) > :nth-child(3n) span,
+:global(.partners__register) > :nth-child(3n) i {
   color: var(--yellow);
 }
 
-:global(.partners__group) > a:hover,
-:global(.partners__group) > a:focus-visible {
+:global(.partners__register) > a:hover,
+:global(.partners__register) > a:focus-visible {
   background: var(--paper-bright);
   color: var(--ink);
-}
-
-@keyframes partners-scroll {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 @media (max-width: 760px) {
@@ -121,23 +100,22 @@
 }
 
 @media (max-width: 760px) {
-  :global(.partners__group) > a,
+  :global(.partners__register) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  :global(.partners__register) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.partners__register) > a,
   :global(.partners__name) {
-    min-width: 180px;
     min-height: 82px;
-    padding: 18px 22px;
-    font-size: 23px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :global(.partners__track) {
-    animation: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :global(.partners__group)[aria-hidden="true"] {
-    display: none;
+    padding: 18px 16px;
+    font-size: 20px;
   }
 }
