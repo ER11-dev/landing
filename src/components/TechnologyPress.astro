@@ -1,6 +1,12 @@
 ---
 import TechnologyTool from "./TechnologyTool.astro";
 
+const icon = (collection: string, name: string) => ({
+  logo: `https://api.iconify.design/${collection}/${name}.svg`,
+  width: 24,
+  height: 24,
+});
+
 const lanes = [
   {
     number: "01",
@@ -14,9 +20,7 @@ const lanes = [
           {
             name: "Figma",
             role: "Product systems",
-            logo: "https://svgl.app/library/figma.svg",
-            width: 54,
-            height: 80,
+            ...icon("logos", "figma"),
           },
         ],
       },
@@ -34,53 +38,47 @@ const lanes = [
           {
             name: "TypeScript",
             role: "Type safety",
-            logo: "https://svgl.app/library/typescript.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "typescript-icon"),
           },
           {
             name: "React",
             role: "Interface systems",
-            logo: "https://svgl.app/library/react_light.svg",
-            width: 569,
-            height: 512,
+            ...icon("logos", "react"),
           },
           {
             name: "Next.js",
             role: "Product delivery",
-            logo: "https://svgl.app/library/nextjs_icon_dark.svg",
-            width: 180,
-            height: 180,
+            ...icon("logos", "nextjs-icon"),
           },
           {
             name: "RxJS",
             role: "Reactive systems",
-            logo: "https://svgl.app/library/rxjs.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "reactivex"),
           },
-          { name: "React Native", role: "Mobile products", mark: "RN" },
+          {
+            name: "React Native",
+            role: "Mobile products",
+            ...icon("logos", "react"),
+          },
           {
             name: "TanStack",
             role: "Data & app tooling",
-            logo: "https://svgl.app/library/tanstack.svg",
-            width: 256,
-            height: 256,
+            ...icon("simple-icons", "tanstack"),
           },
           {
             name: "Playwright",
             role: "Browser testing",
-            logo: "https://svgl.app/library/playwright.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "playwright"),
           },
-          { name: "Astro JS", role: "Content delivery", mark: "A*" },
+          {
+            name: "Astro JS",
+            role: "Content delivery",
+            ...icon("logos", "astro-icon"),
+          },
           {
             name: "Solid",
             role: "Reactive interfaces",
-            logo: "https://svgl.app/library/solidjs.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "solidjs-icon"),
           },
         ],
       },
@@ -99,34 +97,54 @@ const lanes = [
           {
             name: "Go",
             role: "Service language",
-            logo: "https://svgl.app/library/golang.svg",
-            width: 207,
-            height: 78,
+            ...icon("logos", "go"),
           },
           {
             name: "JavaScript",
             role: "Runtime language",
-            logo: "https://svgl.app/library/javascript.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "javascript"),
           },
-          { name: "SQL", role: "Data language", mark: "SQL" },
+          {
+            name: "SQL",
+            role: "Data language",
+            ...icon("mdi", "database"),
+          },
         ],
       },
       {
         name: "Backend",
         tools: [
-          { name: "gRPC", role: "Service contracts", mark: "gRPC" },
-          { name: "Protobuf", role: "Typed schemas", mark: "PB" },
-          { name: "REST", role: "Web APIs", mark: "REST" },
+          {
+            name: "gRPC",
+            role: "Service contracts",
+            ...icon("logos", "grpc"),
+          },
+          {
+            name: "Protobuf",
+            role: "Typed schemas",
+            ...icon("material-icon-theme", "proto"),
+          },
+          { name: "REST", role: "Web APIs", ...icon("mdi", "api") },
         ],
       },
       {
         name: "Messaging",
         tools: [
-          { name: "NATS JetStream", role: "Event streaming", mark: "NATS" },
-          { name: "RabbitMQ", role: "Message broker", mark: "RMQ" },
-          { name: "Kafka", role: "Event backbone", mark: "K" },
+          {
+            name: "NATS JetStream",
+            role: "Event streaming",
+            ...icon("simple-icons", "natsdotio"),
+          },
+          {
+            name: "RabbitMQ",
+            role: "Message broker",
+            ...icon("logos", "rabbitmq-icon"),
+          },
+          {
+            name: "Kafka",
+            role: "Event backbone",
+            ...icon("logos", "kafka-icon"),
+          },
         ],
       },
       {
@@ -135,59 +153,63 @@ const lanes = [
           {
             name: "PostgreSQL",
             role: "Relational data",
-            logo: "https://svgl.app/library/postgresql.svg",
-            width: 432,
-            height: 445,
+            ...icon("logos", "postgresql"),
           },
-          { name: "MongoDB", role: "Document data", mark: "M" },
+          {
+            name: "MongoDB",
+            role: "Document data",
+            ...icon("logos", "mongodb-icon"),
+          },
           {
             name: "Redis",
             role: "Fast state",
-            logo: "https://svgl.app/library/redis.svg",
-            width: 256,
-            height: 220,
+            ...icon("logos", "redis"),
           },
         ],
       },
       {
         name: "Cloud & DevOps",
         tools: [
-          { name: "AWS", role: "ECS · EC2 · VPC", mark: "AWS" },
+          { name: "AWS", role: "ECS · EC2 · VPC", ...icon("logos", "aws") },
           {
             name: "Docker",
             role: "Repeatable runtime",
-            logo: "https://svgl.app/library/docker.svg",
-            width: 24,
-            height: 24,
+            ...icon("logos", "docker-icon"),
           },
           {
             name: "GitHub CI/CD",
             role: "Delivery pipelines",
-            logo: "https://svgl.app/library/github_light.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "github-actions"),
           },
           {
             name: "Cloudflare",
             role: "Workers · Caching",
-            logo: "https://svgl.app/library/cloudflare.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "cloudflare-icon"),
           },
-          { name: "WireGuard", role: "Private networking", mark: "WG" },
+          {
+            name: "WireGuard",
+            role: "Private networking",
+            ...icon("simple-icons", "wireguard"),
+          },
         ],
       },
       {
         name: "Observability",
         tools: [
-          { name: "Prometheus", role: "Metrics", mark: "P" },
-          { name: "OpenTelemetry", role: "Traces & signals", mark: "OTel" },
+          {
+            name: "Prometheus",
+            role: "Metrics",
+            ...icon("logos", "prometheus"),
+          },
+          {
+            name: "OpenTelemetry",
+            role: "Traces & signals",
+            ...icon("simple-icons", "opentelemetry"),
+          },
           {
             name: "Grafana",
             role: "Dashboards",
-            logo: "https://svgl.app/library/grafana.svg",
-            width: 256,
-            height: 256,
+            ...icon("logos", "grafana"),
           },
         ],
       },
