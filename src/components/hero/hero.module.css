@@ -722,20 +722,6 @@
   }
 }
 
-@media (max-width: 760px) {
-  :global(.hero__cta) {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    min-height: 58px;
-    margin: 26px 0 0;
-    padding: 18px 20px;
-    font-size: 25px;
-  }
-}
-
 @keyframes seal-stamp-mobile {
   0% {
     box-shadow: 0 7px 14px rgba(76, 8, 39, 0.18);
@@ -917,6 +903,142 @@
   text-transform: none;
 }
 
+:global(.hero__press-check) {
+  display: grid;
+  flex-basis: 100%;
+  grid-template-columns: minmax(154px, 188px) minmax(0, 1fr);
+  align-items: stretch;
+  margin-top: 2px;
+}
+
+:global(.hero__press-check) button {
+  position: relative;
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 12px;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: left;
+  text-transform: uppercase;
+  transition:
+    background-color 180ms ease-out,
+    color 180ms ease-out;
+}
+
+:global(.hero__press-check) button::before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--magenta) 0 33.33%,
+    var(--cyan) 33.33% 66.66%,
+    var(--yellow) 66.66%
+  );
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:global(.hero__press-check) button:hover,
+:global(.hero__press-check) button:focus-visible,
+:global(.hero__press-check) button.is-registered {
+  background: var(--ink);
+  color: var(--paper-bright);
+}
+
+:global(.hero__press-check) button.is-registered::before {
+  transform: scaleX(1);
+}
+
+:global(.hero__press-check) svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+}
+
+:global(.hero__press-check) > small {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-top: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink-soft);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+:global(.hero):global(.is-registering) :global(.hero__art) img {
+  animation: proof-image-register 850ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:global(.hero):global(.is-registering)
+  :global(.hero__registration-note)
+  > span {
+  animation: proof-layer-lock 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+:global(.hero):global(.is-registering)
+  :global(.hero__registration-note)
+  > span:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+:global(.hero):global(.is-registering)
+  :global(.hero__registration-note)
+  > span:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+@keyframes proof-image-register {
+  0% {
+    clip-path: inset(0 3% 0 0);
+    filter: contrast(1.16) saturate(1.14);
+    transform: translateX(6px);
+  }
+  42% {
+    clip-path: inset(0 0 0 2%);
+    filter: contrast(1.08) saturate(1.08);
+    transform: translateX(-3px);
+  }
+  100% {
+    clip-path: inset(0);
+    filter: none;
+    transform: none;
+  }
+}
+
+@keyframes proof-layer-lock {
+  0% {
+    text-shadow:
+      -5px 0 var(--cyan),
+      5px 0 var(--magenta),
+      0 3px var(--yellow);
+    transform: translateX(-4px);
+  }
+  100% {
+    text-shadow: none;
+    transform: none;
+  }
+}
+
 :global(.hero__cta) {
   right: clamp(20px, 3vw, 46px);
   bottom: 24px;
@@ -925,6 +1047,12 @@
 @media (max-width: 1120px) {
   :global(.hero) {
     padding-bottom: 42px;
+  }
+}
+
+@media (max-width: 1120px) {
+  :global(.hero__press-check) {
+    width: min(100%, 520px);
   }
 }
 
@@ -964,13 +1092,42 @@
 
 @media (max-width: 1120px) {
   :global(.hero__cta) {
-    bottom: 32px;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 28px 0 0 auto;
   }
 }
 
 @media (max-width: 760px) {
   :global(.hero) {
     padding-bottom: 34px;
+  }
+}
+
+@media (max-width: 760px) {
+  :global(.hero__press-check) {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  :global(.hero__press-check) > small {
+    min-height: 34px;
+    border-top: 0;
+    border-left: 1px solid var(--ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.hero):global(.is-registering) :global(.hero__art) img,
+  :global(.hero):global(.is-registering)
+    :global(.hero__registration-note)
+    > span {
+    animation: none !important;
+    clip-path: none;
+    filter: none;
+    text-shadow: none;
+    transform: none;
   }
 }
 

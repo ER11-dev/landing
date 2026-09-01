@@ -2,7 +2,7 @@
 
 ## Task completion workflow
 
-After every task that changes project files is complete:
+After every task that changes project files is complete (only if in master branch):
 
 1. Run the relevant validation for the change and confirm it passes.
 2. Stage only the files that belong to the completed task. Never include unrelated or pre-existing work from the dirty worktree.

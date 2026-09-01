@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ProjectPage from "../../../components/project-page/project-page.astro";
+import { loadProjectPage, readContentSiteKey } from "../../../lib/content";
+
+export const prerender = false;
+
+const slug = Astro.params.slug ?? "";
+const page = await loadProjectPage({
+  siteKey: readContentSiteKey(),
+  slug,
+  channel: "upwork",
+});
+
+if (!page) Astro.response.status = 404;
+
+const title = page?.project.seoTitle ?? "Project not found — ER11";
+const description =
+  page?.project.seoDescription ??
+  "The requested ER11 project record is not available.";
+const bodyClass = page
+  ? `project-theme project-theme--${page.project.accent}`
+  : undefined;
+const designContract = `
+THESIS: Each project is inspected as a production calibration strip, not presented as a generic agency case-study stack.
+OWN-WORLD: Warm proof paper, registration ink, one process-color field, square ruled sheets, calibration marks, and a project-specific interface specimen.
+STORY: The visitor sees the work, understands the attributed scope, follows the decisions and evidence, then returns to the Upwork conversation or the next project.
+FIRST VIEWPORT: A compact project thesis occupies the left third; a large functional specimen fills the process-color field; the summary ledger closes the viewport.
+FORM: Production calibration strip, seventh grounded structure; seed ff7a752d.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+`;
+---
+
+<BaseLayout
+  {title}
+  {description}
+  {bodyClass}
+  designContract={page ? designContract : undefined}
+  ogType="article"
+>
+  {
+    page ? (
+      <ProjectPage {page} channel="upwork" />
+    ) : (
+      <main id="main" class="project-not-found">
+        <span>404 / Project proof unavailable</span>
+        <h1>This sheet is not in the proof run.</h1>
+        <p>
+          Return to selected work and choose one of the published project
+          records.
+        </p>
+        <a href="/upwork#cases">Back to selected work</a>
+      </main>
+    )
+  }
+</BaseLayout>
