@@ -69,6 +69,25 @@ motionPreference.addEventListener("change", () => {
   hero?.classList.remove("is-registering");
 });
 
+const heroCta = document.querySelector("[data-hero-cta]");
+let stickyVisible = false;
+
+const updateStickyCta = () => {
+  if (!heroCta) return;
+
+  const rect = heroCta.getBoundingClientRect();
+  const pastCta = rect.bottom < 0;
+
+  if (pastCta !== stickyVisible) {
+    stickyVisible = pastCta;
+    heroCta.classList.toggle("hero__cta--sticky", pastCta);
+    heroCta.classList.toggle("is-visible", pastCta);
+  }
+};
+
+window.addEventListener("scroll", updateStickyCta, { passive: true });
+updateStickyCta();
+
 const indexLinks = [...document.querySelectorAll("[data-index-link]")];
 const sections = [...document.querySelectorAll("[data-index-section]")];
 const proofIndex = document.querySelector(".proof-index");

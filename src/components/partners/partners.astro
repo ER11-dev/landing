@@ -2,7 +2,7 @@
 import "./partners.module.css";
 
 const partners = [
-  { name: "RePay", href: "https://repay.ws/" },
+  { name: "RePay", href: "/projects/repay" },
   { name: "CasherCollection", href: "https://cashercollection.com/" },
   { name: "Simpol Lab", href: "https://ae.linkedin.com/company/simpollab" },
   { name: "MY.GAMES", href: "https://my.games/ru-RU" },
@@ -47,12 +47,13 @@ const { externalLinks = true } = Astro.props;
             class="partners__group"
             aria-hidden={duplicate ? "true" : undefined}
           >
-            {partners.map(({ name, href }, index) =>
-              externalLinks ? (
+            {partners.map(({ name, href }, index) => {
+              const isInternal = href.startsWith("/");
+              return externalLinks ? (
                 <a
                   href={href}
-                  target="_blank"
-                  rel="noreferrer"
+                  target={isInternal ? undefined : "_blank"}
+                  rel={isInternal ? undefined : "noreferrer"}
                   tabindex={duplicate ? "-1" : undefined}
                 >
                   <span>0{index + 1}</span>
@@ -63,8 +64,8 @@ const { externalLinks = true } = Astro.props;
                   <i>0{index + 1}</i>
                   {name}
                 </span>
-              ),
-            )}
+              );
+            })}
           </div>
         ))
       }
