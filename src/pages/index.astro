@@ -9,12 +9,52 @@ const description =
 const projects = loadLandingProjects({ channel: "direct" });
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   name: "ER11",
   url: "https://er11-dev.vercel.app",
   logo: "https://er11-dev.vercel.app/er11-logo.svg",
   description,
-  sameAs: [],
+  serviceType: [
+    "Product Strategy",
+    "UX/UI Design",
+    "Frontend Engineering",
+    "Go Backend Development",
+  ],
+  areaServed: "Worldwide",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Product Delivery Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Production Readiness Sprint",
+          description:
+            "Turn a working demo into a prioritized, owned release plan.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Critical Flow to Production",
+          description:
+            "Harden one user journey into a dependable production release.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Product Continuity",
+          description:
+            "Keep product decisions, interface work, and backend delivery moving together.",
+        },
+      },
+    ],
+  },
+  sameAs: ["https://github.com/ER11-dev"],
 };
 ---
 

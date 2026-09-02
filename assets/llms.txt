@@ -1,0 +1,31 @@
+# ER11
+
+> A compact senior product delivery team turning working B2B prototypes into production-ready products.
+
+ER11 is a product delivery team with three accountable roles:
+
+- **Product / UX** — Frames the problem, designs the flow, reduces scope ambiguity, and keeps product decisions visible.
+- **Frontend** — Turns the product model into a fast, accessible, maintainable interface.
+- **Backend** — Builds dependable Go services, data flows, permissions, and operations.
+
+## Best Fit
+
+B2B tools with a working prototype that need product decisions, UX, frontend engineering, and production Go backend work before real users can rely on them.
+
+## Engagement Model
+
+- **Production Readiness Sprint** — Turn a working demo into a prioritized release plan.
+- **Critical Flow to Production** — Harden one user journey into a dependable release.
+- **Product Continuity** — Keep product, interface, and backend delivery moving together.
+
+## Contact
+
+For Upwork-originated prospects, the conversation and contract stay on the team's single Upwork account.
+Direct enquiries via email: vaiplimish@gmail.com
+
+## Links
+
+- Website: https://er11-dev.vercel.app
+- Upwork profile: https://er11-dev.vercel.app/upwork
+- Product/UX lead portfolio: https://ceofigma.vercel.app/
+- GitHub: https://github.com/ER11-dev

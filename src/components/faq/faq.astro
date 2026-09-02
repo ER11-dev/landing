@@ -1,4 +1,5 @@
 ---
+
 import "./faq.module.css";
 
 const questions = [
@@ -23,8 +24,22 @@ const questions = [
       "For prospects coming through Upwork, the conversation and contract stay on the team's single Upwork account.",
   },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: questions.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: answer,
+    },
+  })),
+};
 ---
 
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 <section class="faq" aria-labelledby="faq-title">
   <div class="section-heading section-heading--compact section-heading--faq">
     <span class="section-heading__number">Q/A</span>
