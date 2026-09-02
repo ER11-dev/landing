@@ -1,13 +1,14 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectPage from "../../components/project-page/project-page.astro";
-import { loadProjectPage, readContentSiteKey } from "../../lib/content";
+import { loadProjectPage, getProjectSlugs } from "../../lib/content";
 
-export const prerender = false;
+export function getStaticPaths() {
+  return getProjectSlugs().map((slug) => ({ params: { slug } }));
+}
 
 const slug = Astro.params.slug ?? "";
-const page = await loadProjectPage({
-  siteKey: readContentSiteKey(),
+const page = loadProjectPage({
   slug,
   channel: "direct",
 });

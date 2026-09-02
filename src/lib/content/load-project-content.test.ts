@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 import {
   assembleLandingProjects,
   assembleProjectPage,
@@ -7,36 +7,6 @@ import {
 import { loadLandingProjects } from "./load-landing-projects";
 import { loadProjectPage } from "./load-project-page";
 import { createSeedRows } from "./seed-data";
-
-const previousContentSource = process.env.CONTENT_SOURCE;
-const previousNodeEnv = process.env.NODE_ENV;
-const previousVercelEnv = process.env.VERCEL_ENV;
-
-beforeAll(() => {
-  process.env.CONTENT_SOURCE = "seed";
-  process.env.NODE_ENV = "test";
-  delete process.env.VERCEL_ENV;
-});
-
-afterAll(() => {
-  if (previousContentSource === undefined) {
-    delete process.env.CONTENT_SOURCE;
-  } else {
-    process.env.CONTENT_SOURCE = previousContentSource;
-  }
-
-  if (previousNodeEnv === undefined) {
-    delete process.env.NODE_ENV;
-  } else {
-    process.env.NODE_ENV = previousNodeEnv;
-  }
-
-  if (previousVercelEnv === undefined) {
-    delete process.env.VERCEL_ENV;
-  } else {
-    process.env.VERCEL_ENV = previousVercelEnv;
-  }
-});
 
 describe("project content", () => {
   test("returns landing projects in display order", () => {
@@ -58,18 +28,16 @@ describe("project content", () => {
     ]);
   });
 
-  test("returns null for an unknown or invalid slug", async () => {
+  test("returns null for an unknown or invalid slug", () => {
     expect(
-      await loadProjectPage({
-        siteKey: "er11",
+      loadProjectPage({
         slug: "unknown-project",
         channel: "direct",
       }),
     ).toBeNull();
 
     expect(
-      await loadProjectPage({
-        siteKey: "er11",
+      loadProjectPage({
         slug: "../private",
         channel: "direct",
       }),
@@ -102,16 +70,13 @@ describe("project content", () => {
     ).toThrow("content_project_sections row 1 is invalid: body");
   });
 
-  test("strips source URLs and keeps internal paths inside Upwork", async () => {
-    const [direct, upwork, upworkPage] = await Promise.all([
-      loadLandingProjects({ siteKey: "er11", channel: "direct" }),
-      loadLandingProjects({ siteKey: "er11", channel: "upwork" }),
-      loadProjectPage({
-        siteKey: "er11",
-        slug: "agc-burya",
-        channel: "upwork",
-      }),
-    ]);
+  test("strips source URLs and keeps internal paths inside Upwork", () => {
+    const direct = loadLandingProjects({ channel: "direct" });
+    const upwork = loadLandingProjects({ channel: "upwork" });
+    const upworkPage = loadProjectPage({
+      slug: "agc-burya",
+      channel: "upwork",
+    });
 
     expect(direct.every((project) => project.sourceUrl)).toBe(true);
     expect(upwork.every((project) => !("sourceUrl" in project))).toBe(true);
@@ -182,7 +147,7 @@ describe("project content", () => {
       ["Call +1 (212) 555-0123", "phone number"],
       ["Message @outside_team", "social handle"],
       ["Review h\u200bttps://outside.example", "URL or contact scheme"],
-      ["Email hello＠outside．example", "email address"],
+      ["Email hello\uFF20outside\uFF0Eexample", "email address"],
     ] as const;
 
     cases.forEach(([summary, expectedKind]) => {

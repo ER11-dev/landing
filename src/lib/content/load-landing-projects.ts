@@ -1,21 +1,15 @@
 import { assembleLandingProjects } from "./domain";
 import type { ContentChannel, ProjectSummary } from "./domain";
-import { getProjectContentAdapter } from "./runtime-adapter";
+import { createSeedRows } from "./seed-data";
 
 interface LoadLandingProjectsOptions {
-  siteKey: string;
   channel: ContentChannel;
 }
 
-export async function loadLandingProjects({
-  siteKey,
+export function loadLandingProjects({
   channel,
-}: LoadLandingProjectsOptions): Promise<ProjectSummary[]> {
-  const adapter = await getProjectContentAdapter();
-  const projectRows = await adapter.findProjects({
-    siteKey,
-    state: "published",
-  });
+}: LoadLandingProjectsOptions): ProjectSummary[] {
+  const { projects } = createSeedRows({ siteKey: "er11", state: "published" });
 
-  return assembleLandingProjects({ channel, projectRows });
+  return assembleLandingProjects({ channel, projectRows: projects });
 }

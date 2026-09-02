@@ -1,17 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Landing from "../components/landing/landing.astro";
-import { loadLandingProjects, readContentSiteKey } from "../lib/content";
-
-export const prerender = false;
+import { loadLandingProjects } from "../lib/content";
 
 const title = "ER11 — Product delivery team on Upwork";
 const description =
   "A contact-safe proof layer for prospects evaluating ER11 through Upwork.";
-const projects = await loadLandingProjects({
-  siteKey: readContentSiteKey(),
-  channel: "upwork",
-});
+const projects = loadLandingProjects({ channel: "upwork" });
 ---
 
 <BaseLayout {title} {description} noindex>

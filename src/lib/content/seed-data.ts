@@ -213,6 +213,10 @@ const projectSectionSeeds: ProjectSectionSeed[] = [
   },
 ];
 
+export function getProjectSlugs(): string[] {
+  return projectSeeds.map((seed) => seed.project_slug);
+}
+
 export function createSeedRows({ siteKey, state }: SeedContext) {
   const common = {
     site_key: siteKey,
