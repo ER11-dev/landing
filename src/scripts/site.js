@@ -70,6 +70,7 @@ motionPreference.addEventListener("change", () => {
 });
 
 const heroCta = document.querySelector("[data-hero-cta]");
+let stickyClone = null;
 let stickyVisible = false;
 
 const updateStickyCta = () => {
@@ -78,10 +79,19 @@ const updateStickyCta = () => {
   const rect = heroCta.getBoundingClientRect();
   const pastCta = rect.bottom < 0;
 
-  if (pastCta !== stickyVisible) {
-    stickyVisible = pastCta;
-    heroCta.classList.toggle("hero__cta--sticky", pastCta);
-    heroCta.classList.toggle("is-visible", pastCta);
+  if (pastCta === stickyVisible) return;
+  stickyVisible = pastCta;
+
+  if (pastCta) {
+    if (stickyClone) return;
+    stickyClone = heroCta.cloneNode(true);
+    stickyClone.removeAttribute("id");
+    stickyClone.classList.add("hero__cta--sticky", "is-visible");
+    stickyClone.removeAttribute("data-hero-cta");
+    document.body.appendChild(stickyClone);
+  } else if (stickyClone) {
+    stickyClone.remove();
+    stickyClone = null;
   }
 };
 
