@@ -1,0 +1,15 @@
+@import "./composition.css";
+@import "../components/proof-index/proof-index.module.css";
+@import "../components/hero/hero.module.css";
+@import "../components/role-bands/role-bands.module.css";
+@import "../components/partners/partners.module.css";
+@import "../components/cases/cases.module.css";
+@import "../components/readiness/readiness.module.css";
+@import "../components/offers/offers.module.css";
+@import "../components/team/team.module.css";
+@import "../components/technology-press/technology-press.module.css";
+@import "../components/fit/fit.module.css";
+@import "../components/faq/faq.module.css";
+@import "../components/contact/contact.module.css";
+@import "../components/project-page/project-page.module.css";
+@import "../components/project-artifacts/project-artifacts.module.css";
