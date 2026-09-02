@@ -1,0 +1,323 @@
+/* ============================================================
+     The Press Check — 404 Proof Sheet
+     ============================================================ */
+
+.proofSheet {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f1e8;
+  color: #111;
+  padding: clamp(90px, 10vw, 150px) clamp(24px, 4vw, 72px);
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------
+     Crop marks
+     ------------------------------------------------------------ */
+.cropMarks {
+  position: absolute;
+  inset: 24px;
+  pointer-events: none;
+}
+
+.cropMarkTL,
+.cropMarkTR,
+.cropMarkBL,
+.cropMarkBR {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #111;
+  border-style: solid;
+  opacity: 0.28;
+}
+
+.cropMarkTL {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+.cropMarkTR {
+  top: 0;
+  right: 0;
+  border-width: 1px 1px 0 0;
+}
+.cropMarkBL {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 1px 1px;
+}
+.cropMarkBR {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* ------------------------------------------------------------
+     Sheet metadata rail (desktop left edge)
+     ------------------------------------------------------------ */
+.sheetMeta {
+  position: absolute;
+  left: clamp(24px, 4vw, 72px);
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+  display: flex;
+  gap: 32px;
+  pointer-events: none;
+}
+
+.metaItem {
+  font-family: "Public Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #4e4d49;
+  white-space: nowrap;
+}
+
+.metaDash {
+  color: #111;
+  margin-left: 6px;
+}
+
+/* ------------------------------------------------------------
+     Registration target (decorative, center-right)
+     ------------------------------------------------------------ */
+.registrationTarget {
+  position: absolute;
+  right: clamp(24px, 6vw, 120px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(120px, 14vw, 220px);
+  height: clamp(120px, 14vw, 220px);
+  pointer-events: none;
+  opacity: 0.12;
+}
+
+.targetOuter,
+.targetInner {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #111;
+  inset: 0;
+}
+
+.targetInner {
+  inset: 18%;
+  border-width: 1px;
+}
+
+.targetCrosshairV,
+.targetCrosshairH {
+  position: absolute;
+  background-color: #111;
+}
+
+.targetCrosshairV {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.targetCrosshairH {
+  height: 1px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.targetDot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #111;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ------------------------------------------------------------
+     Main content
+     ------------------------------------------------------------ */
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 640px;
+}
+
+.statusCode {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(58px, 5.3vw, 78px);
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 24px;
+}
+
+.headline {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(34px, 3.5vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color: #111;
+  margin: 0 0 20px 0;
+}
+
+.body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: normal;
+  color: #4e4d49;
+  max-width: 420px;
+  margin: 0 auto 32px auto;
+}
+
+.action {
+  display: inline-block;
+  font-family: "Public Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #111;
+  background-color: transparent;
+  border: 1px solid #111;
+  padding: 12px 16px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.action:hover,
+.action:focus {
+  background-color: #111;
+  color: #fffdf7;
+  outline: none;
+}
+
+.action:focus-visible {
+  outline: 3px solid #087e49;
+  outline-offset: 4px;
+}
+
+/* ------------------------------------------------------------
+     Calibration strip (bottom edge)
+     ------------------------------------------------------------ */
+.calibrationStrip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 8px;
+  pointer-events: none;
+}
+
+.calBar {
+  flex: 1;
+}
+
+.calBar[data-tint="magenta"] {
+  background-color: #e83e8c;
+}
+.calBar[data-tint="cyan"] {
+  background-color: #00a6d6;
+}
+.calBar[data-tint="yellow"] {
+  background-color: #f2cd00;
+}
+.calBar[data-tint="ink"] {
+  background-color: #111;
+}
+.calBar[data-tint="paper"] {
+  background-color: #fffdf7;
+}
+
+/* ------------------------------------------------------------
+     Edge annotations
+     ------------------------------------------------------------ */
+.edgeNotes {
+  position: absolute;
+  right: clamp(24px, 4vw, 72px);
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.edgeNote {
+  font-family: "Public Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #4e4d49;
+  opacity: 0.5;
+}
+
+/* ------------------------------------------------------------
+     Responsive: mobile transformation
+     ------------------------------------------------------------ */
+@media (max-width: 760px) {
+  .proofSheet {
+    padding: 90px 20px 120px 20px;
+  }
+
+  .cropMarks {
+    inset: 16px;
+  }
+
+  .sheetMeta {
+    display: none;
+  }
+
+  .registrationTarget {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin: 0 auto 32px auto;
+    width: 100px;
+    height: 100px;
+    opacity: 0.1;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .edgeNotes {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action {
+    transition: none;
+  }
+}

@@ -1,4 +1,5 @@
 ---
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectPage from "../../components/project-page/project-page.astro";
 import { loadProjectPage, getProjectSlugs } from "../../lib/content";
@@ -53,19 +54,16 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   ogType="article"
   {jsonLd}
 >
-  {
-    page ? (
-      <ProjectPage {page} channel="direct" />
-    ) : (
-      <main id="main" class="project-not-found">
-        <span>404 / Project proof unavailable</span>
-        <h1>This sheet is not in the proof run.</h1>
-        <p>
-          Return to selected work and choose one of the published project
-          records.
-        </p>
-        <a href="/#cases">Back to selected work</a>
-      </main>
-    )
-  }
+  {page ? (
+    <ProjectPage {page} channel="direct" />
+  ) : (
+    <main id="main" class="project-not-found">
+      <span>404 / Project proof unavailable</span>
+      <h1>This sheet is not in the proof run.</h1>
+      <p>
+        Return to selected work and choose one of the published project records.
+      </p>
+      <a href="/#cases">Back to selected work</a>
+    </main>
+  )}
 </BaseLayout>

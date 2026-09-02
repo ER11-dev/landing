@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import styles from "./404.module.css";
+---
+
+<BaseLayout title="404 — Sheet Not in Proof Run" description="Page not found.">
+  <main id="main" class={styles.proofSheet}>
+    <!-- Corner crop marks -->
+    <div class={styles.cropMarks} aria-hidden="true">
+      <span class={styles.cropMarkTL}></span>
+      <span class={styles.cropMarkTR}></span>
+      <span class={styles.cropMarkBL}></span>
+      <span class={styles.cropMarkBR}></span>
+    </div>
+
+    <!-- Sheet metadata rail -->
+    <div class={styles.sheetMeta} aria-hidden="true">
+      <span class={styles.metaItem}
+        >SHEET <span class={styles.metaDash}>———</span></span
+      >
+      <span class={styles.metaItem}
+        >PLATE <span class={styles.metaDash}>———</span></span
+      >
+      <span class={styles.metaItem}
+        >RUN <span class={styles.metaDash}>001</span></span
+      >
+    </div>
+
+    <!-- Registration target -->
+    <div class={styles.registrationTarget} aria-hidden="true">
+      <div class={styles.targetOuter}></div>
+      <div class={styles.targetInner}></div>
+      <div class={styles.targetCrosshairV}></div>
+      <div class={styles.targetCrosshairH}></div>
+      <div class={styles.targetDot}></div>
+    </div>
+
+    <!-- Main content -->
+    <div class={styles.content}>
+      <span class={styles.statusCode}>404</span>
+      <h1 class={styles.headline}>This sheet is not in the proof run.</h1>
+      <p class={styles.body}>
+        The requested page was not found in the current production set. Return
+        to the index and select a published project record.
+      </p>
+      <a href="/#cases" class={styles.action}>Back to selected work</a>
+    </div>
+
+    <!-- Bottom calibration strip -->
+    <div class={styles.calibrationStrip} aria-hidden="true">
+      <span class={styles.calBar} data-tint="magenta"></span>
+      <span class={styles.calBar} data-tint="cyan"></span>
+      <span class={styles.calBar} data-tint="yellow"></span>
+      <span class={styles.calBar} data-tint="ink"></span>
+      <span class={styles.calBar} data-tint="paper"></span>
+    </div>
+
+    <!-- Edge annotations -->
+    <div class={styles.edgeNotes} aria-hidden="true">
+      <span class={styles.edgeNote}>MISSING</span>
+      <span class={styles.edgeNote}>NOT FOR PRESS</span>
+    </div>
+  </main>
+</BaseLayout>
