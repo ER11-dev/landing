@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel";
 
 export default defineConfig({
-  site: "https://upwork-orpin.vercel.app",
+  site: "https://er11-dev.vercel.app",
   output: "static",
   publicDir: "./assets",
   adapter: vercel({

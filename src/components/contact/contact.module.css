@@ -1,18 +1,18 @@
-:global(.contact) {
+.contact {
   padding: clamp(86px, 9vw, 132px) var(--page-pad) 34px;
   border-top: 12px solid var(--magenta);
   background: var(--ink);
   color: var(--paper-bright);
 }
 
-:global(.contact__heading) {
+.contact__heading {
   display: grid;
   grid-template-columns: 96px minmax(300px, 1fr) minmax(280px, 0.72fr);
   margin-bottom: 34px;
   border: 1px solid rgba(255, 253, 247, 0.72);
 }
 
-:global(.contact__heading) > span {
+.contact__heading > span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@
   font-weight: 700;
 }
 
-:global(.contact__heading) h2 {
+.contact__heading h2 {
   display: flex;
   align-items: center;
   margin: 0;
@@ -36,7 +36,7 @@
   text-transform: uppercase;
 }
 
-:global(.contact__heading) p {
+.contact__heading p {
   display: flex;
   align-items: center;
   margin: 0;
@@ -47,18 +47,18 @@
   line-height: 1.6;
 }
 
-:global(.contact__body) {
+.contact__body {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
   border: 1px solid rgba(255, 253, 247, 0.72);
 }
 
-:global(.contact__form) {
+.contact__form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-:global(.contact__form) label {
+.contact__form label {
   display: grid;
   gap: 10px;
   padding: 24px;
@@ -66,30 +66,30 @@
   border-bottom: 1px solid rgba(255, 253, 247, 0.35);
 }
 
-:global(.contact__form) label:nth-child(2n) {
+.contact__form label:nth-child(2n) {
   border-right: 0;
 }
 
-:global(.contact__form) label:nth-child(3) {
+.contact__form label:nth-child(3) {
   grid-column: 1 / 3;
   border-right: 0;
 }
 
-:global(.contact__form) label > span {
+.contact__form label > span {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
-:global(.contact__form-brief) {
+.contact__form-brief {
   grid-column: 1 / 3;
   border-right: 0 !important;
 }
 
-:global(.contact__form) input,
-:global(.contact__form) select,
-:global(.contact__form) textarea {
+.contact__form input,
+.contact__form select,
+.contact__form textarea {
   width: 100%;
   min-height: 50px;
   padding: 11px 0;
@@ -101,23 +101,23 @@
   font-size: 16px;
 }
 
-:global(.contact__form) textarea {
+.contact__form textarea {
   min-height: 136px;
   resize: vertical;
 }
 
-:global(.contact__form) select {
+.contact__form select {
   color-scheme: dark;
 }
 
-:global(.contact__form) input:focus,
-:global(.contact__form) select:focus,
-:global(.contact__form) textarea:focus {
+.contact__form input:focus,
+.contact__form select:focus,
+.contact__form textarea:focus {
   border-bottom-color: var(--cyan);
   outline: 0;
 }
 
-:global(.contact__form) button {
+.contact__form button {
   display: flex;
   min-height: 78px;
   align-items: center;
@@ -133,17 +133,17 @@
   cursor: pointer;
 }
 
-:global(.contact__form) button:hover,
-:global(.contact__form) button:focus-visible {
+.contact__form button:hover,
+.contact__form button:focus-visible {
   background: var(--paper-bright);
 }
 
-:global(.contact__form) button svg {
+.contact__form button svg {
   width: 28px;
   height: 28px;
 }
 
-:global(.contact__form-status) {
+.contact__form-status {
   display: flex;
   align-items: center;
   margin: 0;
@@ -153,7 +153,7 @@
   line-height: 1.5;
 }
 
-:global(.contact__form-recovery) {
+.contact__form-recovery {
   grid-column: 1 / 3;
   margin: 0;
   padding: 15px 24px;
@@ -163,20 +163,20 @@
   line-height: 1.5;
 }
 
-:global(.contact__form-recovery) a {
+.contact__form-recovery a {
   color: var(--paper-bright);
   font-weight: 700;
   text-underline-offset: 3px;
 }
 
-:global(.contact__channels) {
+.contact__channels {
   display: flex;
   flex-direction: column;
   background: var(--paper-bright);
   color: var(--ink);
 }
 
-:global(.contact__channels) h3 {
+.contact__channels h3 {
   margin: 0;
   padding: 24px;
   border-bottom: 1px solid var(--ink);
@@ -185,7 +185,7 @@
   text-transform: uppercase;
 }
 
-:global(.contact__channels) a {
+.contact__channels a {
   display: grid;
   min-height: 104px;
   grid-template-columns: 1fr auto;
@@ -195,25 +195,25 @@
   text-decoration: none;
 }
 
-:global(.contact__channels) a:last-child {
+.contact__channels a:last-child {
   border-bottom: 0;
 }
 
-:global(.contact__channels) a span {
+.contact__channels a span {
   grid-column: 1;
   font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-:global(.contact__channels) a b {
+.contact__channels a b {
   grid-column: 1;
   margin-top: 7px;
   overflow-wrap: anywhere;
   font-size: 15px;
 }
 
-:global(.contact__channels) a svg {
+.contact__channels a svg {
   grid-column: 2;
   grid-row: 1 / 3;
   width: 24px;
@@ -221,18 +221,18 @@
   align-self: center;
 }
 
-:global(.contact__channels) a:hover,
-:global(.contact__channels) a:focus-visible {
+.contact__channels a:hover,
+.contact__channels a:focus-visible {
   background: var(--cyan);
 }
 
-:global(.contact__upwork-action) {
+.contact__upwork-action {
   display: grid;
   grid-template-columns: minmax(300px, 0.9fr) minmax(240px, 1.1fr);
   border: 1px solid rgba(255, 253, 247, 0.72);
 }
 
-:global(.contact__upwork-action) a {
+.contact__upwork-action a {
   display: flex;
   min-height: 104px;
   align-items: center;
@@ -247,17 +247,17 @@
   text-transform: uppercase;
 }
 
-:global(.contact__upwork-action) a:hover,
-:global(.contact__upwork-action) a:focus-visible {
+.contact__upwork-action a:hover,
+.contact__upwork-action a:focus-visible {
   background: var(--paper-bright);
 }
 
-:global(.contact__upwork-action) svg {
+.contact__upwork-action svg {
   width: 32px;
   height: 32px;
 }
 
-:global(.contact__upwork-action) p {
+.contact__upwork-action p {
   display: flex;
   align-items: center;
   margin: 0;
@@ -267,7 +267,7 @@
   line-height: 1.6;
 }
 
-:global(.contact__legal) {
+.contact__legal {
   display: flex;
   align-items: start;
   justify-content: space-between;
@@ -281,92 +281,92 @@
   text-transform: uppercase;
 }
 
-:global(.contact__legal) details {
+.contact__legal details {
   max-width: 68ch;
 }
 
-:global(.contact__legal) summary {
+.contact__legal summary {
   color: var(--paper-bright);
   font-weight: 700;
   cursor: pointer;
 }
 
-:global(.contact__legal) details p {
+.contact__legal details p {
   margin: 12px 0 0;
   text-transform: none;
 }
 
-:global(.contact__legal) > p {
+.contact__legal > p {
   margin: 0;
   text-align: right;
 }
 
 @media (max-width: 1120px) {
-  :global(.contact__body) {
+  .contact__body {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.contact__channels) {
+  .contact__channels {
     border-top: 1px solid rgba(255, 253, 247, 0.72);
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact) {
+  .contact {
     padding: 64px 20px 28px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__form) {
+  .contact__form {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__form) label,
-  :global(.contact__form) label:nth-child(2n) {
+  .contact__form label,
+  .contact__form label:nth-child(2n) {
     grid-column: 1;
     border-right: 0;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__form) button,
-  :global(.contact__form-status),
-  :global(.contact__form-recovery) {
+  .contact__form button,
+  .contact__form-status,
+  .contact__form-recovery {
     grid-column: 1;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__form-status) {
+  .contact__form-status {
     min-height: 64px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__upwork-action) {
+  .contact__upwork-action {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__upwork-action) p {
+  .contact__upwork-action p {
     border-top: 1px solid rgba(255, 253, 247, 0.35);
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__legal) {
+  .contact__legal {
     flex-direction: column;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.contact__legal) > p {
+  .contact__legal > p {
     text-align: left;
   }
 }

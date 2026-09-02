@@ -1,11 +1,11 @@
-:global(.hero) {
+.hero {
   position: relative;
   min-height: 870px;
   padding: 46px var(--page-pad) 56px;
   border-bottom: 1px solid var(--ink);
   background: var(--paper);
 }
-:global(.hero__calibration) {
+.hero__calibration {
   position: absolute;
   top: 20px;
   right: var(--page-pad);
@@ -15,85 +15,85 @@
   grid-template-columns: repeat(8, 1fr);
   border: 1px solid var(--ink);
 }
-:global(.hero__calibration) i {
+.hero__calibration i {
   --swatch-order: 0;
   transform-origin: bottom;
 }
-:global(.hero__calibration) i:nth-child(1) {
+.hero__calibration i:nth-child(1) {
   --swatch-order: 0;
   background: var(--cyan);
 }
-:global(.hero__calibration) i:nth-child(2) {
+.hero__calibration i:nth-child(2) {
   --swatch-order: 1;
   background: var(--magenta);
 }
-:global(.hero__calibration) i:nth-child(3) {
+.hero__calibration i:nth-child(3) {
   --swatch-order: 2;
   background: var(--yellow);
 }
-:global(.hero__calibration) i:nth-child(4) {
+.hero__calibration i:nth-child(4) {
   --swatch-order: 3;
   background: var(--ink);
 }
-:global(.hero__calibration) i:nth-child(5) {
+.hero__calibration i:nth-child(5) {
   --swatch-order: 4;
   background: #444;
 }
-:global(.hero__calibration) i:nth-child(6) {
+.hero__calibration i:nth-child(6) {
   --swatch-order: 5;
   background: #777;
 }
-:global(.hero__calibration) i:nth-child(7) {
+.hero__calibration i:nth-child(7) {
   --swatch-order: 6;
   background: #aaa;
 }
-:global(.hero__calibration) i:nth-child(8) {
+.hero__calibration i:nth-child(8) {
   --swatch-order: 7;
   background: var(--paper-bright);
 }
-:global(.hero__crop) {
+.hero__crop {
   position: absolute;
   top: 22px;
   width: 24px;
   height: 24px;
 }
-:global(.hero__crop)::before,
-:global(.hero__crop)::after {
+.hero__crop::before,
+.hero__crop::after {
   position: absolute;
   background: var(--ink);
   content: "";
 }
-:global(.hero__crop)::before {
+.hero__crop::before {
   top: 11px;
   width: 24px;
   height: 1px;
 }
-:global(.hero__crop)::after {
+.hero__crop::after {
   left: 11px;
   width: 1px;
   height: 24px;
 }
-:global(.hero__crop--top-left) {
+.hero__crop--top-left {
   left: 18px;
 }
-:global(.hero__crop--top-right) {
+.hero__crop--top-right {
   right: 18px;
 }
-:global(.hero__copy) {
+.hero__copy {
   position: relative;
   z-index: 4;
   width: min(680px, 58vw);
   margin: 18px 0 0 clamp(12px, 5vw, 78px);
 }
-:global(.hero) h1 {
+.hero h1 {
   max-width: 13ch;
   font-size: clamp(58px, 5.3vw, 78px);
   line-height: 0.92;
 }
-:global(.hero) h1 span {
+.hero h1 span {
   display: block;
 }
-:global(.hero) h1 strong {
+.hero h1 strong {
   display: table;
   width: auto;
   margin-top: 14px;
@@ -107,18 +107,18 @@
   letter-spacing: -0.035em;
   text-transform: none;
 }
-:global(.hero__copy) > p {
+.hero__copy > p {
   width: min(100%, 310px);
   margin: 26px 0 0;
   font-size: clamp(16px, 1.45vw, 21px);
   line-height: 1.45;
 }
-:global(.hero__actions) {
+.hero__actions {
   display: block;
   max-width: 310px;
   margin-top: 26px;
 }
-:global(.hero__actions) > span {
+.hero__actions > span {
   display: block;
   max-width: 22ch;
   margin-top: 18px;
@@ -128,22 +128,22 @@
   line-height: 1.35;
   text-transform: uppercase;
 }
-:global(.hero__swatch) {
+.hero__swatch {
   display: inline-block;
   width: 9px;
   height: 9px;
   border-radius: 50%;
 }
-:global(.hero__swatch--magenta) {
+.hero__swatch--magenta {
   background: var(--magenta);
 }
-:global(.hero__swatch--cyan) {
+.hero__swatch--cyan {
   background: var(--cyan);
 }
-:global(.hero__swatch--yellow) {
+.hero__swatch--yellow {
   background: var(--yellow);
 }
-:global(.hero__cta) {
+.hero__cta {
   position: absolute;
   right: clamp(20px, 3vw, 54px);
   bottom: 32px;
@@ -173,19 +173,19 @@
     transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 240ms ease-out;
 }
-:global(.hero__cta)::before {
+.hero__cta::before {
   position: absolute;
   inset: 8px;
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: inherit;
   content: "";
 }
-:global(.hero__cta):hover,
-:global(.hero__cta):focus-visible {
+.hero__cta:hover,
+.hero__cta:focus-visible {
   box-shadow: 0 20px 38px rgba(76, 8, 39, 0.3);
   transform: rotate(-2deg) translateY(-4px);
 }
-:global(.hero__cta)::after {
+.hero__cta::after {
   position: absolute;
   right: -9px;
   left: -9px;
@@ -202,13 +202,13 @@
   pointer-events: none;
   transform: translateY(-4px);
 }
-:global(.hero__cta) > span {
+.hero__cta > span {
   display: block;
   width: 100%;
   text-align: center;
   transform: translateY(2px);
 }
-:global(.hero__cta--sticky) {
+.hero__cta--sticky {
   position: fixed;
   right: 24px;
   bottom: 24px;
@@ -220,32 +220,32 @@
     opacity 280ms ease-out,
     transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-:global(.hero__cta--sticky).is-visible {
+.hero__cta--sticky.is-visible {
   opacity: 1;
   pointer-events: auto;
   transform: rotate(-7deg) scale(1);
 }
-:global(.hero__cta):global(.is-glitching) {
+.hero__cta.is-glitching {
   animation: seal-body-glitch 720ms steps(1, end);
 }
-:global(.hero__cta):global(.is-glitching) > span {
+.hero__cta.is-glitching > span {
   animation: seal-registration-glitch 720ms steps(1, end);
 }
-:global(.hero__cta):global(.is-glitching)::before {
+.hero__cta.is-glitching::before {
   animation: seal-ring-glitch 720ms steps(1, end);
 }
-:global(.hero__cta):global(.is-glitching)::after {
+.hero__cta.is-glitching::after {
   animation: seal-scan-glitch 720ms steps(1, end);
 }
 
-:global(.hero):global(.is-registering) h1 strong {
+.hero.is-registering h1 strong {
   animation: headline-register 850ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-:global(.hero):global(.is-registering) :global(.hero__calibration) i {
+.hero.is-registering .hero__calibration i {
   animation: calibration-print 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: calc(var(--swatch-order) * 40ms);
 }
-:global(.hero):global(.is-registering) :global(.hero__cta) {
+.hero.is-registering .hero__cta {
   animation: seal-stamp 360ms 680ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -454,39 +454,39 @@
 }
 
 @media (min-width: 1121px) and (max-width: 1360px) {
-  :global(.hero) {
+  .hero {
     min-height: auto;
     padding-bottom: 100px;
   }
 }
 
 @media (min-width: 1121px) and (max-width: 1360px) {
-  :global(.hero__cta) {
+  .hero__cta {
     bottom: 22px;
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero) {
+  .hero {
     min-height: auto;
     padding-bottom: 120px;
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__copy) {
+  .hero__copy {
     width: min(760px, 88%);
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__copy) > p {
+  .hero__copy > p {
     width: min(100%, 590px);
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__actions) {
+  .hero__actions {
     display: flex;
     max-width: 620px;
     align-items: center;
@@ -495,26 +495,26 @@
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__actions) > span {
+  .hero__actions > span {
     margin-top: 0;
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__cta) {
+  .hero__cta {
     bottom: 22px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero) {
+  .hero {
     min-height: auto;
     padding: 46px var(--page-pad) 34px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__calibration) {
+  .hero__calibration {
     top: 16px;
     right: 20px;
     width: 44vw;
@@ -523,47 +523,47 @@
 }
 
 @media (max-width: 760px) {
-  :global(.hero__crop) {
+  .hero__crop {
     display: none;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__copy) {
+  .hero__copy {
     width: 100%;
     margin: 0;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero) h1 {
+  .hero h1 {
     max-width: 11ch;
     font-size: clamp(52px, 15.5vw, 72px);
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__copy) > p {
+  .hero__copy > p {
     margin-top: 22px;
     font-size: 16px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__actions) {
+  .hero__actions {
     display: block;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__actions) > span {
+  .hero__actions > span {
     display: block;
     margin-top: 18px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__cta):not(:global(.hero__cta--sticky)) {
+  .hero__cta:not(.hero__cta--sticky) {
     position: relative;
     right: auto;
     bottom: auto;
@@ -582,7 +582,7 @@
 
 /* One authored press-registration sequence. Content remains visible before and
    after the class is applied so a late or failed script never hides the hero. */
-:global(.hero__press-beam) {
+.hero__press-beam {
   position: absolute;
   top: 0;
   right: 0;
@@ -603,35 +603,35 @@
   transform-origin: left;
 }
 
-:global(.hero__registration-note) > span {
+.hero__registration-note > span {
   --discipline-order: 0;
 }
 
-:global(.hero__registration-note) > span:nth-child(2) {
+.hero__registration-note > span:nth-child(2) {
   --discipline-order: 1;
 }
 
-:global(.hero__registration-note) > span:nth-child(3) {
+.hero__registration-note > span:nth-child(3) {
   --discipline-order: 2;
 }
 
-:global(.hero):global(.is-registering) :global(.hero__art) img {
+.hero.is-registering .hero__art img {
   animation: proof-assembly-register 920ms 80ms cubic-bezier(0.16, 1, 0.3, 1)
     both;
 }
 
-:global(.hero):global(.is-registering) :global(.hero__press-beam) {
+.hero.is-registering .hero__press-beam {
   animation: proof-press-beam 760ms 120ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-:global(.hero):global(.is-registering)
-  :global(.hero__registration-note)
+.hero.is-registering
+  .hero__registration-note
   > span {
   animation: discipline-register 640ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: calc(260ms + var(--discipline-order) * 90ms);
 }
 
-:global(.hero):global(.is-registering) :global(.hero__registration-note) small {
+.hero.is-registering .hero__registration-note small {
   animation: registration-verdict 420ms 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -689,19 +689,19 @@
 }
 
 @media (max-width: 760px) {
-  :global(.hero__press-beam) {
+  .hero__press-beam {
     bottom: 26px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(.hero):global(.is-registering) :global(.hero__art) img,
-  :global(.hero):global(.is-registering) :global(.hero__press-beam),
-  :global(.hero):global(.is-registering)
-    :global(.hero__registration-note)
+  .hero.is-registering .hero__art img,
+  .hero.is-registering .hero__press-beam,
+  .hero.is-registering
+    .hero__registration-note
     > span,
-  :global(.hero):global(.is-registering)
-    :global(.hero__registration-note)
+  .hero.is-registering
+    .hero__registration-note
     small {
     animation: none !important;
     clip-path: none;
@@ -711,30 +711,30 @@
 }
 
 @media (max-width: 760px) {
-  :global(.hero__cta)::before {
+  .hero__cta::before {
     display: none;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__cta):hover,
-  :global(.hero__cta):focus-visible {
+  .hero__cta:hover,
+  .hero__cta:focus-visible {
     transform: translateY(-2px);
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero):global(.is-registering) :global(.hero__cta) {
+  .hero.is-registering .hero__cta {
     animation-name: seal-stamp-mobile;
   }
 }
 @media (max-width: 760px) {
-  :global(.hero__cta):global(.is-glitching) {
+  .hero__cta.is-glitching {
     animation: none;
   }
 }
 @media (max-width: 760px) {
-  :global(.hero__cta)::after {
+  .hero__cta::after {
     display: none;
   }
 }
@@ -753,7 +753,7 @@
     transform: scale(1);
   }
 }
-:global(.hero__art) {
+.hero__art {
   position: absolute;
   top: 34px;
   right: var(--page-pad);
@@ -761,14 +761,14 @@
   width: min(43vw, 620px);
   margin: 0;
 }
-:global(.hero__art) img {
+.hero__art img {
   display: block;
   width: 100%;
   height: 248px;
   object-fit: contain;
   object-position: right center;
 }
-:global(.hero__art) figcaption {
+.hero__art figcaption {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -782,7 +782,7 @@
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__art) {
+  .hero__art {
     position: relative;
     top: auto;
     right: auto;
@@ -792,27 +792,27 @@
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__art) img {
+  .hero__art img {
     height: clamp(230px, 35vw, 330px);
     object-position: center;
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__art) figcaption {
+  .hero__art figcaption {
     margin-top: 0;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__art) {
+  .hero__art {
     width: 100%;
     margin-top: 30px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__art) img {
+  .hero__art img {
     height: auto;
     aspect-ratio: 1.42/1;
     object-fit: contain;
@@ -820,20 +820,20 @@
 }
 
 @media (max-width: 760px) {
-  :global(.hero__art) figcaption {
+  .hero__art figcaption {
     font-size: 8px;
   }
 }
 @media (max-width: 760px) {
-  :global(.hero__cta) > span {
+  .hero__cta > span {
     text-align: left;
     transform: none;
   }
 }
-:global(.hero) h1 {
+.hero h1 {
   width: fit-content;
 }
-:global(.hero) {
+.hero {
   --glitch-x: -8px;
   --glitch-x-reverse: 8px;
   --glitch-y: 3px;
@@ -841,57 +841,57 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(.hero__cta):global(.is-glitching),
-  :global(.hero__cta):global(.is-glitching) > span,
-  :global(.hero__cta):global(.is-glitching)::before,
-  :global(.hero__cta):global(.is-glitching)::after {
+  .hero__cta.is-glitching,
+  .hero__cta.is-glitching > span,
+  .hero__cta.is-glitching::before,
+  .hero__cta.is-glitching::after {
     animation: none !important;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(.hero__cta):global(.is-glitching)::after {
+  .hero__cta.is-glitching::after {
     opacity: 0 !important;
   }
 }
 
-:global(.hero) {
+.hero {
   min-height: 760px;
   padding-bottom: 40px;
 }
 
-:global(.hero__copy) {
+.hero__copy {
   width: min(410px, 34vw);
 }
 
-:global(.hero__actions) :global(.text-link) {
+.hero__actions .text-link {
   min-height: 44px;
 }
 
-:global(.hero__copy) > p strong {
+.hero__copy > p strong {
   font-weight: 700;
 }
 
-:global(.hero__art) {
+.hero__art {
   top: 34px;
   width: calc(100% - clamp(450px, 36vw, 610px));
   max-width: none;
 }
 
-:global(.hero__art) img {
+.hero__art img {
   height: 560px;
   object-fit: contain;
   object-position: right center;
 }
 
-:global(.hero__art) figcaption {
+.hero__art figcaption {
   margin-top: -18px;
   padding: 12px 0;
   border-top-width: 2px;
   font-size: 10px;
 }
 
-:global(.hero__registration-note) {
+.hero__registration-note {
   position: absolute;
   right: 250px;
   bottom: 38px;
@@ -905,13 +905,13 @@
   text-transform: uppercase;
 }
 
-:global(.hero__registration-note) > span {
+.hero__registration-note > span {
   display: inline-flex;
   align-items: center;
   gap: 7px;
 }
 
-:global(.hero__registration-note) small {
+.hero__registration-note small {
   flex-basis: 100%;
   color: var(--ink-soft);
   font-size: 10px;
@@ -920,7 +920,7 @@
   text-transform: none;
 }
 
-:global(.hero__press-check) {
+.hero__press-check {
   display: grid;
   flex-basis: 100%;
   grid-template-columns: minmax(154px, 188px) minmax(0, 1fr);
@@ -928,7 +928,7 @@
   margin-top: 2px;
 }
 
-:global(.hero__press-check) button {
+.hero__press-check button {
   position: relative;
   display: flex;
   min-height: 44px;
@@ -953,7 +953,7 @@
     color 180ms ease-out;
 }
 
-:global(.hero__press-check) button::before {
+.hero__press-check button::before {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -971,24 +971,24 @@
   transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-:global(.hero__press-check) button:hover,
-:global(.hero__press-check) button:focus-visible,
-:global(.hero__press-check) button.is-registered {
+.hero__press-check button:hover,
+.hero__press-check button:focus-visible,
+.hero__press-check button.is-registered {
   background: var(--ink);
   color: var(--paper-bright);
 }
 
-:global(.hero__press-check) button.is-registered::before {
+.hero__press-check button.is-registered::before {
   transform: scaleX(1);
 }
 
-:global(.hero__press-check) svg {
+.hero__press-check svg {
   width: 19px;
   height: 19px;
   flex: 0 0 auto;
 }
 
-:global(.hero__press-check) > small {
+.hero__press-check > small {
   display: flex;
   align-items: center;
   padding: 8px 12px;
@@ -1002,24 +1002,24 @@
   text-transform: uppercase;
 }
 
-:global(.hero):global(.is-registering) :global(.hero__art) img {
+.hero.is-registering .hero__art img {
   animation: proof-image-register 850ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-:global(.hero):global(.is-registering)
-  :global(.hero__registration-note)
+.hero.is-registering
+  .hero__registration-note
   > span {
   animation: proof-layer-lock 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-:global(.hero):global(.is-registering)
-  :global(.hero__registration-note)
+.hero.is-registering
+  .hero__registration-note
   > span:nth-child(2) {
   animation-delay: 60ms;
 }
 
-:global(.hero):global(.is-registering)
-  :global(.hero__registration-note)
+.hero.is-registering
+  .hero__registration-note
   > span:nth-child(3) {
   animation-delay: 120ms;
 }
@@ -1056,31 +1056,31 @@
   }
 }
 
-:global(.hero__cta) {
+.hero__cta {
   right: clamp(20px, 3vw, 46px);
   bottom: 24px;
 }
 
 @media (max-width: 1120px) {
-  :global(.hero) {
+  .hero {
     padding-bottom: 42px;
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__press-check) {
+  .hero__press-check {
     width: min(100%, 520px);
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__copy) {
+  .hero__copy {
     width: min(760px, 88%);
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__art) {
+  .hero__art {
     position: relative;
     top: auto;
     right: auto;
@@ -1090,14 +1090,14 @@
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__art) img {
+  .hero__art img {
     height: clamp(320px, 45vw, 470px);
     object-position: center;
   }
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__registration-note) {
+  .hero__registration-note {
     position: relative;
     right: auto;
     bottom: auto;
@@ -1108,7 +1108,7 @@
 }
 
 @media (max-width: 1120px) {
-  :global(.hero__cta):not(:global(.hero__cta--sticky)) {
+  .hero__cta:not(.hero__cta--sticky) {
     position: relative;
     right: auto;
     bottom: auto;
@@ -1117,18 +1117,18 @@
 }
 
 @media (max-width: 760px) {
-  :global(.hero) {
+  .hero {
     padding-bottom: 34px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__press-check) {
+  .hero__press-check {
     width: 100%;
     grid-template-columns: 1fr;
   }
 
-  :global(.hero__press-check) > small {
+  .hero__press-check > small {
     min-height: 34px;
     border-top: 0;
     border-left: 1px solid var(--ink);
@@ -1136,9 +1136,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(.hero):global(.is-registering) :global(.hero__art) img,
-  :global(.hero):global(.is-registering)
-    :global(.hero__registration-note)
+  .hero.is-registering .hero__art img,
+  .hero.is-registering
+    .hero__registration-note
     > span {
     animation: none !important;
     clip-path: none;
@@ -1149,14 +1149,14 @@
 }
 
 @media (max-width: 760px) {
-  :global(.hero__art) {
+  .hero__art {
     width: 100%;
     margin-top: 30px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__art) img {
+  .hero__art img {
     height: auto;
     aspect-ratio: 1.42 / 1;
     object-fit: contain;
@@ -1164,21 +1164,21 @@
 }
 
 @media (max-width: 760px) {
-  :global(.hero__art) figcaption {
+  .hero__art figcaption {
     margin-top: 0;
     font-size: 8px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__registration-note) {
+  .hero__registration-note {
     width: 100%;
     margin-top: 16px;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.hero__cta):not(:global(.hero__cta--sticky)) {
+  .hero__cta:not(.hero__cta--sticky) {
     position: relative;
     right: auto;
     bottom: auto;

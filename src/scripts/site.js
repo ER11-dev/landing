@@ -214,46 +214,6 @@ const runPressCheck = () => {
 
 pressCheck?.addEventListener("click", runPressCheck);
 
-const heroCta = document.querySelector("[data-hero-cta]");
-
-if (heroCta && !motionPreference.matches) {
-  const stickyCta = heroCta.cloneNode(true);
-  stickyCta.classList.add("hero__cta--sticky");
-  stickyCta.removeAttribute("data-hero-cta");
-  document.body.appendChild(stickyCta);
-
-  const heroSection = document.querySelector(".hero");
-
-  const updateStickyCta = () => {
-    if (!heroSection) return;
-    const heroBottom = heroSection.getBoundingClientRect().bottom;
-    stickyCta.classList.toggle("is-visible", heroBottom < 0);
-  };
-
-  window.addEventListener("scroll", updateStickyCta, { passive: true });
-  updateStickyCta();
-
-  let ctaGlitchTimer;
-  const scheduleCtaGlitch = () => {
-    window.clearTimeout(ctaGlitchTimer);
-    if (!stickyCta || motionPreference.matches || document.hidden) return;
-
-    ctaGlitchTimer = window.setTimeout(
-      () => {
-        stickyCta.classList.add("is-glitching");
-        window.setTimeout(() => {
-          stickyCta.classList.remove("is-glitching");
-          scheduleCtaGlitch();
-        }, 720);
-      },
-      3000 + Math.random() * 5000,
-    );
-  };
-
-  document.addEventListener("visibilitychange", scheduleCtaGlitch);
-  motionPreference.addEventListener("change", scheduleCtaGlitch);
-  scheduleCtaGlitch();
-}
 const contactForm = document.querySelector("[data-contact-form]");
 const contactStatus = document.querySelector("[data-contact-status]");
 

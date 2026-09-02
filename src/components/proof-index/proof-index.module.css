@@ -1,4 +1,4 @@
-:global(.registration-mark) {
+.registration-mark {
   position: relative;
   display: block;
   width: 32px;
@@ -7,30 +7,30 @@
   border: 1px solid currentColor;
   border-radius: 50%;
 }
-:global(.registration-mark)::before,
-:global(.registration-mark)::after {
+.registration-mark::before,
+.registration-mark::after {
   position: absolute;
   background: currentColor;
   content: "";
 }
-:global(.registration-mark)::before {
+.registration-mark::before {
   top: 50%;
   left: -8px;
   width: 46px;
   height: 1px;
 }
-:global(.registration-mark)::after {
+.registration-mark::after {
   top: -8px;
   left: 50%;
   width: 1px;
   height: 46px;
 }
-:global(.mobile-bar) {
+.mobile-bar {
   display: none;
 }
 
 @media (max-width: 760px) {
-  :global(.mobile-bar) {
+  .mobile-bar {
     --section-progress: 0.1667;
     position: sticky;
     top: 0;
@@ -46,7 +46,7 @@
 }
 
 @media (max-width: 760px) {
-  :global(.mobile-bar)::after {
+  .mobile-bar::after {
     position: absolute;
     right: 0;
     bottom: -1px;
@@ -66,7 +66,7 @@
 }
 
 @media (max-width: 760px) {
-  :global(.mobile-bar__mark) {
+  .mobile-bar__mark {
     display: inline-flex;
     min-width: 86px;
     min-height: 44px;
@@ -76,7 +76,7 @@
 }
 
 @media (max-width: 760px) {
-  :global(.mobile-bar__mark) img {
+  .mobile-bar__mark img {
     display: block;
     width: 86px;
     height: auto;
@@ -84,7 +84,7 @@
 }
 
 @media (max-width: 760px) {
-  :global(.mobile-bar__action) {
+  .mobile-bar__action {
     display: inline-flex;
     min-height: 44px;
     align-items: center;
@@ -99,25 +99,25 @@
 }
 
 @media (max-width: 760px) {
-  :global(.mobile-bar) {
+  .mobile-bar {
     --page-progress: 0;
   }
 }
 
 @media (max-width: 760px) {
-  :global(.mobile-bar)::after {
+  .mobile-bar::after {
     transform: scaleX(var(--page-progress));
     transition: none;
   }
 }
-:global(.er11-logo) {
+.er11-logo {
   position: relative;
   display: block;
   width: 76px;
   aspect-ratio: 555/280;
   isolation: isolate;
 }
-:global(.er11-logo) img {
+.er11-logo img {
   position: absolute;
   inset: 0;
   display: block;
@@ -126,15 +126,15 @@
   object-fit: contain;
   pointer-events: none;
 }
-:global(.er11-logo__base) {
+.er11-logo__base {
   z-index: 1;
 }
-:global(.er11-logo__slice) {
+.er11-logo__slice {
   z-index: 2;
   opacity: 0;
 }
-:global(.er11-logo)::before,
-:global(.er11-logo)::after {
+.er11-logo::before,
+.er11-logo::after {
   position: absolute;
   z-index: 3;
   width: 18px;
@@ -143,39 +143,39 @@
   content: "";
   pointer-events: none;
 }
-:global(.er11-logo)::before {
+.er11-logo::before {
   top: -3px;
   left: -3px;
   border-top: 2px solid var(--ink);
   border-left: 2px solid var(--ink);
 }
-:global(.er11-logo)::after {
+.er11-logo::after {
   right: -3px;
   bottom: -3px;
   border-right: 2px solid var(--ink);
   border-bottom: 2px solid var(--ink);
 }
-:global(.mobile-bar__mark) :global(.er11-logo) {
+.mobile-bar__mark .er11-logo {
   width: 86px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(.er11-logo__base),
-  :global(.er11-logo__slice),
-  :global(.er11-logo)::before,
-  :global(.er11-logo)::after {
+  .er11-logo__base,
+  .er11-logo__slice,
+  .er11-logo::before,
+  .er11-logo::after {
     animation: none !important;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(.er11-logo__slice),
-  :global(.er11-logo)::before,
-  :global(.er11-logo)::after {
+  .er11-logo__slice,
+  .er11-logo::before,
+  .er11-logo::after {
     opacity: 0 !important;
   }
 }
-:global(.proof-index) {
+.proof-index {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 21;
@@ -186,7 +186,7 @@
   border-right: 1px solid var(--ink);
   background: var(--paper);
 }
-:global(.proof-index__mark) {
+.proof-index__mark {
   display: flex;
   height: 74px;
   align-items: center;
@@ -195,17 +195,17 @@
   background: var(--paper-bright);
   text-decoration: none;
 }
-:global(.proof-index__mark) img {
+.proof-index__mark img {
   display: block;
   width: 76px;
   height: auto;
 }
-:global(.proof-index__nav) {
+.proof-index__nav {
   display: flex;
   flex: 1;
   flex-direction: column;
 }
-:global(.proof-index__nav) a {
+.proof-index__nav a {
   position: relative;
   isolation: isolate;
   display: grid;
@@ -215,7 +215,7 @@
   text-decoration: none;
   transition: color 180ms ease-out;
 }
-:global(.proof-index__nav) a::before {
+.proof-index__nav a::before {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -225,29 +225,29 @@
   transform-origin: left;
   transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-:global(.proof-index__nav) b {
+.proof-index__nav b {
   font-family: "Oswald", sans-serif;
   font-size: 24px;
   line-height: 1;
 }
-:global(.proof-index__nav) span {
+.proof-index__nav span {
   align-self: end;
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-:global(.proof-index__nav) a:hover,
-:global(.proof-index__nav) a:focus-visible,
-:global(.proof-index__nav) a:global(.is-current) {
+.proof-index__nav a:hover,
+.proof-index__nav a:focus-visible,
+.proof-index__nav a.is-current {
   color: var(--paper-bright);
 }
-:global(.proof-index__nav) a:hover::before,
-:global(.proof-index__nav) a:focus-visible::before,
-:global(.proof-index__nav) a:global(.is-current)::before {
+.proof-index__nav a:hover::before,
+.proof-index__nav a:focus-visible::before,
+.proof-index__nav a.is-current::before {
   transform: scaleX(1);
 }
-:global(.proof-index__roles) {
+.proof-index__roles {
   display: grid;
   padding: 12px 8px;
   gap: 9px;
@@ -255,14 +255,14 @@
 }
 
 @media (max-width: 760px) {
-  :global(.proof-index) {
+  .proof-index {
     display: none;
   }
 }
-:global(.proof-index) {
+.proof-index {
   --page-progress: 0;
 }
-:global(.proof-index)::after {
+.proof-index::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -280,46 +280,46 @@
   transform-origin: top;
   will-change: transform;
 }
-:global(.proof-index__mark) {
+.proof-index__mark {
   background: transparent;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :global(.proof-index__mark):hover :global(.er11-logo__base),
-  :global(.proof-index__mark):focus-visible :global(.er11-logo__base),
-  :global(.mobile-bar__mark):hover :global(.er11-logo__base),
-  :global(.mobile-bar__mark):focus-visible :global(.er11-logo__base) {
+  .proof-index__mark:hover .er11-logo__base,
+  .proof-index__mark:focus-visible .er11-logo__base,
+  .mobile-bar__mark:hover .er11-logo__base,
+  .mobile-bar__mark:focus-visible .er11-logo__base {
     animation: er11-logo-core 560ms steps(1, end);
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :global(.proof-index__mark):hover :global(.er11-logo__slice--a),
-  :global(.proof-index__mark):focus-visible :global(.er11-logo__slice--a),
-  :global(.mobile-bar__mark):hover :global(.er11-logo__slice--a),
-  :global(.mobile-bar__mark):focus-visible :global(.er11-logo__slice--a) {
+  .proof-index__mark:hover .er11-logo__slice--a,
+  .proof-index__mark:focus-visible .er11-logo__slice--a,
+  .mobile-bar__mark:hover .er11-logo__slice--a,
+  .mobile-bar__mark:focus-visible .er11-logo__slice--a {
     animation: er11-logo-slice-a 560ms steps(1, end);
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :global(.proof-index__mark):hover :global(.er11-logo__slice--b),
-  :global(.proof-index__mark):focus-visible :global(.er11-logo__slice--b),
-  :global(.mobile-bar__mark):hover :global(.er11-logo__slice--b),
-  :global(.mobile-bar__mark):focus-visible :global(.er11-logo__slice--b) {
+  .proof-index__mark:hover .er11-logo__slice--b,
+  .proof-index__mark:focus-visible .er11-logo__slice--b,
+  .mobile-bar__mark:hover .er11-logo__slice--b,
+  .mobile-bar__mark:focus-visible .er11-logo__slice--b {
     animation: er11-logo-slice-b 560ms steps(1, end);
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :global(.proof-index__mark):hover :global(.er11-logo)::before,
-  :global(.proof-index__mark):hover :global(.er11-logo)::after,
-  :global(.proof-index__mark):focus-visible :global(.er11-logo)::before,
-  :global(.proof-index__mark):focus-visible :global(.er11-logo)::after,
-  :global(.mobile-bar__mark):hover :global(.er11-logo)::before,
-  :global(.mobile-bar__mark):hover :global(.er11-logo)::after,
-  :global(.mobile-bar__mark):focus-visible :global(.er11-logo)::before,
-  :global(.mobile-bar__mark):focus-visible :global(.er11-logo)::after {
+  .proof-index__mark:hover .er11-logo::before,
+  .proof-index__mark:hover .er11-logo::after,
+  .proof-index__mark:focus-visible .er11-logo::before,
+  .proof-index__mark:focus-visible .er11-logo::after,
+  .mobile-bar__mark:hover .er11-logo::before,
+  .mobile-bar__mark:hover .er11-logo::after,
+  .mobile-bar__mark:focus-visible .er11-logo::before,
+  .mobile-bar__mark:focus-visible .er11-logo::after {
     animation: er11-logo-frame 560ms steps(1, end);
   }
 }
@@ -438,7 +438,7 @@
   }
 }
 
-:global(.proof-index) {
+.proof-index {
   overflow: hidden;
   background-image: repeating-linear-gradient(
     to bottom,
@@ -449,7 +449,7 @@
   );
 }
 
-:global(.proof-index)::before {
+.proof-index::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -469,14 +469,14 @@
   animation: proof-index-scan 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-:global(.proof-index__nav) a:global(.is-current) b {
+.proof-index__nav a.is-current b {
   text-shadow:
     -1px 0 var(--cyan),
     1px 0 var(--magenta),
     0 1px var(--yellow);
 }
 
-:global(.proof-index__roles) {
+.proof-index__roles {
   margin: 0 7px;
   padding: 0;
   gap: 0;
@@ -484,7 +484,7 @@
   background: var(--paper-bright);
 }
 
-:global(.proof-index__roles-title) {
+.proof-index__roles-title {
   display: flex;
   min-height: 23px;
   align-items: center;
@@ -498,20 +498,20 @@
   text-transform: uppercase;
 }
 
-:global(.proof-index__roles-title) b {
+.proof-index__roles-title b {
   max-width: 28px;
   font-size: 7px;
   line-height: 0.95;
 }
 
-:global(.proof-index__roles-title) i {
+.proof-index__roles-title i {
   color: #c9c6bd;
   font-size: 5px;
   font-style: normal;
   font-weight: 700;
 }
 
-:global(.proof-index__roles-lock) {
+.proof-index__roles-lock {
   display: grid;
   min-height: 23px;
   grid-template-columns: repeat(3, 7px) 1fr;
@@ -525,32 +525,32 @@
   text-transform: uppercase;
 }
 
-:global(.proof-index__roles-lock) i {
+.proof-index__roles-lock i {
   width: 7px;
   height: 7px;
   border: 1px solid var(--ink);
   border-radius: 50%;
 }
 
-:global(.proof-index__roles-lock) i:nth-child(1) {
+.proof-index__roles-lock i:nth-child(1) {
   background: var(--magenta);
 }
 
-:global(.proof-index__roles-lock) i:nth-child(2) {
+.proof-index__roles-lock i:nth-child(2) {
   margin-left: -2px;
   background: var(--cyan);
 }
 
-:global(.proof-index__roles-lock) i:nth-child(3) {
+.proof-index__roles-lock i:nth-child(3) {
   margin-left: -4px;
   background: var(--yellow);
 }
 
-:global(.proof-index__roles-lock) b {
+.proof-index__roles-lock b {
   justify-self: end;
 }
 
-:global(.proof-index__tuner) {
+.proof-index__tuner {
   display: grid;
   min-height: 54px;
   grid-template-columns: 1fr 34px 1fr;
@@ -565,14 +565,14 @@
   text-transform: uppercase;
 }
 
-:global(.proof-index__tuner-status),
-:global(.proof-index__tuner-channel) {
+.proof-index__tuner-status,
+.proof-index__tuner-channel {
   display: grid;
   justify-items: center;
   gap: 3px;
 }
 
-:global(.proof-index__tuner-status) i {
+.proof-index__tuner-status i {
   width: 6px;
   height: 6px;
   border: 1px solid var(--ink);
@@ -580,13 +580,13 @@
   background: var(--magenta);
 }
 
-:global(.proof-index__tuner-channel) b {
+.proof-index__tuner-channel b {
   font-family: "Oswald", sans-serif;
   font-size: 13px;
   line-height: 0.8;
 }
 
-:global(.proof-index__tuner) :global(.registration-mark) {
+.proof-index__tuner .registration-mark {
   width: 30px;
   height: 30px;
   margin: 0;
@@ -597,12 +597,12 @@
     0 2px 0 -1px var(--yellow);
 }
 
-:global(.proof-index__tuner) :global(.registration-mark)::before {
+.proof-index__tuner .registration-mark::before {
   left: -7px;
   width: 42px;
 }
 
-:global(.proof-index__tuner) :global(.registration-mark)::after {
+.proof-index__tuner .registration-mark::after {
   top: -7px;
   height: 42px;
 }
@@ -630,11 +630,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(.proof-index)::before {
+  .proof-index::before {
     display: none;
   }
 }
-:global(.role-key) {
+.role-key {
   display: grid;
   min-height: 25px;
   grid-template-columns: 20px 1fr;
@@ -647,7 +647,7 @@
   text-transform: uppercase;
 }
 
-:global(.role-key) > b {
+.role-key > b {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -657,21 +657,21 @@
   line-height: 1;
 }
 
-:global(.role-key) > span {
+.role-key > span {
   display: flex;
   min-width: 0;
   align-items: center;
   padding: 5px;
 }
 
-:global(.role-key--magenta) > b {
+.role-key--magenta > b {
   background: var(--magenta);
 }
 
-:global(.role-key--cyan) > b {
+.role-key--cyan > b {
   background: var(--cyan);
 }
 
-:global(.role-key--yellow) > b {
+.role-key--yellow > b {
   background: var(--yellow);
 }
