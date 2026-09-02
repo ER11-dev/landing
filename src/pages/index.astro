@@ -12,8 +12,17 @@ const projects = await loadLandingProjects({
   siteKey: readContentSiteKey(),
   channel: "direct",
 });
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ER11",
+  url: "https://er11-dev.vercel.app",
+  logo: "https://er11-dev.vercel.app/er11-logo.svg",
+  description,
+  sameAs: [],
+};
 ---
 
-<BaseLayout {title} {description}>
+<BaseLayout {title} {description} {jsonLd}>
   <Landing {projects} />
 </BaseLayout>

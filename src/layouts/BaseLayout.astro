@@ -9,6 +9,8 @@ interface Props {
   ogType?: "website" | "article";
   bodyClass?: string;
   designContract?: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
 }
 
 const {
@@ -19,6 +21,8 @@ const {
   ogType = "website",
   bodyClass,
   designContract,
+  noindex = false,
+  jsonLd,
 } = Astro.props;
 const siteOrigin = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin);
@@ -40,10 +44,17 @@ const socialImage = new URL(socialImagePath, siteOrigin);
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:alt" content={socialImageAlt} />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@er11dev" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {jsonLd && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
     <title>{title}</title>
     <link rel="icon" href="/er11-logo.svg" type="image/svg+xml" />
   </head>

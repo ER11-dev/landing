@@ -21,6 +21,19 @@ const description =
 const bodyClass = page
   ? `project-theme project-theme--${page.project.accent}`
   : undefined;
+const jsonLd = page
+  ? {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: page.project.title,
+      description: page.project.seoDescription,
+      author: {
+        "@type": "Organization",
+        name: "ER11",
+        url: "https://er11-dev.vercel.app",
+      },
+    }
+  : undefined;
 const designContract = `
 THESIS: Each project is inspected as a production calibration strip, not presented as a generic agency case-study stack.
 OWN-WORLD: Warm proof paper, registration ink, one process-color field, square ruled sheets, calibration marks, and a project-specific interface specimen.
@@ -37,6 +50,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   {bodyClass}
   designContract={page ? designContract : undefined}
   ogType="article"
+  {jsonLd}
 >
   {
     page ? (

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /upwork/
+
+Sitemap: https://er11-dev.vercel.app/sitemap-index.xml
