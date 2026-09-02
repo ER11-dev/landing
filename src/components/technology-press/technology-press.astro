@@ -55,7 +55,9 @@ const lanes: TechnologyLane[] = [
           {
             name: "Pixso",
             role: "Interface design",
-            mark: "PX",
+            logo: "https://cms.pixso.net/images/px-logo.png",
+            width: 24,
+            height: 24,
           },
           {
             name: "Claude",
@@ -156,6 +158,36 @@ const lanes: TechnologyLane[] = [
             ...icon("logos", "nextjs-icon"),
           },
           {
+            name: "Vue",
+            role: "Progressive framework",
+            ...icon("logos", "vue"),
+          },
+          {
+            name: "Angular",
+            role: "Enterprise framework",
+            ...icon("logos", "angular-icon"),
+          },
+          {
+            name: "Svelte",
+            role: "Compiler-first UI",
+            ...icon("logos", "svelte"),
+          },
+          {
+            name: "Webpack",
+            role: "Module bundling",
+            ...icon("logos", "webpack"),
+          },
+          {
+            name: "Vite",
+            role: "Build tooling",
+            ...icon("logos", "vitejs"),
+          },
+          {
+            name: "Tailwind CSS",
+            role: "Utility-first styling",
+            ...icon("logos", "tailwindcss-icon"),
+          },
+          {
             name: "RxJS",
             role: "Reactive systems",
             ...icon("logos", "reactivex"),
@@ -184,6 +216,176 @@ const lanes: TechnologyLane[] = [
             name: "Solid",
             role: "Reactive interfaces",
             ...icon("logos", "solidjs-icon"),
+          },
+        ],
+      },
+      {
+        name: "State Management",
+        tools: [
+          {
+            name: "Zustand",
+            role: "Lightweight state",
+            ...icon("devicon", "zustand"),
+          },
+          {
+            name: "MobX",
+            role: "Reactive state",
+            ...icon("simple-icons", "mobx", "#ff9966"),
+          },
+          {
+            name: "Jotai",
+            role: "Atomic state",
+            ...icon("logos", "jotai"),
+          },
+        ],
+      },
+      {
+        name: "Styling",
+        tools: [
+          {
+            name: "SASS",
+            role: "CSS preprocessor",
+            ...icon("logos", "sass"),
+          },
+          {
+            name: "PostCSS",
+            role: "CSS transformation",
+            ...icon("logos", "postcss"),
+          },
+          {
+            name: "Styled Components",
+            role: "CSS-in-JS",
+            ...icon("simple-icons", "styledcomponents", "#db7093"),
+          },
+        ],
+      },
+      {
+        name: "3D & Visualization",
+        tools: [
+          {
+            name: "Three.js",
+            role: "3D graphics library",
+            ...icon("bxl", "three-js"),
+          },
+          {
+            name: "React Three Fiber",
+            role: "React renderer for Three.js",
+            ...icon("mdi", "cube-outline", "#ff6b6b"),
+          },
+          {
+            name: "Drei",
+            role: "Useful helpers for R3F",
+            ...icon("mdi", "cube-send", "#4ecdc4"),
+          },
+        ],
+      },
+      {
+        name: "Build & Bundling",
+        tools: [
+          {
+            name: "Turbopack",
+            role: "Incremental bundler",
+            ...icon("logos", "turbopack-icon"),
+          },
+          {
+            name: "esbuild",
+            role: "Fast bundler",
+            ...icon("simple-icons", "esbuild", "#ffcf00"),
+          },
+          {
+            name: "Rollup",
+            role: "Module bundler",
+            ...icon("logos", "rollupjs"),
+          },
+        ],
+      },
+      {
+        name: "Testing",
+        tools: [
+          {
+            name: "Vitest",
+            role: "Vite-native testing",
+            ...icon("simple-icons", "vitest", "#729b1b"),
+          },
+          {
+            name: "Jest",
+            role: "Unit testing",
+            ...icon("logos", "jest"),
+          },
+          {
+            name: "Cypress",
+            role: "E2E testing",
+            ...icon("logos", "cypress"),
+          },
+        ],
+      },
+      {
+        name: "Performance & PWA",
+        tools: [
+          {
+            name: "Lighthouse",
+            role: "Performance auditing",
+            ...icon("logos", "lighthouse"),
+          },
+          {
+            name: "Web Vitals",
+            role: "Core metrics",
+            ...icon("mdi", "speedometer", "#4285f4"),
+          },
+          {
+            name: "Service Workers",
+            role: "Offline-first",
+            ...icon("mdi", "wifi-off", "#607d8b"),
+          },
+        ],
+      },
+      {
+        name: "Animation",
+        tools: [
+          {
+            name: "GSAP",
+            role: "Motion platform",
+            ...icon("simple-icons", "greensock", "#88ce02"),
+          },
+          {
+            name: "Framer Motion",
+            role: "React animations",
+            ...icon("simple-icons", "framer", "#bb4bff"),
+          },
+        ],
+      },
+      {
+        name: "Data & Forms",
+        tools: [
+          {
+            name: "React Hook Form",
+            role: "Form management",
+            ...icon("simple-icons", "reacthookform", "#ec5990"),
+          },
+          {
+            name: "Zod",
+            role: "Schema validation",
+            ...icon("simple-icons", "zod", "#3068b7"),
+          },
+        ],
+      },
+      {
+        name: "Frontend Specializations",
+        tools: [
+          {
+            name: "Accessibility",
+            role: "WCAG compliance",
+            ...icon("mdi", "accessibility", "#00a6d6"),
+          },
+          {
+            name: "SEO & GEO",
+            role: "Search & generative engine optimization",
+            ...icon("mdi", "search-web", "#4285f4"),
+          },
+          {
+            name: "Storybook",
+            role: "Component development",
+            ...icon("logos", "storybook-icon"),
           },
         ],
       },
@@ -289,6 +491,16 @@ const lanes: TechnologyLane[] = [
             name: "GitHub CI/CD",
             role: "Delivery pipelines",
             ...icon("logos", "github-actions"),
+          },
+          {
+            name: "Kubernetes",
+            role: "Container orchestration",
+            ...icon("logos", "kubernetes"),
+          },
+          {
+            name: "Terraform",
+            role: "Infrastructure as code",
+            ...icon("logos", "terraform"),
           },
           {
             name: "Cloudflare",
