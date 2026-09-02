@@ -245,9 +245,6 @@
   animation: calibration-print 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: calc(var(--swatch-order) * 40ms);
 }
-.hero.is-registering .hero__cta {
-  animation: seal-stamp 360ms 680ms cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 @keyframes headline-register {
   0% {
@@ -624,9 +621,7 @@
   animation: proof-press-beam 760ms 120ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hero.is-registering
-  .hero__registration-note
-  > span {
+.hero.is-registering .hero__registration-note > span {
   animation: discipline-register 640ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: calc(260ms + var(--discipline-order) * 90ms);
 }
@@ -697,12 +692,8 @@
 @media (prefers-reduced-motion: reduce) {
   .hero.is-registering .hero__art img,
   .hero.is-registering .hero__press-beam,
-  .hero.is-registering
-    .hero__registration-note
-    > span,
-  .hero.is-registering
-    .hero__registration-note
-    small {
+  .hero.is-registering .hero__registration-note > span,
+  .hero.is-registering .hero__registration-note small {
     animation: none !important;
     clip-path: none;
     filter: none;
@@ -1006,21 +997,15 @@
   animation: proof-image-register 850ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero.is-registering
-  .hero__registration-note
-  > span {
+.hero.is-registering .hero__registration-note > span {
   animation: proof-layer-lock 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hero.is-registering
-  .hero__registration-note
-  > span:nth-child(2) {
+.hero.is-registering .hero__registration-note > span:nth-child(2) {
   animation-delay: 60ms;
 }
 
-.hero.is-registering
-  .hero__registration-note
-  > span:nth-child(3) {
+.hero.is-registering .hero__registration-note > span:nth-child(3) {
   animation-delay: 120ms;
 }
 
@@ -1137,9 +1122,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero.is-registering .hero__art img,
-  .hero.is-registering
-    .hero__registration-note
-    > span {
+  .hero.is-registering .hero__registration-note > span {
     animation: none !important;
     clip-path: none;
     filter: none;

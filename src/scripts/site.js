@@ -86,9 +86,12 @@ const updateStickyCta = () => {
     if (stickyClone) return;
     stickyClone = heroCta.cloneNode(true);
     stickyClone.removeAttribute("id");
-    stickyClone.classList.add("hero__cta--sticky", "is-visible");
+    stickyClone.classList.add("hero__cta--sticky");
     stickyClone.removeAttribute("data-hero-cta");
     document.body.appendChild(stickyClone);
+    requestAnimationFrame(() => {
+      stickyClone?.classList.add("is-visible");
+    });
   } else if (stickyClone) {
     stickyClone.remove();
     stickyClone = null;
