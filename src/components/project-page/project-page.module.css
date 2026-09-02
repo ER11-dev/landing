@@ -23,14 +23,71 @@
 
 .project-rail {
   position: fixed;
-  inset: 10px auto 10px 10px;
+  inset: 0 auto 0 0;
   z-index: 30;
   display: flex;
-  width: calc(var(--rail) - 10px);
-  align-items: center;
+  width: var(--rail);
   flex-direction: column;
-  border: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
   background: var(--paper-bright);
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(17, 17, 17, 0.035) 3px,
+    rgba(17, 17, 17, 0.035) 4px
+  );
+}
+
+.project-rail::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--magenta) 0 33.33%,
+    var(--cyan) 33.33% 66.66%,
+    var(--yellow) 66.66%
+  );
+  content: "";
+  opacity: 0.52;
+  pointer-events: none;
+  transform: translateY(-2px);
+  animation: project-rail-scan 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.project-rail::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(
+    180deg,
+    var(--magenta) 0 33.33%,
+    var(--cyan) 33.33% 66.66%,
+    var(--yellow) 66.66% 100%
+  );
+  content: "";
+  pointer-events: none;
+  transform: scaleY(var(--page-progress, 0));
+  transform-origin: top;
+  will-change: transform;
+}
+
+@keyframes project-rail-scan {
+  0%,
+  10% {
+    transform: translateY(-2px);
+  }
+  68%,
+  100% {
+    transform: translateY(calc(100vh - 22px));
+  }
 }
 
 .project-rail__logo {
@@ -87,31 +144,40 @@
 }
 
 .project-rail nav a {
+  position: relative;
+  isolation: isolate;
   display: grid;
   min-height: 48px;
   flex: 1;
   place-items: center;
-  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
   font-size: 9px;
   font-weight: 700;
   text-decoration: none;
+  transition: color 180ms ease-out;
+}
+
+.project-rail nav a::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-rail nav a:hover,
 .project-rail nav a:focus-visible,
 .project-rail nav a.is-current {
-  background: var(--ink);
   color: var(--paper-bright);
 }
 
-.project-rail__progress {
-  width: 100%;
-  height: 8px;
-  background: linear-gradient(
-    90deg,
-    var(--project-accent, var(--magenta)) 0 calc(var(--page-progress, 0) * 100%),
-    transparent calc(var(--page-progress, 0) * 100%)
-  );
+.project-rail nav a:hover::before,
+.project-rail nav a:focus-visible::before,
+.project-rail nav a.is-current::before {
+  transform: scaleX(1);
 }
 
 .project-mobile-bar {
@@ -752,6 +818,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .project-rail::before {
+    display: none;
+  }
   .project-close__source > a svg,
   .project-close__next svg {
     transition: none;
