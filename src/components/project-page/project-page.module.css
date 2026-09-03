@@ -96,6 +96,11 @@
   height: 76px;
   place-items: center;
   border-bottom: 1px solid var(--ink);
+  transition: background 180ms ease-out;
+}
+
+.project-rail__logo:hover {
+  background: var(--rule);
 }
 
 .project-rail__logo img {
@@ -116,6 +121,11 @@
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
+  transition: background 180ms ease-out;
+}
+
+.project-rail__back:hover {
+  background: var(--rule);
 }
 
 .project-rail__back svg {
@@ -134,6 +144,8 @@
   font-family: "Oswald", sans-serif;
   font-size: 42px;
   font-weight: 700;
+  letter-spacing: -0.02em;
+  transition: background 240ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-rail nav {
@@ -151,8 +163,10 @@
   flex: 1;
   place-items: center;
   overflow: hidden;
-  font-size: 9px;
-  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   text-decoration: none;
   transition: color 180ms ease-out;
 }
@@ -165,7 +179,7 @@
   content: "";
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-rail nav a:hover,
@@ -825,6 +839,118 @@
   .project-close__next svg {
     transition: none;
   }
+  .project-hero__back,
+  .project-hero h1,
+  .project-hero__statement,
+  .project-hero__facts div,
+  .project-hero__specimen,
+  .project-hero__summary {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* Hero entrance animation */
+
+@keyframes project-hero-title {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0);
+    opacity: 1;
+  }
+}
+
+@keyframes project-hero-statement {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes project-hero-fact {
+  0% {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes project-hero-specimen {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes project-hero-summary {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-hero__back,
+.project-hero h1,
+.project-hero__statement,
+.project-hero__facts div,
+.project-hero__specimen,
+.project-hero__summary {
+  opacity: 0;
+}
+
+.project-hero.is-section-current .project-hero__back {
+  animation: project-hero-statement 480ms 100ms cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+.project-hero.is-section-current h1 {
+  animation: project-hero-title 560ms 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.project-hero.is-section-current .project-hero__statement {
+  animation: project-hero-statement 480ms 420ms cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+.project-hero.is-section-current .project-hero__facts div:nth-child(1) {
+  animation: project-hero-fact 400ms 580ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.project-hero.is-section-current .project-hero__facts div:nth-child(2) {
+  animation: project-hero-fact 400ms 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.project-hero.is-section-current .project-hero__facts div:nth-child(3) {
+  animation: project-hero-fact 400ms 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.project-hero.is-section-current .project-hero__specimen {
+  animation: project-hero-specimen 560ms 320ms cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+.project-hero.is-section-current .project-hero__summary {
+  animation: project-hero-summary 480ms 880ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .project-not-found {

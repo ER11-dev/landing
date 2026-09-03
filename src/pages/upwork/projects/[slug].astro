@@ -35,6 +35,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <BaseLayout
   {title}
   {description}
+  socialImagePath={page ? page.project.ogImagePath : undefined}
+  socialImageAlt={page ? page.project.ogImageAlt : undefined}
   {bodyClass}
   designContract={page ? designContract : undefined}
   ogType="article"

@@ -33,6 +33,18 @@ const jsonLd = page
         "@type": "Organization",
         name: "ER11",
         url: "https://er11-dev.vercel.app",
+        location: {
+          "@type": "Place",
+          name: "Worldwide",
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: "0",
+            longitude: "0",
+          },
+        },
+      },
+      serviceArea: {
+        "@type": "Worldwide",
       },
     }
   : undefined;
@@ -49,6 +61,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <BaseLayout
   {title}
   {description}
+  socialImagePath={page ? page.project.ogImagePath : undefined}
+  socialImageAlt={page ? page.project.ogImageAlt : undefined}
   {bodyClass}
   designContract={page ? designContract : undefined}
   ogType="article"

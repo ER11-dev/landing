@@ -55,6 +55,8 @@ export const ProjectRowSchema = projectContentRowSchema
     hero_statement: z.string().min(1),
     ui_variant: ProjectUiVariantSchema,
     artifact_labels: z.array(z.string().min(1)).length(7),
+    og_image_path: z.string().optional(),
+    og_image_alt: z.string().optional(),
   })
   .superRefine((project, context) => {
     if (project.link_policy === "public" && !project.source_url) {
@@ -99,6 +101,8 @@ export interface ProjectSummary {
   uiVariant: ProjectUiVariant;
   artifactLabels: string[];
   detailPath: string;
+  ogImagePath: string;
+  ogImageAlt: string;
 }
 
 export interface ProjectSection {
@@ -200,7 +204,9 @@ function assertUpworkSafeValue(field: string, value: unknown): void {
 
 function assertUpworkSafeProject(project: ProjectRow): void {
   const projectCopy = Object.fromEntries(
-    Object.entries(project).filter(([key]) => key !== "source_url"),
+    Object.entries(project).filter(
+      ([key]) => key !== "source_url" && key !== "og_image_path",
+    ),
   );
 
   assertUpworkSafeValue("content_projects", projectCopy);
@@ -267,6 +273,8 @@ function toProjectSummary(
     uiVariant: project.ui_variant,
     artifactLabels: [...project.artifact_labels],
     detailPath: projectDetailPath(channel, project.project_slug),
+    ogImagePath: project.og_image_path || "/graphics/proof-assembly.webp",
+    ogImageAlt: project.og_image_alt || "ER11 production proof collage",
   };
 }
 

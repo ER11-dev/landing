@@ -44,6 +44,8 @@ const projectSeeds: ProjectSeed[] = [
       "Dashboard",
       "Component library",
     ],
+    og_image_path: "/graphics/proof-assembly.webp",
+    og_image_alt: "Lead operations desk project — ER11 production proof",
   },
   {
     project_slug: "repay",
@@ -80,6 +82,8 @@ const projectSeeds: ProjectSeed[] = [
       "Product design",
       "Source on record",
     ],
+    og_image_path: "/graphics/proof-assembly.webp",
+    og_image_alt: "RePay project — ER11 production proof",
   },
   {
     project_slug: "agc-burya",
@@ -117,6 +121,8 @@ const projectSeeds: ProjectSeed[] = [
       "Multiple owners",
       "Published case",
     ],
+    og_image_path: "/graphics/proof-assembly.webp",
+    og_image_alt: "AGC Burya project — ER11 production proof",
   },
 ];
 
