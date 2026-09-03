@@ -5,6 +5,7 @@ import ArrowIcon from "../arrow-icon/arrow-icon.astro";
 import LeadOperationsArtifact from "../project-artifacts/lead-operations-artifact.astro";
 import PaymentOperationsArtifact from "../project-artifacts/payment-operations-artifact.astro";
 import AgencyCollaborationArtifact from "../project-artifacts/agency-collaboration-artifact.astro";
+import UiShowcase from "../ui-showcase/ui-showcase.astro";
 import "./project-page.module.css";
 
 interface Props {
@@ -16,7 +17,7 @@ const { page, channel } = Astro.props;
 const { project, sections, nextProject } = page;
 const safeForUpwork = channel === "upwork";
 const homeHref = safeForUpwork ? "/upwork" : "/";
-const casesHref = `${homeHref}#cases`;
+const casesHref = safeForUpwork ? "/upwork/projects" : "/projects";
 const primaryHref = safeForUpwork
   ? UPWORK_DESTINATION_URL
   : (project.sourceUrl ?? "/#contact");
@@ -152,20 +153,41 @@ const Artifact = {
             <h2 id={`${section.key}-title`}>{section.title}</h2>
             <p>{section.body}</p>
           </div>
-          {section.items.length > 0 && (
-            <ol class="project-section__items">
-              {section.items.map((item, itemIndex) => (
-                <li>
-                  <span>{String(itemIndex + 1).padStart(2, "0")}</span>
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ol>
-          )}
+          <div class="project-section__details">
+            {section.items.length > 0 && (
+              <ol class="project-section__items">
+                {section.items.map((item, itemIndex) => (
+                  <li>
+                    <span>{String(itemIndex + 1).padStart(2, "0")}</span>
+                    <p>{item}</p>
+                  </li>
+                ))}
+              </ol>
+            )}
+            {section.metrics.length > 0 && (
+              <div class="project-section__metrics">
+                <span class="project-section__metrics-label">Key metrics</span>
+                <dl class="project-section__metrics-list">
+                  {section.metrics.map((metric) => (
+                    <div>
+                      <dt>{metric.label}</dt>
+                      <dd>{metric.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
+          </div>
         </section>
       ))
     }
   </div>
+
+  <UiShowcase
+    screenshots={project.uiScreenshots}
+    accent={project.accent}
+    title={project.title}
+  />
 
   <footer class="project-close">
     <section class="project-close__source" aria-labelledby="source-title">

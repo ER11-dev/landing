@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f4f1e8"/>
+  <rect x="0" y="0" width="1200" height="48" fill="#111"/>
+  <rect x="20" y="14" width="80" height="20" fill="#00a6d6"/>
+  <rect x="120" y="14" width="60" height="20" fill="#fffdf7" opacity="0.2"/>
+  <rect x="200" y="14" width="60" height="20" fill="#fffdf7" opacity="0.2"/>
+  <rect x="0" y="48" width="260" height="652" fill="#fffdf7" stroke="#111" stroke-width="1"/>
+  <rect x="20" y="68" width="220" height="36" fill="#00a6d6" opacity="0.15"/>
+  <rect x="20" y="120" width="200" height="12" fill="#111" opacity="0.08"/>
+  <rect x="20" y="144" width="160" height="12" fill="#111" opacity="0.06"/>
+  <rect x="20" y="180" width="220" height="36" fill="#111" opacity="0.04"/>
+  <rect x="20" y="230" width="220" height="36" fill="#111" opacity="0.04"/>
+  <rect x="20" y="280" width="220" height="36" fill="#00a6d6" opacity="0.08"/>
+  <rect x="260" y="48" width="940" height="652" fill="#fffdf7" stroke="#111" stroke-width="1"/>
+  <rect x="290" y="78" width="200" height="24" fill="#111" opacity="0.1"/>
+  <rect x="290" y="120" width="880" height="420" fill="#f4f1e8" stroke="#111" stroke-width="1"/>
+  <rect x="320" y="150" width="200" height="16" fill="#00a6d6" opacity="0.3"/>
+  <rect x="320" y="180" width="160" height="16" fill="#111" opacity="0.06"/>
+  <rect x="320" y="220" width="420" height="300" fill="#fffdf7" stroke="#111" stroke-width="0.5"/>
+  <rect x="350" y="250" width="180" height="14" fill="#111" opacity="0.1"/>
+  <rect x="350" y="280" width="360" height="10" fill="#00a6d6" opacity="0.15"/>
+  <rect x="350" y="300" width="360" height="10" fill="#00a6d6" opacity="0.1"/>
+  <rect x="350" y="320" width="360" height="10" fill="#00a6d6" opacity="0.08"/>
+  <rect x="350" y="360" width="360" height="60" fill="#00a6d6" opacity="0.06"/>
+  <rect x="350" y="440" width="160" height="32" fill="#00a6d6"/>
+  <text x="375" y="461" font-family="Public Sans, sans-serif" font-size="11" font-weight="700" fill="#fffdf7">PROCESS</text>
+  <rect x="780" y="220" width="370" height="300" fill="#fffdf7" stroke="#111" stroke-width="0.5"/>
+  <rect x="810" y="250" width="180" height="14" fill="#111" opacity="0.1"/>
+  <rect x="810" y="280" width="310" height="10" fill="#111" opacity="0.06"/>
+  <rect x="810" y="300" width="280" height="10" fill="#111" opacity="0.04"/>
+  <rect x="810" y="340" width="310" height="140" fill="#00a6d6" opacity="0.08"/>
+  <rect x="290" y="560" width="880" height="1" fill="#111" opacity="0.1"/>
+  <rect x="290" y="580" width="140" height="32" fill="#00a6d6"/>
+  <text x="315" y="601" font-family="Public Sans, sans-serif" font-size="11" font-weight="700" fill="#fffdf7">CONFIRM</text>
+</svg>

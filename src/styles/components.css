@@ -13,3 +13,5 @@
 @import "../components/contact/contact.module.css";
 @import "../components/project-page/project-page.module.css";
 @import "../components/project-artifacts/project-artifacts.module.css";
+@import "../components/project-list/project-list.module.css";
+@import "../components/ui-showcase/ui-showcase.module.css";

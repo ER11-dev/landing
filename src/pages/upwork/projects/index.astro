@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ProjectList from "../../../components/project-list/project-list.astro";
+import { loadLandingProjects } from "../../../lib/content";
+
+const projects = loadLandingProjects({ channel: "upwork" });
+
+const title = "Case studies — ER11";
+const description =
+  "A collection of Product / UX work spanning fintech, B2B CRM, and agency collaborations.";
+const bodyClass = "project-theme";
+---
+
+<BaseLayout
+  {title}
+  {description}
+  {bodyClass}
+  ogType="website"
+  noindex
+>
+  <ProjectList {projects} channel="upwork" />
+</BaseLayout>

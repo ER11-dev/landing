@@ -7,6 +7,12 @@ export const ProjectUiVariantSchema = z.enum([
   "payment-operations",
   "agency-collaboration",
 ]);
+
+export const ProjectMetricSchema = z.object({
+  label: z.string().min(1),
+  value: z.string().min(1),
+});
+export type ProjectMetric = z.infer<typeof ProjectMetricSchema>;
 export const ProjectSectionLayoutSchema = z.enum([
   "narrative",
   "ledger",
@@ -55,6 +61,8 @@ export const ProjectRowSchema = projectContentRowSchema
     hero_statement: z.string().min(1),
     ui_variant: ProjectUiVariantSchema,
     artifact_labels: z.array(z.string().min(1)).length(7),
+    cover_image: z.string().min(1),
+    ui_screenshots: z.array(z.string().min(1)).default([]),
     og_image_path: z.string().optional(),
     og_image_alt: z.string().optional(),
   })
@@ -77,6 +85,7 @@ export const ProjectSectionRowSchema = projectContentRowSchema.extend({
   body: z.string().min(1),
   items: z.array(z.string().min(1)),
   layout: ProjectSectionLayoutSchema,
+  metrics: z.array(ProjectMetricSchema).default([]),
 });
 
 export type ProjectRow = z.infer<typeof ProjectRowSchema>;
@@ -100,9 +109,11 @@ export interface ProjectSummary {
   heroStatement: string;
   uiVariant: ProjectUiVariant;
   artifactLabels: string[];
+  coverImage: string;
+  uiScreenshots: string[];
+  ogImagePath?: string;
+  ogImageAlt?: string;
   detailPath: string;
-  ogImagePath: string;
-  ogImageAlt: string;
 }
 
 export interface ProjectSection {
@@ -113,6 +124,7 @@ export interface ProjectSection {
   body: string;
   items: string[];
   layout: ProjectSectionLayout;
+  metrics: ProjectMetric[];
 }
 
 export interface ProjectPage {
@@ -205,7 +217,11 @@ function assertUpworkSafeValue(field: string, value: unknown): void {
 function assertUpworkSafeProject(project: ProjectRow): void {
   const projectCopy = Object.fromEntries(
     Object.entries(project).filter(
-      ([key]) => key !== "source_url" && key !== "og_image_path",
+      ([key]) =>
+        key !== "source_url" &&
+        key !== "og_image_path" &&
+        key !== "cover_image" &&
+        key !== "ui_screenshots",
     ),
   );
 
@@ -272,9 +288,11 @@ function toProjectSummary(
     heroStatement: project.hero_statement,
     uiVariant: project.ui_variant,
     artifactLabels: [...project.artifact_labels],
+    coverImage: project.cover_image,
+    uiScreenshots: [...project.ui_screenshots],
+    ...(project.og_image_path ? { ogImagePath: project.og_image_path } : {}),
+    ...(project.og_image_alt ? { ogImageAlt: project.og_image_alt } : {}),
     detailPath: projectDetailPath(channel, project.project_slug),
-    ogImagePath: project.og_image_path || "/graphics/proof-assembly.webp",
-    ogImageAlt: project.og_image_alt || "ER11 production proof collage",
   };
 }
 
@@ -374,6 +392,7 @@ export function assembleProjectPage({
       body: section.body,
       items: [...section.items],
       layout: section.layout,
+      metrics: [...section.metrics],
     };
   });
 

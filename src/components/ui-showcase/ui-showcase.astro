@@ -1,0 +1,35 @@
+---
+import type { ProjectAccent } from "../../lib/content/domain";
+import "./ui-showcase.module.css";
+
+interface Props {
+  screenshots: string[];
+  accent: ProjectAccent;
+  title: string;
+}
+
+const { screenshots, accent, title } = Astro.props;
+---
+
+{
+  screenshots.length > 0 && (
+    <section
+      class:list={["ui-showcase", `ui-showcase--${accent}`]}
+      aria-labelledby="ui-showcase-title"
+    >
+      <header class="ui-showcase__header">
+        <span class="ui-showcase__eyebrow">Interface</span>
+        <h2 id="ui-showcase-title">{title}</h2>
+        <p>UI demonstrations and screen captures from the project.</p>
+      </header>
+      <div class="ui-showcase__gallery">
+        {screenshots.map((src, index) => (
+          <figure class="ui-showcase__item">
+            <img src={src} alt={`${title} interface screenshot ${index + 1}`} loading="lazy" />
+            <figcaption>Screen {String(index + 1).padStart(2, "0")}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )
+}

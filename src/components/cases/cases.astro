@@ -35,6 +35,9 @@ const { projects } = Astro.props;
               <span>{project.type}</span>
             </>
           </header>
+          <div class="cases__row-cover">
+            <img src={project.coverImage} alt={`${project.title} cover`} loading="lazy" />
+          </div>
           <div class="cases__row-body">
             <>
               <h3>{project.title}</h3>

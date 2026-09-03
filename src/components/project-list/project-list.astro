@@ -1,0 +1,56 @@
+---
+import ArrowIcon from "../arrow-icon/arrow-icon.astro";
+import type { ProjectSummary } from "../../lib/content/domain";
+import "./project-list.module.css";
+
+interface Props {
+  projects: ProjectSummary[];
+  channel?: "direct" | "upwork";
+}
+
+const { projects, channel = "direct" } = Astro.props;
+const homeHref = channel === "upwork" ? "/upwork" : "/";
+---
+
+<section class="project-list">
+  <header class="project-list__header">
+    <a class="project-list__back" href={homeHref}>
+      <ArrowIcon />
+      <span>Back to home</span>
+    </a>
+    <h1>All case studies</h1>
+    <p>
+      A collection of Product / UX work spanning fintech, B2B CRM, and agency
+      collaborations. Each project follows a structured case study format.
+    </p>
+  </header>
+
+  <div class="project-list__grid">
+    {
+      projects.map((project) => (
+        <a
+          href={project.detailPath}
+          class:list={["project-list__card", `project-list__card--${project.accent}`]}
+        >
+          <div class="project-list__card-cover">
+            <img
+              src={project.coverImage}
+              alt={`${project.title} cover`}
+              loading="lazy"
+            />
+          </div>
+          <div class="project-list__card-content">
+            <span class="project-list__card-number">{project.number}</span>
+            <h2>{project.title}</h2>
+            <p>{project.summary}</p>
+            <span class="project-list__card-type">{project.type}</span>
+          </div>
+          <span class="project-list__card-action">
+            Inspect project
+            <ArrowIcon />
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</section>

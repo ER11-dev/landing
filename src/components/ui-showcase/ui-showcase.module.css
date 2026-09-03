@@ -1,0 +1,106 @@
+.ui-showcase {
+  padding: clamp(70px, 8vw, 120px) var(--page-pad);
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+}
+
+.ui-showcase__header {
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.ui-showcase__eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ui-showcase--magenta .ui-showcase__eyebrow {
+  color: var(--magenta);
+}
+
+.ui-showcase--cyan .ui-showcase__eyebrow {
+  color: var(--cyan);
+}
+
+.ui-showcase--yellow .ui-showcase__eyebrow {
+  color: var(--yellow);
+}
+
+.ui-showcase__header h2 {
+  max-width: 12ch;
+  margin: 0 0 16px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.ui-showcase__header p {
+  max-width: 48ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.ui-showcase__gallery {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper-bright);
+}
+
+.ui-showcase__gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.ui-showcase__gallery::-webkit-scrollbar-track {
+  background: var(--paper-bright);
+  border: 1px solid var(--ink);
+}
+
+.ui-showcase__gallery::-webkit-scrollbar-thumb {
+  background: var(--ink);
+}
+
+.ui-showcase__item {
+  flex: 0 0 auto;
+  width: min(800px, 85vw);
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.ui-showcase__item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ink);
+}
+
+.ui-showcase__item figcaption {
+  padding: 12px 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 760px) {
+  .ui-showcase {
+    padding: 54px 20px;
+  }
+
+  .ui-showcase__item {
+    width: min(700px, 90vw);
+  }
+}

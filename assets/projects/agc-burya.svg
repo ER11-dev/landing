@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f2cd00"/>
+  <rect x="40" y="40" width="720" height="420" fill="#fffdf7" rx="0"/>
+  <text x="80" y="120" font-family="Oswald, sans-serif" font-size="48" font-weight="700" fill="#111" text-transform="uppercase">AGC BURYA</text>
+  <text x="80" y="155" font-family="Public Sans, sans-serif" font-size="14" fill="#4e4d49">Agency · UI/UX collaboration</text>
+  <line x1="80" y1="180" x2="340" y2="180" stroke="#111" stroke-width="1"/>
+  <rect x="80" y="200" width="180" height="8" fill="#f2cd00" opacity="0.8"/>
+  <rect x="80" y="220" width="140" height="8" fill="#f2cd00" opacity="0.6"/>
+  <rect x="80" y="240" width="200" height="8" fill="#f2cd00" opacity="0.4"/>
+  <rect x="440" y="80" width="280" height="340" fill="#f4f1e8"/>
+  <rect x="460" y="100" width="240" height="16" fill="#111" opacity="0.08"/>
+  <rect x="460" y="130" width="200" height="16" fill="#111" opacity="0.06"/>
+  <rect x="460" y="160" width="220" height="16" fill="#111" opacity="0.08"/>
+  <rect x="460" y="200" width="240" height="120" fill="#f2cd00" opacity="0.15"/>
+  <rect x="460" y="340" width="120" height="12" fill="#111" opacity="0.1"/>
+  <rect x="460" y="360" width="80" height="12" fill="#111" opacity="0.06"/>
+  <text x="80" y="440" font-family="Oswald, sans-serif" font-size="120" font-weight="700" fill="#111" opacity="0.06">03</text>
+</svg>
