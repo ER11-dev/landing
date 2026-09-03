@@ -272,11 +272,6 @@ const lanes: TechnologyLane[] = [
             role: "CSS transformation",
             ...icon("logos", "postcss"),
           },
-          {
-            name: "Styled Components",
-            role: "CSS-in-JS",
-            ...icon("simple-icons", "styledcomponents", "#db7093"),
-          },
         ],
       },
       {
@@ -501,7 +496,11 @@ const lanes: TechnologyLane[] = [
       {
         name: "Cloud & DevOps",
         tools: [
-          { name: "AWS", role: "S3 · ECR · ECS · EC2 · VPC", ...icon("logos", "aws") },
+          {
+            name: "AWS",
+            role: "S3 · ECR · ECS · EC2 · VPC",
+            ...icon("logos", "aws"),
+          },
           {
             name: "Docker",
             role: "Repeatable runtime",
