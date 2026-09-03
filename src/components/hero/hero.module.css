@@ -579,26 +579,20 @@
 
 @media (max-width: 760px) {
   .hero__cta--sticky {
-    right: 16px;
-    bottom: 16px;
-    width: auto;
-    min-width: 56px;
-    min-height: 56px;
-    aspect-ratio: 1;
-    padding: 14px;
-    border: 4px double var(--paper-bright);
-    border-radius: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: auto;
+    padding: 16px 20px;
+    border: none;
+    border-top: 3px solid var(--paper-bright);
+    border-radius: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 22px;
     transform: none;
-    font-size: 0;
-  }
-
-  .hero__cta--sticky > span {
-    display: none;
-  }
-
-  .hero__cta--sticky svg {
-    width: 24px;
-    height: 24px;
+    box-shadow: 0 -4px 16px rgba(76, 8, 39, 0.2);
   }
 
   .hero__cta--sticky.is-visible {
