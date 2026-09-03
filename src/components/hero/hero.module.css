@@ -577,6 +577,40 @@
   }
 }
 
+@media (max-width: 760px) {
+  .hero__cta--sticky {
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+    min-width: 56px;
+    min-height: 56px;
+    aspect-ratio: 1;
+    padding: 14px;
+    border: 4px double var(--paper-bright);
+    border-radius: 50%;
+    transform: none;
+    font-size: 0;
+  }
+
+  .hero__cta--sticky > span {
+    display: none;
+  }
+
+  .hero__cta--sticky svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero__cta--sticky.is-visible {
+    transform: none;
+  }
+
+  .hero__cta--sticky:hover,
+  .hero__cta--sticky:focus-visible {
+    transform: translateY(-2px);
+  }
+}
+
 /* One authored press-registration sequence. Content remains visible before and
    after the class is applied so a late or failed script never hides the hero. */
 .hero__press-beam {
