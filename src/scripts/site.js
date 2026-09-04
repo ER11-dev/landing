@@ -199,7 +199,7 @@ mobileRoleMotion.addEventListener("change", setUpRoleBandMotion);
 motionPreference.addEventListener("change", setUpRoleBandMotion);
 setUpRoleBandMotion();
 
-const sealGlitch = document.querySelector("[data-seal-glitch]");
+const sealGlitch = document.querySelector("[data-hero-cta]");
 let sealGlitchTimer;
 
 const scheduleSealGlitch = () => {
