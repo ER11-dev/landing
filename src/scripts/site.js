@@ -249,42 +249,45 @@ pressCheck?.addEventListener("click", runPressCheck);
 const contactForm = document.querySelector("[data-contact-form]");
 const contactStatus = document.querySelector("[data-contact-status]");
 
-contactForm?.addEventListener("submit", (event) => {
+contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const data = new FormData(contactForm);
-  const name = String(data.get("name") ?? "").trim();
-  const email = String(data.get("email") ?? "").trim();
   const stage = String(data.get("stage") ?? "").trim();
-  const brief = String(data.get("brief") ?? "").trim();
-  const address = contactForm.dataset.contactAddress;
-
-  if (!address) {
-    if (contactStatus) {
-      contactStatus.textContent =
-        "The contact address is unavailable. Please use Telegram instead.";
-    }
-    return;
-  }
-
-  const subject = encodeURIComponent(`ER11 enquiry from ${name}`);
-  const body = encodeURIComponent(
-    [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Product stage: ${stage}`,
-      "",
-      brief,
-    ].join("\n"),
-  );
 
   if (contactStatus) {
-    contactStatus.textContent = "Opening your email application…";
+    contactStatus.textContent = "Sending…";
   }
 
-  window.posthog?.capture("contact_enquiry_composed", {
-    product_stage: stage,
-  });
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      body: data,
+    });
 
-  window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
+    const result = await response.json();
+
+    if (!response.ok) {
+      if (contactStatus) {
+        contactStatus.textContent =
+          result.error ?? "Something went wrong. Please try again.";
+      }
+      return;
+    }
+
+    window.posthog?.capture("contact_enquiry_composed", {
+      product_stage: stage,
+    });
+
+    if (contactStatus) {
+      contactStatus.textContent = "Message sent. We will be in touch shortly.";
+    }
+
+    contactForm.reset();
+  } catch {
+    if (contactStatus) {
+      contactStatus.textContent =
+        "Network error. Please try again or contact us via Telegram.";
+    }
+  }
 });

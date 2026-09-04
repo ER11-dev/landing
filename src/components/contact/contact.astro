@@ -50,7 +50,6 @@ const isUpwork = mode === "upwork";
         <form
           class="contact__form"
           data-contact-form
-          data-contact-address="vaiplimish@gmail.com"
         >
           <label>
             <span>Your name</span>
@@ -82,13 +81,9 @@ const isUpwork = mode === "upwork";
             data-contact-status
             aria-live="polite"
           >
-            Opens a prepared email in your mail app. Nothing is sent
-            automatically.
+            Submit your enquiry. We will reply shortly.
           </p>
-          <p class="contact__form-recovery">
-            Mail app did not open? Write directly to
-            <a href="mailto:vaiplimish@gmail.com">vaiplimish@gmail.com</a>.
-          </p>
+
         </form>
 
         <aside class="contact__channels" aria-label="Direct contact options">
@@ -130,7 +125,7 @@ const isUpwork = mode === "upwork";
         {
           isUpwork
             ? "This route contains no contact form and stores no visitor information."
-            : "This static site stores no form submissions. The form prepares a message in your email application; you decide whether to send it. No analytics or tracking scripts are installed on this page."
+            : "Form submissions are stored securely to process your enquiry. You will only be contacted regarding your project request."
         }
       </p>
     </details>
