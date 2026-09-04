@@ -282,5 +282,9 @@ contactForm?.addEventListener("submit", (event) => {
     contactStatus.textContent = "Opening your email application…";
   }
 
+  window.posthog?.capture("contact_enquiry_composed", {
+    product_stage: stage,
+  });
+
   window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
 });

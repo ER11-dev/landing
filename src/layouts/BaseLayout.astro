@@ -1,4 +1,5 @@
 ---
+import PostHog from "../components/posthog.astro";
 import "../styles/index.css";
 
 interface Props {
@@ -61,6 +62,7 @@ const socialImage = new URL(socialImagePath, siteOrigin);
     )}
     <title>{title}</title>
     <link rel="icon" href="/er11-logo.svg" type="image/svg+xml" />
+    <PostHog />
   </head>
   <body class={bodyClass}>
     {
