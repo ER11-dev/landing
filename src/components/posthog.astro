@@ -1,6 +1,8 @@
 ---
 const apiKey = import.meta.env.PUBLIC_POSTHOG_KEY;
-const apiHost = import.meta.env.PUBLIC_POSTHOG_HOST;
+const apiHost = import.meta.env.DEV
+  ? import.meta.env.PUBLIC_POSTHOG_HOST
+  : "/ingest";
 const isDevelopment = import.meta.env.DEV;
 ---
 
