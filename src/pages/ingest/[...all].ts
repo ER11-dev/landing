@@ -2,7 +2,8 @@ import type { APIRoute } from "astro";
 
 export const prerender = false;
 
-const POSTHOG_HOST = "https://eu.i.posthog.com";
+const POSTHOG_HOST =
+  process.env.PUBLIC_POSTHOG_HOST ?? "https://eu.i.posthog.com";
 
 export const ALL: APIRoute = async ({ request, url }) => {
   const targetPath = url.pathname.replace(/^\/ingest/, "");
