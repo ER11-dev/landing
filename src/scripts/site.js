@@ -246,6 +246,27 @@ const runPressCheck = () => {
 
 pressCheck?.addEventListener("click", runPressCheck);
 
+const toast = document.querySelector("[data-toast]");
+const toastText = document.querySelector("[data-toast-text]");
+let toastDismissTimer;
+
+const showToast = (message) => {
+  if (!toast || !toastText) return;
+  window.clearTimeout(toastDismissTimer);
+  toast.classList.remove("is-dismissing");
+  toastText.textContent = message;
+  toast.classList.add("is-visible", "is-glitching");
+
+  window.setTimeout(() => toast.classList.remove("is-glitching"), 620);
+
+  toastDismissTimer = window.setTimeout(() => {
+    toast.classList.add("is-dismissing");
+    window.setTimeout(() => {
+      toast.classList.remove("is-visible", "is-dismissing");
+    }, 280);
+  }, 4500);
+};
+
 const contactForm = document.querySelector("[data-contact-form]");
 const contactStatus = document.querySelector("[data-contact-status]");
 
@@ -282,6 +303,8 @@ contactForm?.addEventListener("submit", async (event) => {
     if (contactStatus) {
       contactStatus.textContent = "Message sent. We will be in touch shortly.";
     }
+
+    showToast("Message sent. We will be in touch shortly.");
 
     contactForm.reset();
   } catch {

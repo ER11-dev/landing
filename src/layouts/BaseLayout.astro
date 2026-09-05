@@ -1,5 +1,6 @@
 ---
 import PostHog from "../components/posthog.astro";
+import Toast from "../components/toast/toast.astro";
 import "../styles/index.css";
 
 interface Props {
@@ -72,6 +73,7 @@ const socialImage = new URL(socialImagePath, siteOrigin);
     }
     <a class="skip-link" href="#main">Skip to the page</a>
     <slot />
+    <Toast />
     <script src="../scripts/site.js"></script>
   </body>
 </html>
