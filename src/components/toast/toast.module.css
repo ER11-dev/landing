@@ -1,7 +1,7 @@
 .toast {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  top: 24px;
   z-index: 30;
   display: flex;
   align-items: center;
