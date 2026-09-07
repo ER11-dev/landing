@@ -1,6 +1,6 @@
 # ER11
 
-> A compact senior product delivery team turning working B2B prototypes into production-ready products.
+> A compact senior product delivery team turning working B2B & B2C prototypes into production-ready products.
 
 ER11 is a product delivery team with three accountable roles:
 
@@ -10,7 +10,7 @@ ER11 is a product delivery team with three accountable roles:
 
 ## Best Fit
 
-B2B tools with a working prototype that need product decisions, UX, frontend engineering, and production Go backend work before real users can rely on them.
+B2B & B2C tools with a working prototype that need product decisions, UX, frontend engineering, and production Go backend work before real users can rely on them.
 
 ## Engagement Model
 

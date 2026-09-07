@@ -1,5 +1,6 @@
 ---
 import ArrowIcon from "../arrow-icon/arrow-icon.astro";
+import ProjectStageSelect from "./project-stage-select.astro";
 import "./contact.module.css";
 
 interface Props {
@@ -47,10 +48,7 @@ const isUpwork = mode === "upwork";
       </div>
     ) : (
       <div class="contact__body">
-        <form
-          class="contact__form"
-          data-contact-form
-        >
+        <form class="contact__form" data-contact-form>
           <label>
             <span>Your name</span>
             <input name="name" autocomplete="name" required />
@@ -61,12 +59,7 @@ const isUpwork = mode === "upwork";
           </label>
           <label>
             <span>Product stage</span>
-            <select name="stage" required>
-              <option value="">Choose one</option>
-              <option>Working prototype</option>
-              <option>Existing product</option>
-              <option>New build</option>
-            </select>
+            <ProjectStageSelect />
           </label>
           <label class="contact__form-brief">
             <span>What needs to hold up?</span>
@@ -83,7 +76,6 @@ const isUpwork = mode === "upwork";
           >
             Submit your enquiry. We will reply shortly.
           </p>
-
         </form>
 
         <aside class="contact__channels" aria-label="Direct contact options">

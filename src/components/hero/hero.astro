@@ -14,7 +14,7 @@ const { primaryHref = "#contact", primaryLabel = "Start a project" } =
 
 <section class="hero" id="top" aria-labelledby="hero-title" data-index-section>
   <div class="hero__calibration" aria-hidden="true">
-    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    {Array.from({ length: 8 }).map(() => <i></i>)}
   </div>
   <span class="hero__crop hero__crop--top-left" aria-hidden="true"></span>
   <span class="hero__crop hero__crop--top-right" aria-hidden="true"></span>
