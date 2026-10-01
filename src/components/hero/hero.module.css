@@ -153,8 +153,8 @@
   aspect-ratio: 1;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 11px;
+  flex-direction: row;
+  gap: 10px;
   padding: 22px;
   border: 7px double var(--paper-bright);
   border-radius: 50%;
@@ -178,6 +178,7 @@
   inset: 8px;
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: inherit;
+  display: flex;
   content: "";
 }
 .hero__cta:hover,
@@ -204,9 +205,11 @@
 }
 .hero__cta > span {
   display: block;
-  width: 100%;
   text-align: center;
   transform: translateY(2px);
+}
+.hero__cta > svg {
+  flex: none;
 }
 .hero__cta--sticky {
   position: fixed;

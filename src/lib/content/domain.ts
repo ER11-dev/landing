@@ -7,6 +7,7 @@ export const ProjectUiVariantSchema = z.enum([
   "payment-operations",
   "agency-collaboration",
 ]);
+export const ShowcaseLayoutSchema = z.enum(["rail", "stack"]);
 
 export const ProjectMetricSchema = z.object({
   label: z.string().min(1),
@@ -32,6 +33,7 @@ export const ProjectSlugSchema = z
 export type ContentState = z.infer<typeof ContentStateSchema>;
 export type ContentChannel = z.infer<typeof ContentChannelSchema>;
 export type ProjectUiVariant = z.infer<typeof ProjectUiVariantSchema>;
+export type ShowcaseLayout = z.infer<typeof ShowcaseLayoutSchema>;
 export type ProjectSectionLayout = z.infer<typeof ProjectSectionLayoutSchema>;
 export type ProjectAccent = z.infer<typeof ProjectAccentSchema>;
 
@@ -63,6 +65,7 @@ export const ProjectRowSchema = projectContentRowSchema
     artifact_labels: z.array(z.string().min(1)).length(7),
     cover_image: z.string().min(1),
     ui_screenshots: z.array(z.string().min(1)).default([]),
+    showcase_layout: ShowcaseLayoutSchema.default("rail"),
     og_image_path: z.string().optional(),
     og_image_alt: z.string().optional(),
   })
@@ -111,6 +114,7 @@ export interface ProjectSummary {
   artifactLabels: string[];
   coverImage: string;
   uiScreenshots: string[];
+  showcaseLayout: ShowcaseLayout;
   ogImagePath?: string;
   ogImageAlt?: string;
   detailPath: string;
@@ -290,6 +294,7 @@ function toProjectSummary(
     artifactLabels: [...project.artifact_labels],
     coverImage: project.cover_image,
     uiScreenshots: [...project.ui_screenshots],
+    showcaseLayout: project.showcase_layout,
     ...(project.og_image_path ? { ogImagePath: project.og_image_path } : {}),
     ...(project.og_image_alt ? { ogImageAlt: project.og_image_alt } : {}),
     detailPath: projectDetailPath(channel, project.project_slug),
